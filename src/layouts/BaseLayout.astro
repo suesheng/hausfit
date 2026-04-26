@@ -10,6 +10,8 @@ const {
   noindex = false,
   googleSiteVerification = "cposFC8Sr5tYiNdp4R0gv0BBIqstqpR3cL5LeWM43uE"
 } = Astro.props;
+
+const gaMeasurementId = "G-8235ZYX2TR";
 ---
 
 <!DOCTYPE html>
@@ -25,6 +27,20 @@ const {
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
     <link rel="canonical" href={Astro.url.href} />
     <title>{title}</title>
+    <script
+      type="text/plain"
+      data-cookie-category="analytics"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+    ></script>
+    <script type="text/plain" data-cookie-category="analytics" is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-8235ZYX2TR", {
+        anonymize_ip: true
+      });
+    </script>
     <slot name="head" />
   </head>
   <body>
