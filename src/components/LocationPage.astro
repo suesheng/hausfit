@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { cities } from "../data/cities.js";
+import { services, serviceUrlBySlug } from "../data/services.js";
+
+interface Props {
+  cityKey: keyof typeof cities;
+  ctaText?: string;
+}
+
+const {
+  cityKey,
+  ctaText
+} = Astro.props;
+
+const city = cities[cityKey];
+if (!city) {
+  throw new Error(`City config not found for key: ${cityKey}`);
+}
+
+const finalCtaText = ctaText ?? `Projekt in ${city.name} anfragen`;
+const cityImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/cities/*.{webp,jpg,png}",
+  { eager: true }
+);
+const slugFromPath = Astro.url.pathname.split("/").filter(Boolean).pop() ?? cityKey;
+const webpImagePath = `/src/assets/images/cities/${slugFromPath}.webp`;
+const jpgImagePath = `/src/assets/images/cities/${slugFromPath}.jpg`;
+const pngImagePath = `/src/assets/images/cities/${slugFromPath}.png`;
+const fallbackImagePath = "/src/assets/images/cities/default.webp";
+const imageModule =
+  cityImages[webpImagePath] ??
+  cityImages[jpgImagePath] ??
+  cityImages[pngImagePath] ??
+  cityImages[fallbackImagePath];
+if (!cityImages[webpImagePath] && !cityImages[jpgImagePath] && !cityImages[pngImagePath]) {
+  console.warn("Image not found for:", slugFromPath);
+}
+if (!imageModule) {
+  throw new Error("Default city image not found at /src/assets/images/cities/default.webp");
+}
+const heroImage = imageModule.default;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "HausFit NRW",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mülheimer Straße 16",
+    addressLocality: city.name,
+    postalCode: "40239",
+    addressCountry: "DE"
+  },
+  telephone: "+49 179 923 8814",
+  url: "https://www.hausfit.nrw"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: city.faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<BaseLayout title={city.title}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="page-hero location-hero">
+    <div class="hero-bg" aria-hidden="true">
+      <Image src={heroImage} alt={`Sanierung in ${city.name}`} width={1200} quality={70} format="webp" loading="eager" />
+    </div>
+    <div class="container">
+      <p class="eyebrow">Einsatzgebiet</p>
+      <h1>Sanierung in {city.name}</h1>
+      <p>{city.description}</p>
+      <p class="location-trust-note">Seit 2004 auch in {city.name} im Einsatz.</p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Unsere Leistungen in dieser Stadt</h2>
+          <p>Alle unsere Leistungen sind auch hier verfügbar:</p>
+          <ul>
+            {
+              services.map((service) => (
+                <li><a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>{service.name}</a></li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section>
+          <h2>Warum wir in {city.name}</h2>
+          <ul>
+            {city.advantages.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Häufige Fragen</h2>
+          {
+            city.faq.map((item) => (
+              <div>
+                <strong>{item.question}</strong>
+                <p>{item.answer}</p>
+              </div>
+            ))
+          }
+        </section>
+
+        <section>
+          <h2>Jetzt Angebot anfordern</h2>
+          <p>Wir melden uns zeitnah mit dem nächsten Schritt.</p>
+          <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>{finalCtaText}</h2>
+        <p>Teilen Sie uns kurz Umfang, Ort und Zeitraum mit.</p>
+        <a href="/kontakt" class="button button-primary">Projekt in {city.name} anfragen</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

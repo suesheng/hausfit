@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  pageTitle: string;
+  h1: string;
+  intro: string;
+  services: string[];
+  forWhom?: string[];
+  advantages: string[];
+  process: string[];
+  ctaTitle?: string;
+  ctaText?: string;
+}
+
+const {
+  pageTitle,
+  h1,
+  intro,
+  services,
+  forWhom = ["Eigentümer", "Vermieter", "Hausverwaltungen"],
+  advantages,
+  process,
+  ctaTitle = "Jetzt Angebot anfordern",
+  ctaText = "Beschreiben Sie Ihr Projekt in kurzen Stichpunkten. Wir melden uns zeitnah zurück."
+} = Astro.props;
+
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Leistung</p>
+      <h1>{h1}</h1>
+      <p>{intro}</p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Leistungen</h2>
+          <ul>
+            {services.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Für wen</h2>
+          <ul>
+            {forWhom.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Vorteile</h2>
+          <ul>
+            {advantages.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ablauf</h2>
+          <ol>
+            {process.map((entry) => <li>{entry}</li>)}
+          </ol>
+        </section>
+
+        <section>
+          <h2>Erfahrung und Vertrauen</h2>
+          <p>
+            Seit 2004 realisieren wir Sanierungsprojekte in NRW.
+            Tausende Kunden vertrauen auf unsere Arbeit.
+          </p>
+        </section>
+
+        <section>
+          <h2>Einsatzgebiet</h2>
+          <p>Wir bieten diese Leistung in ganz NRW an, einschließlich:</p>
+          <ul>
+            <li><a href="/einsatzgebiet/duesseldorf">Düsseldorf</a></li>
+            <li><a href="/einsatzgebiet/koeln">Köln</a></li>
+            <li><a href="/einsatzgebiet/essen">Essen</a></li>
+            <li><a href="/einsatzgebiet/dortmund">Dortmund</a></li>
+            <li><a href="/einsatzgebiet/bochum">Bochum</a></li>
+            <li><a href="/einsatzgebiet/wuppertal">Wuppertal</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Jetzt Angebot anfordern</h2>
+          <p>Schicken Sie uns kurz die Eckdaten zu Ihrem Projekt.</p>
+          <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>{ctaTitle}</h2>
+        <p>{ctaText}</p>
+        <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

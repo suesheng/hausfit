@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { cities } from "../data/cities.js";
+import { serviceCombos } from "../data/services.js";
+
+export function getStaticPaths() {
+  const paths = [];
+
+  for (const serviceKey in serviceCombos) {
+    for (const cityKey in cities) {
+      paths.push({
+        params: {
+          service: serviceKey,
+          city: cityKey
+        }
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { service, city } = Astro.params;
+
+const serviceData = service ? serviceCombos[service as keyof typeof serviceCombos] : undefined;
+const cityData = city ? cities[city as keyof typeof cities] : undefined;
+
+if (!serviceData || !cityData) {
+  throw new Error("Ungültige Service- oder Stadtkombination.");
+}
+
+const cityUrl = `/einsatzgebiet/${city}`;
+const pageTitle = `${serviceData.name} ${cityData.name} | HausFit NRW`;
+const pageDescription = `${serviceData.name} in ${cityData.name}. Schnell, sauber, zuverlässig. Jetzt Angebot anfragen.`;
+
+const intro = `${serviceData.name} in ${cityData.name}. ${serviceData.description} Klare Planung. Saubere Umsetzung.`;
+
+const vorteile = [
+  "Fester Ansprechpartner",
+  "Klare Preise",
+  "Schnelle Umsetzung"
+];
+
+const ablauf = ["Anfrage", "Besichtigung", "Angebot", "Umsetzung"];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "HausFit NRW",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mülheimer Straße 16",
+    addressLocality: cityData.name,
+    postalCode: "40239",
+    addressCountry: "DE"
+  },
+  telephone: "+49 179 923 8814",
+  url: "https://www.hausfit.nrw"
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Leistung in Ihrer Stadt</p>
+      <h1>{serviceData.name} in {cityData.name}</h1>
+      <p>{intro}</p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Leistungen</h2>
+          <ul>
+            {serviceData.leistungen.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Vorteile</h2>
+          <ul>
+            {vorteile.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ablauf</h2>
+          <ol>
+            {ablauf.map((item) => <li>{item}</li>)}
+          </ol>
+        </section>
+
+        <section>
+          <h2>Einsatzgebiet</h2>
+          <p>
+            Diese Leistung bieten wir in {cityData.name} und in ganz NRW an.
+            Weitere Infos finden Sie auf der Standortseite.
+          </p>
+          <p><a href={cityUrl}>Zur Seite Sanierung in {cityData.name}</a></p>
+        </section>
+
+        <section>
+          <h2>Interne Links</h2>
+          <ul>
+            <li><a href={serviceData.nrwUrl}>Zur Hauptseite {serviceData.name}</a></li>
+            <li><a href={cityUrl}>Zur Stadtseite {cityData.name}</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Jetzt Angebot anfordern</h2>
+          <p>Senden Sie uns die Eckdaten zu Ihrem Projekt in {cityData.name}.</p>
+          <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Projekt in {cityData.name}</h2>
+        <p>Wir melden uns zeitnah mit dem nächsten Schritt.</p>
+        <a href="/kontakt" class="button button-primary">Jetzt Anfrage senden</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local nested copy
+hausfit-nrw/
+
+# local editor secret-like setting
+.vscode/settings.json

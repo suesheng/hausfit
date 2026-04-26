@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const cities = [
+  { href: "/einsatzgebiet/duesseldorf", name: "Düsseldorf" },
+  { href: "/einsatzgebiet/koeln", name: "Köln" },
+  { href: "/einsatzgebiet/essen", name: "Essen" },
+  { href: "/einsatzgebiet/dortmund", name: "Dortmund" },
+  { href: "/einsatzgebiet/duisburg", name: "Duisburg" },
+  { href: "/einsatzgebiet/bochum", name: "Bochum" },
+  { href: "/einsatzgebiet/solingen", name: "Solingen" },
+  { href: "/einsatzgebiet/wuppertal", name: "Wuppertal" }
+];
+---
+
+<BaseLayout title="Einsatzgebiet in NRW | HausFit NRW">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Einsatzgebiet</p>
+      <h1>Sanierung in vielen Städten in NRW</h1>
+      <p>Wählen Sie Ihre Stadt und starten Sie Ihre Anfrage mit kurzen Angaben zum Projekt.</p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Unsere Städte</h2>
+      </div>
+
+      <div class="service-grid">
+        {
+          cities.map((city) => (
+            <article class="service-card card">
+              <h3>{city.name}</h3>
+              <p>Sanierung, Ausbau und Renovierung vor Ort.</p>
+              <a href={city.href}>Zur Stadtseite</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

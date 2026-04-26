@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/projects/*.{webp,jpg,jpeg,png}",
+  { eager: true }
+);
+
+const fallbackProjectImage = projectImages["/src/assets/images/projects/projekt.webp"]?.default;
+
+const projects = [
+  {
+    imageSlug: "projekt1",
+    alt: "Badsanierung Referenzprojekt in Düsseldorf",
+    title: "Badsanierung Düsseldorf",
+    text: "Kompletter Rückbau, neue Abdichtung, Fliesenarbeiten und Montage der Sanitärobjekte."
+  },
+  {
+    imageSlug: "projekt2",
+    alt: "Trockenbau Referenzprojekt in Köln",
+    title: "Trockenbau Köln",
+    text: "Neue Raumaufteilung mit Trennwänden, Deckenbau und Vorbereitung für den Innenausbau."
+  },
+  {
+    imageSlug: "projekt3",
+    alt: "Dachsanierung Referenzprojekt in Essen",
+    title: "Dachsanierung Essen",
+    text: "Sanierung der Dachflächen mit Dämmung, neuen Anschlüssen und abschließender Funktionsprüfung."
+  },
+  {
+    imageSlug: "projekt4",
+    alt: "Fliesenarbeiten Referenzprojekt in Dortmund",
+    title: "Fliesenarbeiten Dortmund",
+    text: "Neuverlegung von Wand- und Bodenfliesen in Bad und Küche inklusive sauberer Fugenarbeiten."
+  },
+  {
+    imageSlug: "projekt5",
+    alt: "Schimmelbeseitigung Referenzprojekt in Duisburg",
+    title: "Schimmelbeseitigung Duisburg",
+    text: "Rückbau der befallenen Bereiche, technische Trocknung und Wiederherstellung der Oberflächen."
+  }
+];
+
+const resolveProjectImage = (slug: string) =>
+  projectImages[`/src/assets/images/projects/${slug}.webp`]?.default ??
+  projectImages[`/src/assets/images/projects/${slug}.jpg`]?.default ??
+  projectImages[`/src/assets/images/projects/${slug}.jpeg`]?.default ??
+  projectImages[`/src/assets/images/projects/${slug}.png`]?.default ??
+  fallbackProjectImage;
+---
+
+<BaseLayout title="Referenzen Sanierung NRW | HausFit NRW">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Referenzen</p>
+      <h1>Referenzen</h1>
+      <p>
+        Ein kurzer Einblick in abgeschlossene Projekte in Nordrhein-Westfalen.
+        Alle Leistungen wurden durch unser Team geplant und umgesetzt.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Ausgewählte Projekte</h2>
+          <ul class="project-list">
+            {
+              projects.map((project) => (
+                <li>
+                  <Image src={resolveProjectImage(project.imageSlug)} alt={project.alt} width={800} quality={70} format="webp" loading="lazy" />
+                  <strong>{project.title}</strong>
+                  <span>{project.text}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section>
+          <h2>Zielgruppe</h2>
+          <p>
+            Unsere Projekte entstehen für Eigentümer, Vermieter,
+            Hausverwaltungen, Privatkunden und Gewerbekunden.
+          </p>
+        </section>
+
+        <section>
+          <h2>Vorteile</h2>
+          <ul>
+            <li>Erfahrung mit unterschiedlichen Objekten</li>
+            <li>Saubere Arbeitsschritte</li>
+            <li>Klare Kommunikation zum Projektstand</li>
+            <li>Koordination mehrerer Gewerke</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ablauf</h2>
+          <ol>
+            <li>Sie beschreiben Ihr Projekt.</li>
+            <li>Wir prüfen Umfang und passende Leistungen.</li>
+            <li>Wir erstellen ein Angebot.</li>
+            <li>Wir setzen die Arbeiten nach Absprache um.</li>
+          </ol>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Eigenes Projekt?</h2>
+        <p>Sie möchten ein ähnliches Projekt umsetzen?</p>
+        <a href="/kontakt" class="button button-primary">Angebot anfragen</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

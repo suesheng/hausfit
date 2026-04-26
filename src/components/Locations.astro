@@ -1,0 +1,33 @@
+---
+const locations = [
+  { href: "/einsatzgebiet/duesseldorf", name: "Düsseldorf" },
+  { href: "/einsatzgebiet/koeln", name: "Köln" },
+  { href: "/einsatzgebiet/essen", name: "Essen" },
+  { href: "/einsatzgebiet/dortmund", name: "Dortmund" },
+  { href: "/einsatzgebiet/duisburg", name: "Duisburg" },
+  { href: "/einsatzgebiet/bochum", name: "Bochum" },
+  { href: "/einsatzgebiet/solingen", name: "Solingen" },
+  { href: "/einsatzgebiet/wuppertal", name: "Wuppertal" }
+];
+---
+
+<section class="section intro-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Einsatzgebiet</p>
+      <h2>Unsere Teams sind in diesen Städten im Einsatz</h2>
+    </div>
+
+    <div class="service-grid">
+      {
+        locations.map((city) => (
+          <article class="service-card card">
+            <h3>{city.name}</h3>
+            <p>Sanierung, Renovierung und Ausbau vor Ort.</p>
+            <a href={city.href}>Zur Standortseite</a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

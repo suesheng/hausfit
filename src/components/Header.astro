@@ -1,0 +1,37 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="HausFit NRW Startseite">
+      <img src="/logo_light.svg" alt="HausFit NRW" class="brand-logo" loading="eager" />
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Menu öffnen" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <ul class="nav-links">
+        <li><a href="/">Start</a></li>
+        <li><a href="/leistungen">Leistungen</a></li>
+        <li><a href="/einsatzgebiet">Einsatzgebiet</a></li>
+        <li><a href="/referenzen">Referenzen</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <a class="header-cta" href="/kontakt">Angebot anfragen</a>
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav-links");
+
+  btn?.addEventListener("click", () => {
+    nav?.classList.toggle("active");
+    btn.classList.toggle("active");
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+  });
+</script>

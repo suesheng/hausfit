@@ -1,0 +1,215 @@
+<section class="cookie-consent" id="cookie-consent" hidden>
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-copy">
+      <h2>Cookie-Einstellungen</h2>
+      <p>
+        Wir verwenden technisch notwendige Cookies, damit die Website sicher und stabil funktioniert.
+        Weitere Cookies nutzen wir nur mit Ihrer Einwilligung nach DSGVO und TTDSG.
+      </p>
+      <p>
+        Details finden Sie in unserer <a href="/datenschutz">Datenschutzerklärung</a> und in der
+        <a href="/cookie-richtlinie">Cookie-Richtlinie</a>.
+      </p>
+    </div>
+
+    <div class="cookie-consent-actions">
+      <button type="button" class="button button-primary" data-cookie-action="accept-all">Alle akzeptieren</button>
+      <button type="button" class="button" data-cookie-action="open-settings">Einstellungen</button>
+      <button type="button" class="button" data-cookie-action="accept-necessary">Nur notwendige</button>
+    </div>
+  </div>
+</section>
+
+<div class="cookie-modal" id="cookie-modal" hidden>
+  <div class="cookie-modal-backdrop" data-cookie-action="close-settings"></div>
+  <div class="cookie-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <h2 id="cookie-modal-title">Datenschutz-Einstellungen</h2>
+    <p>
+      Hier können Sie Ihre Einwilligung granular verwalten. Notwendige Cookies sind immer aktiv,
+      da ohne sie die Website nicht korrekt funktioniert.
+    </p>
+
+    <div class="cookie-groups">
+      <label class="cookie-group cookie-group-locked">
+        <span>
+          <strong>Notwendig</strong>
+          <small>Erforderlich für Sicherheit, Session und Grundfunktionen der Website.</small>
+        </span>
+        <input type="checkbox" checked disabled />
+      </label>
+
+      <label class="cookie-group">
+        <span>
+          <strong>Präferenzen</strong>
+          <small>Speichert individuelle Einstellungen wie Sprache oder Darstellungsoptionen.</small>
+        </span>
+        <input type="checkbox" data-cookie-toggle="preferences" />
+      </label>
+
+      <label class="cookie-group">
+        <span>
+          <strong>Statistik / Analyse</strong>
+          <small>Hilft uns, Nutzung und Leistung der Website anonym zu verbessern.</small>
+        </span>
+        <input type="checkbox" data-cookie-toggle="analytics" />
+      </label>
+
+      <label class="cookie-group">
+        <span>
+          <strong>Marketing</strong>
+          <small>Ermöglicht personalisierte Inhalte und Kampagnenmessung.</small>
+        </span>
+        <input type="checkbox" data-cookie-toggle="marketing" />
+      </label>
+    </div>
+
+    <div class="cookie-modal-actions">
+      <button type="button" class="button button-primary" data-cookie-action="save-settings">Auswahl speichern</button>
+      <button type="button" class="button" data-cookie-action="accept-all">Alle akzeptieren</button>
+      <button type="button" class="button" data-cookie-action="accept-necessary">Nur notwendige</button>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="cookie-manage-button" id="cookie-manage-button" hidden data-cookie-action="open-settings">
+  Cookie-Einstellungen
+</button>
+
+<script is:inline>
+  (() => {
+    const STORAGE_KEY = "hausfit_cookie_consent_v1";
+    const CONSENT_VERSION = "1.0";
+
+    const banner = document.getElementById("cookie-consent");
+    const modal = document.getElementById("cookie-modal");
+    const manageButton = document.getElementById("cookie-manage-button");
+    const toggles = Array.from(document.querySelectorAll("[data-cookie-toggle]"));
+
+    if (!banner || !modal || !manageButton) return;
+
+    const getDefaultConsent = () => ({
+      necessary: true,
+      preferences: false,
+      analytics: false,
+      marketing: false,
+      timestamp: new Date().toISOString(),
+      version: CONSENT_VERSION
+    });
+
+    const readConsent = () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return { ...getDefaultConsent(), ...parsed, necessary: true };
+      } catch {
+        return null;
+      }
+    };
+
+    const writeConsent = (consent) => {
+      const payload = { ...getDefaultConsent(), ...consent, necessary: true, timestamp: new Date().toISOString() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      document.documentElement.dataset.cookieConsent = JSON.stringify(payload);
+      window.dispatchEvent(new CustomEvent("hausfit:cookie-consent-updated", { detail: payload }));
+      activateDeferredScripts(payload);
+      hideBanner();
+      closeSettings();
+      manageButton.hidden = false;
+    };
+
+    const activateDeferredScripts = (consent) => {
+      const deferredScripts = document.querySelectorAll("script[type='text/plain'][data-cookie-category]");
+      deferredScripts.forEach((script) => {
+        if (script.dataset.cookieActivated === "true") return;
+        const category = script.dataset.cookieCategory;
+        const isAllowed = category && consent[category] === true;
+        if (!isAllowed) return;
+        const activeScript = document.createElement("script");
+        for (const attr of script.attributes) {
+          if (attr.name === "type") continue;
+          if (attr.name === "data-cookie-category") continue;
+          activeScript.setAttribute(attr.name, attr.value);
+        }
+        activeScript.textContent = script.textContent;
+        script.dataset.cookieActivated = "true";
+        script.parentNode?.insertBefore(activeScript, script.nextSibling);
+      });
+    };
+
+    const syncToggles = (consent) => {
+      toggles.forEach((toggle) => {
+        const key = toggle.getAttribute("data-cookie-toggle");
+        toggle.checked = Boolean(key && consent[key]);
+      });
+    };
+
+    const openSettings = () => {
+      const consent = readConsent() ?? getDefaultConsent();
+      syncToggles(consent);
+      modal.hidden = false;
+      document.body.classList.add("cookie-modal-open");
+    };
+
+    const closeSettings = () => {
+      modal.hidden = true;
+      document.body.classList.remove("cookie-modal-open");
+    };
+
+    const showBanner = () => {
+      banner.hidden = false;
+    };
+
+    const hideBanner = () => {
+      banner.hidden = true;
+    };
+
+    const acceptAll = () => {
+      writeConsent({
+        preferences: true,
+        analytics: true,
+        marketing: true,
+        version: CONSENT_VERSION
+      });
+    };
+
+    const acceptNecessaryOnly = () => {
+      writeConsent({
+        preferences: false,
+        analytics: false,
+        marketing: false,
+        version: CONSENT_VERSION
+      });
+    };
+
+    const saveSettings = () => {
+      writeConsent({
+        preferences: Boolean(document.querySelector("[data-cookie-toggle='preferences']")?.checked),
+        analytics: Boolean(document.querySelector("[data-cookie-toggle='analytics']")?.checked),
+        marketing: Boolean(document.querySelector("[data-cookie-toggle='marketing']")?.checked),
+        version: CONSENT_VERSION
+      });
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("[data-cookie-action]");
+      if (!target) return;
+      const action = target.getAttribute("data-cookie-action");
+      if (action === "open-settings") openSettings();
+      if (action === "close-settings") closeSettings();
+      if (action === "accept-all") acceptAll();
+      if (action === "accept-necessary") acceptNecessaryOnly();
+      if (action === "save-settings") saveSettings();
+    });
+
+    const storedConsent = readConsent();
+    if (storedConsent) {
+      manageButton.hidden = false;
+      hideBanner();
+      activateDeferredScripts(storedConsent);
+    } else {
+      showBanner();
+      manageButton.hidden = true;
+    }
+  })();
+</script>

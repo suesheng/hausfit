@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Kontakt | HausFit NRW">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Kontakt</p>
+      <h1>Kontakt</h1>
+      <p>
+        Senden Sie uns Ihr Vorhaben in kurzen Stichpunkten.
+        Wir melden uns zeitnah mit den nächsten Schritten.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>So erreichen Sie uns</h2>
+          <p>
+            Senden Sie uns kurz Ihr Anliegen.
+            Wir melden uns zeitnah zurück.
+          </p>
+        </section>
+
+        <section>
+          <h2>Kontaktwege</h2>
+          <p>
+            <strong>Adresse:</strong><br />
+            Mülheimer Straße 16<br />
+            40239 Düsseldorf<br />
+            Deutschland
+          </p>
+          <p><strong>Telefon:</strong> <a href="tel:+491799238814">+49 179 923 8814</a></p>
+          <p>
+            <strong>E-Mail:</strong>
+            <a href="mailto:info@hausfit.nrw?subject=Anfrage%20Sanierung" class="contact-link">
+              info@hausfit.nrw
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Ihre Anfrage</h2>
+          <form id="whatsapp-form" class="whatsapp-form">
+            <input type="text" id="name" placeholder="Name" required />
+            <input type="text" id="phone" placeholder="Telefon" required />
+            <textarea id="message" placeholder="Ihre Anfrage"></textarea>
+            <button type="submit" class="button button-primary">
+              Anfrage per WhatsApp senden
+            </button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Nächste Schritte</h2>
+          <ol>
+            <li>Kontakt aufnehmen.</li>
+            <li>Kurze Infos zum Projekt senden.</li>
+            <li>Rückmeldung mit Termin oder Rückfragen erhalten.</li>
+            <li>Angebot und Umsetzung abstimmen.</li>
+          </ol>
+        </section>
+      </article>
+
+      <aside class="content-aside contact-card">
+        <h2>Jetzt Anfrage senden</h2>
+        <p>
+          <strong>Adresse:</strong><br />
+          Mülheimer Straße 16<br />
+          40239 Düsseldorf<br />
+          Deutschland
+        </p>
+        <p><strong>Telefon:</strong> <a href="tel:+491799238814">+49 179 923 8814</a></p>
+        <p>
+          <strong>E-Mail:</strong>
+          <a href="mailto:info@hausfit.nrw?subject=Anfrage%20Sanierung" class="contact-link">
+            info@hausfit.nrw
+          </a>
+        </p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  document.getElementById("whatsapp-form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name")?.value || "";
+    const phone = document.getElementById("phone")?.value || "";
+    const message = document.getElementById("message")?.value || "";
+
+    const rawText = `Hallo, ich interessiere mich für eine Sanierung\n\nAnfrage von Website:\nName: ${name}\nTelefon: ${phone}\nNachricht: ${message}`;
+    const url = `https://wa.me/491799238814?text=${encodeURIComponent(rawText)}`;
+
+    window.open(url, "_blank");
+  });
+</script>

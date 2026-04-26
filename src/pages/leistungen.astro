@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { serviceUrlBySlug } from "../data/services.js";
+
+const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/services/*.{webp,jpg,png}",
+  { eager: true }
+);
+const services = [
+  { slug: "badsanierung", name: "Badsanierung", text: "Komplettsanierung von Badezimmern." },
+  { slug: "trockenbau", name: "Trockenbau", text: "Neue Räume und Deckenlösungen." },
+  { slug: "fliesenarbeiten", name: "Fliesenarbeiten", text: "Wand- und Bodenflächen präzise verlegt." },
+  { slug: "bodenverlegung", name: "Bodenverlegung", text: "Vinyl, Laminat und Designböden." },
+  { slug: "malerarbeiten", name: "Malerarbeiten", text: "Innenräume und Fassaden sauber gestrichen." },
+  { slug: "dachsanierung", name: "Dachsanierung", text: "Dachflächen sichern und erneuern." },
+  { slug: "schimmelbeseitigung", name: "Schimmelbeseitigung", text: "Ursachen klären und Flächen sanieren." },
+  { slug: "asbestbeseitigung", name: "Asbestbeseitigung", text: "Rückbau nach geltenden Vorgaben." }
+];
+const defaultServiceImage = serviceImages["/src/assets/images/services/badsanierung.webp"]?.default;
+---
+
+<BaseLayout title="Leistungen in NRW | HausFit NRW">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Leistungen</p>
+      <h1>Unsere Leistungen für Sanierung und Ausbau</h1>
+      <p>Hier finden Sie alle Hauptleistungen mit direktem Einstieg zur passenden Leistungsseite.</p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Leistungsübersicht</h2>
+      </div>
+
+      <div class="service-grid">
+        {
+          services.map((service) => (
+            <article class="service-card card">
+              <div class="service-image">
+                <Image
+                  src={serviceImages[`/src/assets/images/services/${service.slug}.webp`]?.default ?? defaultServiceImage}
+                  alt={`${service.name} in NRW von HausFit`}
+                  width={800}
+                  quality={70}
+                  format="webp"
+                  loading="lazy"
+                />
+              </div>
+              <h3>{service.name}</h3>
+              <p>{service.text}</p>
+              <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

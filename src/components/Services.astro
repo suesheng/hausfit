@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import { serviceUrlBySlug } from "../data/services.js";
+
+const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/services/*.{webp,jpg,png}",
+  { eager: true }
+);
+const services = [
+  { slug: "badsanierung", title: "Badsanierung", text: "Komplette Badumbauten mit festen Terminen." },
+  { slug: "trockenbau", title: "Trockenbau", text: "Neue Raumaufteilungen und Deckenlösungen." },
+  { slug: "fliesenarbeiten", title: "Fliesenarbeiten", text: "Wand- und Bodenflächen sauber verlegt." },
+  { slug: "bodenverlegung", title: "Bodenverlegung", text: "Vinyl, Laminat und weitere Bodenbeläge." },
+  { slug: "malerarbeiten", title: "Malerarbeiten", text: "Innenräume neu gestalten und aufwerten." },
+  { slug: "dachsanierung", title: "Dachsanierung", text: "Dachflächen sichern, dämmen und erneuern." },
+  { slug: "fenster-tueren", title: "Fenster und Türen", text: "Ausbau und Montage aus einer Hand." },
+  { slug: "fassadendaemmung", title: "Fassadendämmung", text: "Energieverluste senken, Gebäude schützen." },
+  { slug: "schimmelbeseitigung", title: "Schimmelbeseitigung", text: "Ursachen klären und Flächen sanieren." },
+  { slug: "asbestbeseitigung", title: "Asbestbeseitigung", text: "Fachgerechte Rückbauarbeiten nach Vorgaben." },
+  { slug: "generalunternehmer", title: "Generalunternehmer", text: "Alle Gewerke zentral steuern und umsetzen." }
+];
+const defaultServiceImage = serviceImages["/src/assets/images/services/badsanierung.webp"]?.default;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Leistungen</p>
+      <h2>Leistungen für Sanierung und Ausbau in NRW</h2>
+    </div>
+
+    <div class="service-grid">
+      {
+        services.map((service, index) => (
+          <article class="service-card card">
+            <span class="service-number">Leistung {String(index + 1).padStart(2, "0")}</span>
+            <div class="service-image">
+              <Image
+                src={serviceImages[`/src/assets/images/services/${service.slug}.webp`]?.default ?? defaultServiceImage}
+                alt={`${service.title} in NRW von HausFit`}
+                width={800}
+                quality={70}
+                format="webp"
+                loading="lazy"
+              />
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+            <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+  
