@@ -57,10 +57,56 @@ const localBusinessSchema = {
   telephone: "+49 179 923 8814",
   url: "https://www.hausfit.nrw"
 };
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: `${serviceData.name} in ${cityData.name}`,
+  serviceType: serviceData.name,
+  description: pageDescription,
+  areaServed: {
+    "@type": "City",
+    name: cityData.name
+  },
+  provider: {
+    "@type": "LocalBusiness",
+    name: "HausFit NRW",
+    url: "https://www.hausfit.nrw"
+  },
+  url: pageUrl
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Start",
+      item: "https://www.hausfit.nrw/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: serviceData.name,
+      item: `https://www.hausfit.nrw${serviceData.nrwUrl}`
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: cityData.name,
+      item: pageUrl
+    }
+  ]
+};
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
 
   <section class="page-hero">
     <div class="container">

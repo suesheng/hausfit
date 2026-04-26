@@ -18,9 +18,42 @@ const services = [
   { slug: "asbestbeseitigung", name: "Asbestbeseitigung", text: "Rückbau nach geltenden Vorgaben." }
 ];
 const defaultServiceImage = serviceImages["/src/assets/images/services/badsanierung.webp"]?.default;
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Leistungen von HausFit NRW",
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: service.name,
+    url: `https://www.hausfit.nrw${serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}`
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Start",
+      item: "https://www.hausfit.nrw/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Leistungen",
+      item: "https://www.hausfit.nrw/leistungen"
+    }
+  ]
+};
 ---
 
 <BaseLayout title="Leistungen in NRW | HausFit NRW">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)}></script>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Leistungen</p>
