@@ -534,7 +534,7 @@ h3 {
 .reviews-live-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .review-source-card {
@@ -568,6 +568,18 @@ h3 {
   width: 100%;
 }
 
+.trustpilot-placeholder {
+  align-items: center;
+  border: 1px dashed var(--color-line);
+  border-radius: 8px;
+  color: var(--color-muted);
+  display: flex;
+  justify-content: center;
+  min-height: 220px;
+  padding: 16px;
+  text-align: center;
+}
+
 .review-source-link {
   color: var(--color-brand-dark);
   font-weight: 800;
@@ -576,28 +588,6 @@ h3 {
 
 .review-source-link:hover {
   text-decoration: underline;
-}
-
-.reviews-actions {
-  display: grid;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.reviews-cta-text {
-  color: var(--color-muted);
-  font-size: 0.95rem;
-}
-
-.reviews-cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.reviews-actions .button {
-  border: 1px solid var(--color-line);
-  color: var(--color-ink);
 }
 
 .owner-grid {
