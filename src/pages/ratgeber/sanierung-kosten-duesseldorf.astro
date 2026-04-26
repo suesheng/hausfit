@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Was kostet eine Sanierung in Düsseldorf?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Die Kosten hängen von Fläche, Zustand und Leistungsumfang ab. Nach einer kurzen Vor-Ort-Aufnahme erhalten Sie ein klares Angebot mit Positionen und Ablauf."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Wie schnell bekommen wir ein Angebot?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "In der Regel erhalten Sie nach Erstkontakt und Besichtigung zeitnah eine strukturierte Kostenschätzung mit nächsten Schritten."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Sanierung Kosten Düsseldorf | HausFit NRW"
+  description="Was kostet eine Sanierung in Düsseldorf? Überblick zu Preisfaktoren, Ablauf und wie Sie schnell ein klares Angebot erhalten."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Ratgeber</p>
+      <h1>Sanierung Kosten in Düsseldorf: realistisch planen</h1>
+      <p>
+        Wenn Sie eine Wohnung, ein Haus oder eine Gewerbefläche sanieren möchten, ist eine transparente
+        Kostenplanung der wichtigste Startpunkt. Hier sehen Sie, welche Faktoren den Preis beeinflussen
+        und wie Sie schnell ein belastbares Angebot erhalten.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Die wichtigsten Preisfaktoren</h2>
+          <ul>
+            <li>Fläche und aktueller Zustand der Räume</li>
+            <li>Umfang der gewünschten Leistungen und Gewerke</li>
+            <li>Materialqualität und Ausstattungsniveau</li>
+            <li>Technische Anforderungen wie Elektrik, Sanitär, Abdichtung</li>
+            <li>Terminvorgaben und Bauablauf im laufenden Betrieb</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>So vermeiden Sie teure Überraschungen</h2>
+          <ol>
+            <li>Projektziele früh definieren (Budget, Termine, Prioritäten).</li>
+            <li>Ist-Zustand professionell erfassen lassen.</li>
+            <li>Leistungsumfang schriftlich und vollständig festhalten.</li>
+            <li>Materialvarianten mit Kostenwirkung vergleichen.</li>
+            <li>Fixen Ansprechpartner für Abstimmung und Nachträge benennen.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Welche Leistungen sind kombinierbar?</h2>
+          <p>
+            Besonders effizient wird ein Projekt, wenn Leistungen zusammen geplant werden. Häufige
+            Kombinationen sind beispielsweise <a href="/leistungen/badsanierung-nrw">Badsanierung</a> mit
+            <a href="/leistungen/fliesenleger-nrw"> Fliesenarbeiten</a> oder
+            <a href="/leistungen/trockenbau-nrw"> Trockenbau</a> mit
+            <a href="/leistungen/malerarbeiten-nrw"> Malerarbeiten</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Sanierung in Düsseldorf und ganz NRW</h2>
+          <p>
+            Wir setzen Projekte in Düsseldorf und in weiteren Städten in NRW um.
+            Details zum Einsatzgebiet finden Sie auf der Standortseite
+            <a href="/einsatzgebiet/duesseldorf"> Sanierung in Düsseldorf</a>.
+          </p>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Kosten jetzt klären</h2>
+        <p>Schicken Sie uns kurz Eckdaten, Fotos und den gewünschten Starttermin.</p>
+        <a href="/kontakt" class="button button-primary">Angebot anfordern</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
