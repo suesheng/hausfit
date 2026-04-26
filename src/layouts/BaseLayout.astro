@@ -61,5 +61,68 @@ const gaMeasurementId = "G-8235ZYX2TR";
     >
       WhatsApp
     </a>
+    <script is:inline>
+      (() => {
+        const track = (eventName, params = {}) => {
+          if (typeof window.gtag !== "function") return;
+          window.gtag("event", eventName, params);
+        };
+
+        document.addEventListener("click", (event) => {
+          const anchor = event.target.closest("a[href]");
+          if (!anchor) return;
+
+          const href = (anchor.getAttribute("href") || "").trim();
+          const location = anchor.closest("header")
+            ? "header"
+            : anchor.closest("footer")
+              ? "footer"
+              : anchor.closest(".cta-block")
+                ? "cta"
+                : anchor.closest(".contact-card")
+                  ? "contact_card"
+                  : "content";
+
+          if (href.startsWith("tel:")) {
+            track("generate_lead", {
+              lead_type: "phone_click",
+              contact_method: "phone",
+              link_url: href,
+              placement: location
+            });
+          }
+
+          if (href.startsWith("mailto:")) {
+            track("generate_lead", {
+              lead_type: "email_click",
+              contact_method: "email",
+              link_url: href,
+              placement: location
+            });
+          }
+
+          if (href.includes("wa.me")) {
+            track("generate_lead", {
+              lead_type: "whatsapp_click",
+              contact_method: "whatsapp",
+              link_url: href,
+              placement: location
+            });
+          }
+        });
+
+        document.addEventListener("submit", (event) => {
+          const form = event.target;
+          if (!(form instanceof HTMLFormElement)) return;
+          if (form.id !== "whatsapp-form" && !form.classList.contains("whatsapp-form")) return;
+
+          track("generate_lead", {
+            lead_type: "contact_form_submit",
+            contact_method: "whatsapp_form",
+            placement: "contact_page"
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
