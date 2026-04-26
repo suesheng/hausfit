@@ -1,0 +1,57 @@
+---
+const {
+  googleReviewsUrl = "https://www.google.com/search?q=HausFit+NRW+Bewertungen",
+  trustpilotReviewsUrl = "https://www.trustpilot.com/search?query=HausFit%20NRW"
+} = Astro.props;
+
+const testimonials = [
+  {
+    text: "Schnelle Koordination mit klaren Absprachen. Die Baustelle wurde sauber übergeben und alle Punkte wurden wie besprochen umgesetzt.",
+    author: "Kundenfeedback aus Düsseldorf",
+    platform: "Google"
+  },
+  {
+    text: "Sehr zuverlässige Kommunikation während des Projekts. Termine wurden eingehalten und Rückfragen direkt geklärt.",
+    author: "Kundenfeedback aus Köln",
+    platform: "Trustpilot"
+  },
+  {
+    text: "Von der Anfrage bis zur Umsetzung professionell begleitet. Besonders hilfreich war der feste Ansprechpartner für alle Gewerke.",
+    author: "Kundenfeedback aus Essen",
+    platform: "Google"
+  }
+];
+---
+
+<section class="section reviews-section" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Kundenstimmen</p>
+      <h2 id="reviews-title">Was Kunden über HausFit NRW sagen</h2>
+      <p>Erfahrungen aus Projekten in NRW auf Google und Trustpilot.</p>
+    </div>
+
+    <div class="reviews-grid">
+      {
+        testimonials.map((testimonial) => (
+          <article class="review-card card">
+            <p class="review-quote">"{testimonial.text}"</p>
+            <div class="review-footer">
+              <strong>{testimonial.author}</strong>
+              <span>{testimonial.platform}</span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="reviews-actions">
+      <a class="button button-light" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+        Google-Bewertungen ansehen
+      </a>
+      <a class="button button-light" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
+        Trustpilot-Bewertungen ansehen
+      </a>
+    </div>
+  </div>
+</section>
