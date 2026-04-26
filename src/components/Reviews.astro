@@ -1,57 +1,68 @@
 ---
 const {
   googleReviewsUrl = "https://www.google.com/search?q=HausFit+NRW+Bewertungen",
-  trustpilotReviewsUrl = "https://www.trustpilot.com/search?query=HausFit%20NRW"
+  trustpilotReviewsUrl = "https://www.trustpilot.com/review/hausfit.nrw",
+  trustpilotBusinessUnitId = "69ee425df638121ccdd75a72",
+  trustpilotTemplateId = "5419b6ffb0d04a076446a9af"
 } = Astro.props;
-
-const testimonials = [
-  {
-    text: "Schnelle Koordination mit klaren Absprachen. Die Baustelle wurde sauber übergeben und alle Punkte wurden wie besprochen umgesetzt.",
-    author: "Kundenfeedback aus Düsseldorf",
-    platform: "Google"
-  },
-  {
-    text: "Sehr zuverlässige Kommunikation während des Projekts. Termine wurden eingehalten und Rückfragen direkt geklärt.",
-    author: "Kundenfeedback aus Köln",
-    platform: "Trustpilot"
-  },
-  {
-    text: "Von der Anfrage bis zur Umsetzung professionell begleitet. Besonders hilfreich war der feste Ansprechpartner für alle Gewerke.",
-    author: "Kundenfeedback aus Essen",
-    platform: "Google"
-  }
-];
 ---
 
-<section class="section reviews-section" aria-labelledby="reviews-title">
+<section class="section reviews-section reviews-section-compact" aria-labelledby="reviews-title">
   <div class="container">
-    <div class="section-heading">
+    <div class="section-heading reviews-heading">
       <p class="eyebrow">Kundenstimmen</p>
-      <h2 id="reviews-title">Was Kunden über HausFit NRW sagen</h2>
-      <p>Erfahrungen aus Projekten in NRW auf Google und Trustpilot.</p>
+      <h2 id="reviews-title">Echte Bewertungen aus Google und Trustpilot</h2>
+      <p>Live-Quellen statt statischer Zitate. Für Details öffnen Sie die Originalplattformen.</p>
     </div>
 
-    <div class="reviews-grid">
-      {
-        testimonials.map((testimonial) => (
-          <article class="review-card card">
-            <p class="review-quote">"{testimonial.text}"</p>
-            <div class="review-footer">
-              <strong>{testimonial.author}</strong>
-              <span>{testimonial.platform}</span>
+    <div class="reviews-live-grid">
+      <article class="review-source-card card">
+        <div class="review-source-head">
+          <h3>Google</h3>
+          <span>Live-Ansicht</span>
+        </div>
+        <iframe
+          class="review-embed"
+          title="Google Bewertungen HausFit NRW"
+          src="https://www.google.com/maps?q=HausFit+NRW&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <a class="review-source-link" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+          Alle Google-Bewertungen öffnen
+        </a>
+      </article>
+
+      <article class="review-source-card card">
+        <div class="review-source-head">
+          <h3>Trustpilot</h3>
+          <span>Live-Ansicht</span>
+        </div>
+        {
+          trustpilotBusinessUnitId ? (
+            <div
+              class="trustpilot-widget"
+              data-locale="de-DE"
+              data-template-id={trustpilotTemplateId}
+              data-businessunit-id={trustpilotBusinessUnitId}
+              data-style-height="220px"
+              data-style-width="100%"
+              data-theme="light"
+            >
+              <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Trustpilot</a>
             </div>
-          </article>
-        ))
-      }
+          ) : (
+            <p class="trustpilot-placeholder">
+              Trustpilot-Widget aktivieren: Bitte Business Unit ID eintragen.
+            </p>
+          )
+        }
+        <a class="review-source-link" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
+          Alle Trustpilot-Bewertungen öffnen
+        </a>
+      </article>
     </div>
 
-    <div class="reviews-actions">
-      <a class="button button-light" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
-        Google-Bewertungen ansehen
-      </a>
-      <a class="button button-light" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
-        Trustpilot-Bewertungen ansehen
-      </a>
-    </div>
   </div>
+  <script is:inline src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </section>

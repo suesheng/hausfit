@@ -522,53 +522,72 @@ h3 {
   background: var(--color-soft);
 }
 
-.reviews-grid {
+.reviews-section-compact {
+  padding-top: 62px;
+  padding-bottom: 62px;
+}
+
+.reviews-heading {
+  margin-bottom: 24px;
+}
+
+.reviews-live-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.review-card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 26px;
-}
-
-.review-quote {
-  color: var(--color-ink);
-  font-size: 1.02rem;
-  line-height: 1.7;
-}
-
-.review-footer {
+.review-source-card {
   display: grid;
-  gap: 4px;
-  margin-top: auto;
+  gap: 12px;
+  padding: 20px;
 }
 
-.review-footer strong {
-  color: var(--color-ink);
-  font-size: 0.95rem;
+.review-source-head {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.review-footer span {
+.review-source-head h3 {
+  font-size: 1.2rem;
+}
+
+.review-source-head span {
   color: var(--color-brand);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.reviews-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
+.review-embed {
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  min-height: 220px;
+  width: 100%;
 }
 
-.reviews-actions .button {
-  border: 1px solid var(--color-line);
-  color: var(--color-ink);
+.trustpilot-placeholder {
+  align-items: center;
+  border: 1px dashed var(--color-line);
+  border-radius: 8px;
+  color: var(--color-muted);
+  display: flex;
+  justify-content: center;
+  min-height: 220px;
+  padding: 16px;
+  text-align: center;
+}
+
+.review-source-link {
+  color: var(--color-brand-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.review-source-link:hover {
+  text-decoration: underline;
 }
 
 .owner-grid {
@@ -914,6 +933,10 @@ h3 {
   }
 
   .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-live-grid {
     grid-template-columns: 1fr;
   }
 
