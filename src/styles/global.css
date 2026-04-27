@@ -895,6 +895,13 @@ h3 {
   padding: 18px;
 }
 
+.project-list img {
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+  width: 100%;
+}
+
 .project-list strong,
 .project-list span {
   display: block;
