@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 
 const gaMeasurementId = "G-8235ZYX2TR";
+const googleAdsTagId = "AW-17925018117";
 ---
 
 <!DOCTYPE html>
@@ -45,6 +46,7 @@ const gaMeasurementId = "G-8235ZYX2TR";
       gtag("config", gaMeasurementId, {
         anonymize_ip: true
       });
+      gtag("config", googleAdsTagId);
     </script>
     <slot name="head" />
   </head>
