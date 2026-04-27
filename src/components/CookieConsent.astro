@@ -112,10 +112,25 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
       document.documentElement.dataset.cookieConsent = JSON.stringify(payload);
       window.dispatchEvent(new CustomEvent("hausfit:cookie-consent-updated", { detail: payload }));
+      updateGoogleConsent(payload);
       activateDeferredScripts(payload);
       hideBanner();
       closeSettings();
       manageButton.hidden = false;
+    };
+
+    const updateGoogleConsent = (consent) => {
+      if (typeof window.gtag !== "function") return;
+
+      window.gtag("consent", "update", {
+        analytics_storage: consent.analytics ? "granted" : "denied",
+        ad_storage: consent.marketing ? "granted" : "denied",
+        ad_user_data: consent.marketing ? "granted" : "denied",
+        ad_personalization: consent.marketing ? "granted" : "denied",
+        functionality_storage: "granted",
+        personalization_storage: consent.preferences ? "granted" : "denied",
+        security_storage: "granted"
+      });
     };
 
     const activateDeferredScripts = (consent) => {
@@ -206,6 +221,7 @@
     if (storedConsent) {
       manageButton.hidden = false;
       hideBanner();
+      updateGoogleConsent(storedConsent);
       activateDeferredScripts(storedConsent);
     } else {
       showBanner();

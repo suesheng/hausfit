@@ -27,17 +27,22 @@ const gaMeasurementId = "G-8235ZYX2TR";
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
     <link rel="canonical" href={Astro.url.href} />
     <title>{title}</title>
-    <script
-      type="text/plain"
-      data-cookie-category="analytics"
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-    ></script>
-    <script type="text/plain" data-cookie-category="analytics" is:inline>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "granted",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500
+      });
       gtag("js", new Date());
-      gtag("config", "G-8235ZYX2TR", {
+      gtag("config", gaMeasurementId, {
         anonymize_ip: true
       });
     </script>
