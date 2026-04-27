@@ -40,17 +40,23 @@ const {
         </div>
         {
           trustpilotBusinessUnitId ? (
-            <div
-              class="trustpilot-widget"
-              data-locale="de-DE"
-              data-template-id={trustpilotTemplateId}
-              data-businessunit-id={trustpilotBusinessUnitId}
-              data-style-height="220px"
-              data-style-width="100%"
-              data-theme="light"
-            >
-              <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Trustpilot</a>
-            </div>
+            <>
+              <div
+                class="trustpilot-widget"
+                data-locale="de-DE"
+                data-template-id={trustpilotTemplateId}
+                data-businessunit-id={trustpilotBusinessUnitId}
+                data-style-height="220px"
+                data-style-width="100%"
+                data-theme="light"
+              >
+                <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Trustpilot</a>
+              </div>
+              <p class="trustpilot-widget-fallback" hidden>
+                Trustpilot konnte hier nicht geladen werden.
+                <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Bewertungen direkt auf Trustpilot öffnen</a>.
+              </p>
+            </>
           ) : (
             <p class="trustpilot-placeholder">
               Trustpilot-Widget aktivieren: Bitte Business Unit ID eintragen.
@@ -73,5 +79,46 @@ const {
     </div>
 
   </div>
-  <script is:inline src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <script is:inline>
+    (() => {
+      const trustpilotWidget = document.querySelector(".trustpilot-widget");
+      const fallback = document.querySelector(".trustpilot-widget-fallback");
+      if (!trustpilotWidget || !fallback) return;
+
+      const hasRenderedWidget = () => Boolean(trustpilotWidget.querySelector("iframe"));
+
+      const revealFallbackIfNeeded = () => {
+        if (hasRenderedWidget()) return;
+        fallback.hidden = false;
+      };
+
+      const renderWidget = () => {
+        if (hasRenderedWidget()) return;
+        if (!window.Trustpilot || typeof window.Trustpilot.loadFromElement !== "function") return;
+        window.Trustpilot.loadFromElement(trustpilotWidget, true);
+      };
+
+      const isLocalhost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+      if (isLocalhost) {
+        revealFallbackIfNeeded();
+        return;
+      }
+
+      const trustpilotScript = document.createElement("script");
+      trustpilotScript.src = "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
+      trustpilotScript.async = true;
+      document.head.appendChild(trustpilotScript);
+
+      const waitForTrustpilot = () => {
+        if (window.Trustpilot && typeof window.Trustpilot.loadFromElement === "function") {
+          renderWidget();
+          return;
+        }
+        window.setTimeout(waitForTrustpilot, 300);
+      };
+
+      waitForTrustpilot();
+      window.setTimeout(revealFallbackIfNeeded, 4000);
+    })();
+  </script>
 </section>

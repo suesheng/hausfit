@@ -29,7 +29,7 @@ const googleAdsTagId = "AW-17925018117";
     <link rel="canonical" href={Astro.url.href} />
     <title>{title}</title>
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-    <script is:inline>
+    <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag("consent", "default", {

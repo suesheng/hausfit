@@ -661,6 +661,18 @@ h3 {
   text-align: center;
 }
 
+.trustpilot-widget-fallback {
+  color: var(--color-muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+  margin-top: 6px;
+}
+
+.trustpilot-widget-fallback a {
+  color: var(--color-brand-dark);
+  font-weight: 800;
+}
+
 .review-source-link {
   color: var(--color-brand-dark);
   font-weight: 800;
