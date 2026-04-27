@@ -18,7 +18,11 @@ const locations = [
       <h2>Unsere Teams sind in diesen Städten im Einsatz</h2>
     </div>
 
-    <div class="service-grid">
+    <ul class="locations-compact-list mobile-only" aria-label="Städte im Einsatzgebiet">
+      {locations.map((city) => <li>{city.name}</li>)}
+    </ul>
+
+    <div class="service-grid desktop-only">
       {
         locations.map((city) => (
           <article class="service-card card">

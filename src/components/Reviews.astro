@@ -12,10 +12,10 @@ const {
     <div class="section-heading reviews-heading">
       <p class="eyebrow">Kundenstimmen</p>
       <h2 id="reviews-title">Echte Bewertungen aus Google und Trustpilot</h2>
-      <p>Live-Quellen statt statischer Zitate. Für Details öffnen Sie die Originalplattformen.</p>
+      <p class="desktop-only">Live-Quellen statt statischer Zitate. Für Details öffnen Sie die Originalplattformen.</p>
     </div>
 
-    <div class="reviews-live-grid">
+    <div class="reviews-live-grid desktop-only">
       <article class="review-source-card card">
         <div class="review-source-head">
           <h3>Google</h3>
@@ -61,6 +61,15 @@ const {
           Alle Trustpilot-Bewertungen öffnen
         </a>
       </article>
+    </div>
+
+    <div class="reviews-mobile-links mobile-only" aria-label="Bewertungen auf Originalplattformen">
+      <a class="button button-primary" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+        Google-Bewertungen auf Originalseite
+      </a>
+      <a class="button button-secondary" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
+        Trustpilot-Bewertungen auf Originalseite
+      </a>
     </div>
 
   </div>

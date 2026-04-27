@@ -77,6 +77,10 @@ h3 {
   max-width: 650px;
 }
 
+.mobile-only {
+  display: none !important;
+}
+
 .button,
 .header-cta {
   align-items: center;
@@ -200,6 +204,25 @@ h3 {
 
 .nav {
   margin-left: auto;
+}
+
+.header-phone {
+  align-items: center;
+  background: var(--color-brand);
+  border-radius: 6px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-phone:hover {
+  background: var(--color-brand-dark);
 }
 
 .menu-toggle {
@@ -431,6 +454,61 @@ h3 {
   text-decoration: none;
 }
 
+.services-accordion {
+  display: grid;
+  gap: 10px;
+}
+
+.service-accordion-item {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.service-accordion-item summary {
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+  list-style: none;
+}
+
+.service-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-accordion-item summary strong {
+  font-size: 1.02rem;
+}
+
+.service-accordion-item p {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  margin-top: 8px;
+}
+
+.service-accordion-item a {
+  color: var(--color-brand-dark);
+  display: inline-flex;
+  font-weight: 800;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.locations-compact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.locations-compact-list li {
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-ink);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 10px 2px;
+}
+
 .steps {
   display: grid;
   gap: 14px;
@@ -590,6 +668,17 @@ h3 {
   text-decoration: underline;
 }
 
+.reviews-mobile-links {
+  display: grid;
+  gap: 10px;
+}
+
+.reviews-mobile-links .button-secondary {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  color: var(--color-brand-dark);
+}
+
 .owner-grid {
   align-items: center;
   display: grid;
@@ -639,6 +728,10 @@ h3 {
 .footer-brand {
   color: #fff;
   margin-bottom: 18px;
+}
+
+.footer-tagline {
+  margin-top: -10px;
 }
 
 .footer-brand .brand-logo {
@@ -911,8 +1004,44 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  .cta-block {
+    display: none;
+  }
+
+  .hero-panel {
+    display: none;
+  }
+
+  .process-section {
+    display: none;
+  }
+
+  .service-image {
+    display: none;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .container {
+    width: min(1120px, calc(100% - 28px));
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
   .hero {
-    padding: 72px 0;
+    padding: 56px 0;
   }
 
   .hero-grid,
@@ -925,24 +1054,119 @@ h3 {
   }
 
   .content-aside {
+    display: none;
     position: static;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .reviews-grid {
-    grid-template-columns: 1fr;
+  .locations-compact-list li {
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+
+  .service-card {
+    padding: 18px;
   }
 
   .reviews-live-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .cta-grid {
     align-items: start;
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-block {
+    padding: 44px 0;
+  }
+
+  .content-main {
+    gap: 20px;
+    padding: 22px;
+  }
+
+  .content-main section + section {
+    padding-top: 20px;
+  }
+
+  .content-main h2,
+  .content-aside h2 {
+    font-size: 1.18rem;
+    margin-bottom: 10px;
+  }
+
+  .content-main li + li {
+    margin-top: 4px;
+  }
+
+  .content-main ul,
+  .content-main ol {
+    padding-left: 18px;
+  }
+
+  .page-hero {
+    padding: 54px 0;
+  }
+
+  .page-hero p:last-child {
+    font-size: 0.98rem;
+    margin-top: 14px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+  }
+
+  .intro-grid h2,
+  .section-heading h2,
+  .process-copy h2,
+  .cta-block h2,
+  .owner-content h2 {
+    font-size: clamp(1.45rem, 6vw, 2rem);
+  }
+
+  .step {
+    align-items: start;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .step span {
+    font-size: 0.98rem;
+  }
+
+  .review-source-card {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .review-source-head span {
+    font-size: 0.72rem;
+  }
+
+  .review-embed,
+  .trustpilot-placeholder {
+    min-height: 180px;
+  }
+
+  .owner-grid {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .owner-content p {
+    margin-top: 8px;
+  }
+
+  .footer-grid {
+    gap: 20px;
   }
 
   .location-hero .hero-bg img {
@@ -951,24 +1175,33 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  .owner-grid {
-    grid-template-columns: 1fr;
-  }
-
   .header-inner {
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    min-height: 72px;
+    gap: 8px;
+    min-height: 64px;
     position: relative;
+  }
+
+  .brand-logo {
+    height: 68px;
+  }
+
+  .header-phone {
+    font-size: 0.82rem;
+    margin-left: auto;
+    min-height: 38px;
+    padding: 0 10px;
   }
 
   .menu-toggle {
     display: flex;
-    margin-left: auto;
+    margin-left: 0;
+    padding: 6px;
   }
 
   .nav {
+    order: 3;
     width: 100%;
   }
 
@@ -977,15 +1210,21 @@ h3 {
     border-top: 1px solid var(--color-line);
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     left: 0;
     margin: 0;
-    padding: 20px;
+    padding: 12px 14px 16px;
     position: absolute;
     right: 0;
-    top: 70px;
+    top: 64px;
     width: 100%;
     z-index: 30;
+  }
+
+  .nav-links a {
+    display: block;
+    font-size: 0.92rem;
+    padding: 8px 0;
   }
 
   .nav-links.active {
@@ -1001,11 +1240,11 @@ h3 {
 }
 
 .whatsapp-button {
-  background: #25d366;
+  background: #1DD16D;
   border-radius: 30px;
   bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: #26313D;
   font-weight: 600;
   padding: 12px 18px;
   position: fixed;
@@ -1015,7 +1254,8 @@ h3 {
 }
 
 .whatsapp-button:hover {
-  background: #1ebe5d;
+  background: #26313D;
+  color: #fff;
 }
 
 .cookie-consent {
@@ -1166,53 +1406,237 @@ body.cookie-modal-open {
 }
 
 @media (max-width: 560px) {
-  .container {
-    width: min(100% - 28px, 1120px);
+  .hero {
+    padding: 44px 0;
   }
 
-  .section {
-    padding: 64px 0;
+  .hero h1 {
+    font-size: clamp(1.6rem, 8.4vw, 2.1rem);
+    line-height: 1.2;
   }
 
-  .page-hero {
-    padding: 62px 0;
+  .header-phone {
+    font-size: 0.75rem;
+    min-height: 34px;
+    padding: 0 8px;
   }
 
-  .content-main,
-  .content-aside {
-    padding: 24px;
+  .lead {
+    font-size: 0.95rem;
+    line-height: 1.45;
   }
 
-  .nav-links {
-    font-size: 0.9rem;
+  .button,
+  .header-phone {
+    font-size: 0.84rem;
+  }
+
+  .trust-badges {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .trust-badges span {
+    font-size: 0.74rem;
+    padding: 5px 9px;
+  }
+
+  .hero-actions {
+    margin-top: 18px;
   }
 
   .hero-actions,
+  .cta-actions,
   .button {
     width: 100%;
   }
 
   .hero-stats {
-    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-stats > div {
+    padding: 12px;
+  }
+
+  .hero-stats strong {
+    font-size: 1.28rem;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+
+  .project-card strong {
+    font-size: 1.55rem;
+    margin: 8px 0;
+  }
+
+  .service-card h3 {
+    font-size: 1.06rem;
+    margin: 10px 0 8px;
+  }
+
+  .service-card p {
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .service-card a {
+    margin-top: 12px;
+  }
+
+  .reviews-section-compact {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .review-embed,
+  .trustpilot-placeholder {
+    min-height: 160px;
+  }
+
+  .review-source-head h3 {
+    font-size: 1.02rem;
+  }
+
+  .review-source-link {
+    font-size: 0.92rem;
+  }
+
+  .owner-image img {
+    border-radius: 10px;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+
+  .owner-signature {
+    margin-top: 12px;
+  }
+
+  .site-footer {
+    padding: 40px 0 30px;
+  }
+
+  .footer-brand .brand-logo {
+    height: 88px;
+  }
+
+  .footer-tagline {
+    margin-top: -8px;
+  }
+
+  .site-footer p,
+  .footer-list li,
+  .footer-list a {
+    font-size: 0.92rem;
   }
 
   .whatsapp-button {
-    bottom: 16px;
-    right: 14px;
+    border-radius: 999px;
+    bottom: 12px;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    right: 12px;
   }
 
   .cookie-consent {
-    bottom: 14px;
-    left: 14px;
-    right: 14px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
   }
 
   .cookie-consent-inner {
+    gap: 10px;
     grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .cookie-consent-copy h2 {
+    font-size: 1rem;
+  }
+
+  .cookie-consent-copy p {
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .cookie-consent-actions .button {
+    min-height: 42px;
   }
 
   .cookie-manage-button {
-    bottom: 16px;
-    left: 14px;
+    bottom: 10px;
+    font-size: 0.82rem;
+    left: 10px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-inner {
+    gap: 6px;
+    min-height: 60px;
+  }
+
+  .brand-logo {
+    height: 60px;
+  }
+
+  .header-phone {
+    font-size: 0.73rem;
+    min-height: 32px;
+    padding: 0 7px;
+  }
+
+  .menu-toggle {
+    padding: 4px;
+  }
+
+  .menu-toggle span {
+    height: 2px;
+    width: 21px;
+  }
+
+  .nav-links {
+    top: 60px;
+  }
+
+  .button {
+    min-height: 44px;
+  }
+
+  .cta-note {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    width: min(1120px, calc(100% - 22px));
+  }
+
+  .header-phone {
+    font-size: 0.7rem;
+    min-height: 30px;
+    padding: 0 6px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.48rem, 8.4vw, 1.9rem);
+  }
+
+  .service-card,
+  .review-source-card,
+  .content-main {
+    padding: 14px;
+  }
+
+  .cookie-manage-button {
+    font-size: 0.75rem;
+    padding: 7px 9px;
   }
 }

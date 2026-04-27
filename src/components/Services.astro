@@ -29,7 +29,22 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
       <h2>Leistungen für Sanierung und Ausbau in NRW</h2>
     </div>
 
-    <div class="service-grid">
+    <div class="services-accordion mobile-only" aria-label="Leistungen kompakt">
+      {
+        services.map((service, index) => (
+          <details class="service-accordion-item">
+            <summary>
+              <span class="service-number">Leistung {String(index + 1).padStart(2, "0")}</span>
+              <strong>{service.title}</strong>
+            </summary>
+            <p>{service.text}</p>
+            <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
+          </details>
+        ))
+      }
+    </div>
+
+    <div class="service-grid desktop-only">
       {
         services.map((service, index) => (
           <article class="service-card card">
