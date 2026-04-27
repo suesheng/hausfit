@@ -102,7 +102,7 @@ h3 {
 .button-primary,
 .header-cta {
   background: var(--color-brand);
-  color: #26313D;
+  color: #fff;
 }
 
 .button-primary:hover,
@@ -211,7 +211,7 @@ h3 {
   align-items: center;
   background: var(--color-brand);
   border-radius: 6px;
-  color: #26313D;
+  color: #fff;
   display: inline-flex;
   font-size: 0.9rem;
   font-weight: 800;
@@ -582,7 +582,7 @@ h3 {
 .cta-block .button-secondary {
   background: #1DD16D;
   border: 0;
-  color: #26313D;
+  color: #fff;
 }
 
 .cta-block .button-secondary:hover {
@@ -1325,7 +1325,7 @@ h3 {
   border-radius: 30px;
   bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  color: #26313D;
+  color: #fff;
   font-weight: 600;
   padding: 12px 18px;
   position: fixed;
