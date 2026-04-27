@@ -1004,6 +1004,10 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  .footer-cookie-button {
+    display: none;
+  }
+
   .cta-block {
     display: none;
   }
@@ -1033,11 +1037,11 @@ h3 {
   }
 
   .section {
-    padding: 56px 0;
+    padding: 24px 0;
   }
 
   .section-heading {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
   .hero {
@@ -1060,7 +1064,7 @@ h3 {
 
   .service-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 8px;
   }
 
   .locations-compact-list li {
@@ -1069,12 +1073,12 @@ h3 {
   }
 
   .service-card {
-    padding: 18px;
+    padding: 10px;
   }
 
   .reviews-live-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 10px;
   }
 
   .cta-grid {
@@ -1088,12 +1092,12 @@ h3 {
   }
 
   .content-main {
-    gap: 20px;
-    padding: 22px;
+    gap: 8px;
+    padding: 10px;
   }
 
   .content-main section + section {
-    padding-top: 20px;
+    padding-top: 8px;
   }
 
   .content-main h2,
@@ -1112,7 +1116,7 @@ h3 {
   }
 
   .page-hero {
-    padding: 54px 0;
+    padding: 30px 0;
   }
 
   .page-hero p:last-child {
@@ -1134,8 +1138,8 @@ h3 {
 
   .step {
     align-items: start;
-    gap: 10px;
-    padding: 14px;
+    gap: 8px;
+    padding: 8px;
   }
 
   .step span {
@@ -1143,8 +1147,8 @@ h3 {
   }
 
   .review-source-card {
-    gap: 10px;
-    padding: 14px;
+    gap: 8px;
+    padding: 8px;
   }
 
   .review-source-head span {
@@ -1157,7 +1161,7 @@ h3 {
   }
 
   .owner-grid {
-    gap: 16px;
+    gap: 10px;
     grid-template-columns: 1fr;
   }
 
@@ -1166,7 +1170,7 @@ h3 {
   }
 
   .footer-grid {
-    gap: 20px;
+    gap: 12px;
   }
 
   .location-hero .hero-bg img {
@@ -1407,11 +1411,11 @@ body.cookie-modal-open {
 
 @media (max-width: 560px) {
   .hero {
-    padding: 44px 0;
+    padding: 20px 0;
   }
 
   .hero h1 {
-    font-size: clamp(1.6rem, 8.4vw, 2.1rem);
+    font-size: clamp(1.45rem, 8.2vw, 1.9rem);
     line-height: 1.2;
   }
 
@@ -1442,7 +1446,7 @@ body.cookie-modal-open {
   }
 
   .hero-actions {
-    margin-top: 18px;
+    margin-top: 8px;
   }
 
   .hero-actions,
@@ -1464,7 +1468,7 @@ body.cookie-modal-open {
   }
 
   .project-card {
-    padding: 16px;
+    padding: 10px;
   }
 
   .project-card strong {
@@ -1487,8 +1491,8 @@ body.cookie-modal-open {
   }
 
   .reviews-section-compact {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .review-embed,
@@ -1518,7 +1522,7 @@ body.cookie-modal-open {
   }
 
   .site-footer {
-    padding: 40px 0 30px;
+    padding: 18px 0 14px;
   }
 
   .footer-brand .brand-logo {
