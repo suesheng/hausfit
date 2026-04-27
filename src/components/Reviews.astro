@@ -1,9 +1,7 @@
 ---
 const {
   googleReviewsUrl = "https://www.google.com/search?q=HausFit+NRW+Bewertungen",
-  trustpilotReviewsUrl = "https://www.trustpilot.com/review/hausfit.nrw",
-  trustpilotBusinessUnitId = "69ee425df638121ccdd75a72",
-  trustpilotTemplateId = "5419b6ffb0d04a076446a9af"
+  trustpilotReviewsUrl = "https://www.trustpilot.com/review/hausfit.nrw"
 } = Astro.props;
 ---
 
@@ -12,59 +10,33 @@ const {
     <div class="section-heading reviews-heading">
       <p class="eyebrow">Kundenstimmen</p>
       <h2 id="reviews-title" class="desktop-only">Echte Bewertungen aus Google und Trustpilot</h2>
-      <p class="desktop-only">Live-Quellen statt statischer Zitate. Für Details öffnen Sie die Originalplattformen.</p>
+      <p class="desktop-only">Direkte Quellen statt statischer Zitate. Für Details öffnen Sie die Originalplattformen.</p>
     </div>
 
     <div class="reviews-live-grid desktop-only">
       <article class="review-source-card card">
         <div class="review-source-head">
           <h3>Google</h3>
-          <span>Live-Ansicht</span>
+          <span>Originalseite</span>
         </div>
-        <iframe
-          class="review-embed"
-          title="Google Bewertungen HausFit NRW"
-          src="https://www.google.com/maps?q=HausFit+NRW&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <a class="review-source-link" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
-          Alle Google-Bewertungen öffnen
+        <p class="review-source-text">
+          Lesen Sie aktuelle Kundenmeinungen direkt bei Google und verschaffen Sie sich einen transparenten Eindruck.
+        </p>
+        <a class="button button-primary" href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+          Google-Bewertungen öffnen
         </a>
       </article>
 
       <article class="review-source-card card">
         <div class="review-source-head">
           <h3>Trustpilot</h3>
-          <span>Live-Ansicht</span>
+          <span>Originalseite</span>
         </div>
-        {
-          trustpilotBusinessUnitId ? (
-            <>
-              <div
-                class="trustpilot-widget"
-                data-locale="de-DE"
-                data-template-id={trustpilotTemplateId}
-                data-businessunit-id={trustpilotBusinessUnitId}
-                data-style-height="220px"
-                data-style-width="100%"
-                data-theme="light"
-              >
-                <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Trustpilot</a>
-              </div>
-              <p class="trustpilot-widget-fallback" hidden>
-                Trustpilot konnte hier nicht geladen werden.
-                <a href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">Bewertungen direkt auf Trustpilot öffnen</a>.
-              </p>
-            </>
-          ) : (
-            <p class="trustpilot-placeholder">
-              Trustpilot-Widget aktivieren: Bitte Business Unit ID eintragen.
-            </p>
-          )
-        }
-        <a class="review-source-link" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
-          Alle Trustpilot-Bewertungen öffnen
+        <p class="review-source-text">
+          Sehen Sie alle verifizierten Trustpilot-Rezensionen auf der offiziellen Plattform.
+        </p>
+        <a class="button button-primary" href={trustpilotReviewsUrl} target="_blank" rel="noopener noreferrer">
+          Trustpilot-Bewertungen öffnen
         </a>
       </article>
     </div>
@@ -77,48 +49,5 @@ const {
         Trustpilot-Bewertungen auf Originalseite
       </a>
     </div>
-
   </div>
-  <script is:inline>
-    (() => {
-      const trustpilotWidget = document.querySelector(".trustpilot-widget");
-      const fallback = document.querySelector(".trustpilot-widget-fallback");
-      if (!trustpilotWidget || !fallback) return;
-
-      const hasRenderedWidget = () => Boolean(trustpilotWidget.querySelector("iframe"));
-
-      const revealFallbackIfNeeded = () => {
-        if (hasRenderedWidget()) return;
-        fallback.hidden = false;
-      };
-
-      const renderWidget = () => {
-        if (hasRenderedWidget()) return;
-        if (!window.Trustpilot || typeof window.Trustpilot.loadFromElement !== "function") return;
-        window.Trustpilot.loadFromElement(trustpilotWidget, true);
-      };
-
-      const isLocalhost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
-      if (isLocalhost) {
-        revealFallbackIfNeeded();
-        return;
-      }
-
-      const trustpilotScript = document.createElement("script");
-      trustpilotScript.src = "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
-      trustpilotScript.async = true;
-      document.head.appendChild(trustpilotScript);
-
-      const waitForTrustpilot = () => {
-        if (window.Trustpilot && typeof window.Trustpilot.loadFromElement === "function") {
-          renderWidget();
-          return;
-        }
-        window.setTimeout(waitForTrustpilot, 300);
-      };
-
-      waitForTrustpilot();
-      window.setTimeout(revealFallbackIfNeeded, 4000);
-    })();
-  </script>
 </section>
