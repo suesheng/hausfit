@@ -28,7 +28,6 @@ const googleAdsTagId = "AW-17925018117";
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
     <link rel="canonical" href={Astro.url.href} />
     <title>{title}</title>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
     <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
@@ -43,10 +42,45 @@ const googleAdsTagId = "AW-17925018117";
         wait_for_update: 500
       });
       gtag("js", new Date());
-      gtag("config", gaMeasurementId, {
-        anonymize_ip: true
+
+      let gtagLibraryRequested = false;
+      let analyticsConfigured = false;
+      let adsConfigured = false;
+
+      const ensureGtagLibrary = () => {
+        if (gtagLibraryRequested) return;
+        gtagLibraryRequested = true;
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
+        document.head.appendChild(script);
+      };
+
+      const applyConsentConfig = (consent) => {
+        if (!consent) return;
+        if (consent.analytics || consent.marketing) ensureGtagLibrary();
+
+        if (consent.analytics && !analyticsConfigured) {
+          gtag("config", gaMeasurementId, { anonymize_ip: true });
+          analyticsConfigured = true;
+        }
+
+        if (consent.marketing && !adsConfigured) {
+          gtag("config", googleAdsTagId);
+          adsConfigured = true;
+        }
+      };
+
+      window.addEventListener("hausfit:cookie-consent-updated", (event) => {
+        applyConsentConfig(event.detail);
       });
-      gtag("config", googleAdsTagId);
+
+      try {
+        const storedConsent = JSON.parse(localStorage.getItem("hausfit_cookie_consent_v1") || "null");
+        applyConsentConfig(storedConsent);
+      } catch {
+        // no stored consent yet
+      }
     </script>
     <slot name="head" />
   </head>
