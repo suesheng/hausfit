@@ -1,0 +1,27 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#25313D" />
+      <stop offset="1" stop-color="#17202A" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="66" y="66" width="1068" height="498" rx="24" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.18" />
+
+  <image href="/logo_light.png" x="96" y="96" width="300" height="116" preserveAspectRatio="xMinYMin meet" />
+
+  <text x="96" y="292" fill="white" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800">
+    HausFit NRW
+  </text>
+  <text x="96" y="356" fill="#FFB39D" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">
+    Sanierung und Innenausbau
+  </text>
+  <text x="96" y="418" fill="#DCE3EA" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">
+    Zuverlässige Umsetzung in ganz Nordrhein-Westfalen
+  </text>
+
+  <rect x="96" y="462" width="430" height="74" rx="12" fill="#C94F2D" />
+  <text x="132" y="510" fill="white" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800">
+    www.hausfit.nrw
+  </text>
+</svg>

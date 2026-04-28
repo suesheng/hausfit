@@ -8,11 +8,14 @@ const {
   title = "HausFit NRW",
   description = "HausFit NRW ist Ihr Baupartner für Sanierung, Renovierung, Innenausbau und Modernisierung in Nordrhein-Westfalen.",
   noindex = false,
-  googleSiteVerification = "cposFC8Sr5tYiNdp4R0gv0BBIqstqpR3cL5LeWM43uE"
+  googleSiteVerification = "cposFC8Sr5tYiNdp4R0gv0BBIqstqpR3cL5LeWM43uE",
+  socialImage = "/og-image.jpg"
 } = Astro.props;
 
 const gaMeasurementId = "G-8235ZYX2TR";
 const googleAdsTagId = "AW-17925018117";
+const canonicalUrl = Astro.url.href;
+const socialImageUrl = new URL(socialImage, Astro.url).toString();
 ---
 
 <!DOCTYPE html>
@@ -26,7 +29,19 @@ const googleAdsTagId = "AW-17925018117";
     />
     <meta name="google-site-verification" content={googleSiteVerification} />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
-    <link rel="canonical" href={Astro.url.href} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="HausFit NRW" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:alt" content="HausFit NRW - Sanierung und Innenausbau" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
     <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
       window.dataLayer = window.dataLayer || [];
