@@ -63,8 +63,8 @@ h3 {
 }
 
 .eyebrow {
-  color: var(--color-brand);
-  font-size: 0.78rem;
+  color: var(--color-brand-dark);
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0;
   margin-bottom: 14px;
@@ -763,10 +763,15 @@ h3 {
 }
 
 .site-footer p {
+  color: rgba(255, 255, 255, 0.82);
   margin-top: 8px;
 }
 
 .site-footer a {
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  min-height: 44px;
   text-decoration: none;
 }
 
@@ -783,11 +788,13 @@ h3 {
 }
 
 .footer-list li {
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
 }
 
 .footer-list a {
   color: #fff;
+  font-weight: 600;
 }
 
 .footer-bottom {
@@ -929,7 +936,7 @@ h3 {
 }
 
 .contact-link {
-  color: #e4572e;
+  color: #b74425;
   font-weight: 600;
   text-decoration: none;
 }
@@ -1231,6 +1238,13 @@ h3 {
     margin: 0;
   }
 
+  .footer-contact .footer-list a,
+  .footer-area-mobile .footer-list a,
+  .footer-legal .footer-list a {
+    min-height: 46px;
+    width: 100%;
+  }
+
   .footer-area-mobile {
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -1337,6 +1351,8 @@ h3 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   color: #fff;
   font-weight: 600;
+  min-height: 48px;
+  min-width: 48px;
   padding: 12px 18px;
   position: fixed;
   right: 20px;
@@ -1384,7 +1400,7 @@ h3 {
 }
 
 .cookie-consent-copy a {
-  color: var(--color-brand-dark);
+  color: #7f2c17;
   font-weight: 700;
 }
 
@@ -1636,8 +1652,9 @@ body.cookie-modal-open {
   .whatsapp-button {
     border-radius: 999px;
     bottom: 12px;
-    font-size: 0.9rem;
-    padding: 10px 14px;
+    font-size: 0.92rem;
+    min-height: 50px;
+    padding: 12px 16px;
     right: 12px;
   }
 
