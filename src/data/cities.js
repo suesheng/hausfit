@@ -10,7 +10,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Düsseldorf vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -30,7 +30,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Köln vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -50,7 +50,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Essen vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -70,7 +70,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Dortmund vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -90,7 +90,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Bochum vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -110,7 +110,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Wuppertal vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -130,7 +130,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Duisburg vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },
@@ -150,7 +150,7 @@ export const cities = {
       { name: "Fliesenarbeiten", url: "/leistungen/fliesenleger-nrw" },
       { name: "Bodenverlegung", url: "/leistungen/bodenleger-nrw" },
       { name: "Malerarbeiten", url: "/leistungen/malerarbeiten-nrw" },
-      { name: "Dachsanierung", url: "/leistungen/dachsanierung-nrw" }
+      { name: "Dachausbau", url: "/leistungen/dachausbau-nrw" }
     ],
     faq: [
       { question: "Wie schnell sind Sie in Solingen vor Ort?", answer: "In der Regel innerhalb von 24–48 Stunden." },

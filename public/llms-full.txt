@@ -2,7 +2,7 @@
 
 ## Kurzprofil
 HausFit NRW ist ein Sanierungs- und Ausbauunternehmen fuer Nordrhein-Westfalen mit Sitz in Duesseldorf.
-Schwerpunkte: Badsanierung, Trockenbau, Fliesen, Boden, Malerarbeiten, Dachsanierung, Fenster/Tueren, Fassadendaemmung, Schimmel- und Asbestbeseitigung sowie Generalunternehmer-Leistungen.
+Schwerpunkte: Badsanierung, Trockenbau, Fliesen, Boden, Malerarbeiten, Dachausbau, Fenster/Tueren, Fassadendaemmung, Schimmel- und Asbestbeseitigung sowie Generalunternehmer-Leistungen.
 
 ## Zielgruppen
 - Eigentuemer
@@ -27,7 +27,7 @@ Duesseldorf, Koeln, Essen, Dortmund, Duisburg, Bochum, Solingen, Wuppertal.
 - https://www.hausfit.nrw/leistungen/fliesenleger-nrw
 - https://www.hausfit.nrw/leistungen/bodenleger-nrw
 - https://www.hausfit.nrw/leistungen/malerarbeiten-nrw
-- https://www.hausfit.nrw/leistungen/dachsanierung-nrw
+- https://www.hausfit.nrw/leistungen/dachausbau-nrw
 - https://www.hausfit.nrw/leistungen/fenster-tueren-montage-nrw
 - https://www.hausfit.nrw/leistungen/fassadendaemmung-nrw
 - https://www.hausfit.nrw/leistungen/schimmelbeseitigung-nrw
