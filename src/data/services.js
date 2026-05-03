@@ -47,5 +47,61 @@ export const serviceCombos = {
     description: "Präzise Verlegung von Wand- und Bodenfliesen.",
     nrwUrl: "/leistungen/fliesenleger-nrw",
     leistungen: ["Planung", "Demontage", "Untergrundvorbereitung", "Fliesenarbeiten", "Endmontage"]
+  },
+  bodenleger: {
+    name: "Bodenverlegung",
+    slug: "bodenleger",
+    description: "Böden fachgerecht verlegt und auf Nutzung abgestimmt.",
+    nrwUrl: "/leistungen/bodenleger-nrw",
+    leistungen: ["Untergrund prüfen", "Material und Verlegeplan", "Verlegung", "Übergänge und Abschlüsse", "Abnahme mit Pflegehinweisen"]
+  },
+  malerarbeiten: {
+    name: "Malerarbeiten",
+    slug: "malerarbeiten",
+    description: "Innenräume und Fassaden sauber vorbereitet und gestrichen.",
+    nrwUrl: "/leistungen/malerarbeiten-nrw",
+    leistungen: ["Oberflächenanalyse", "Untergrundvorbereitung", "Grundierung", "Deckanstriche", "Feinarbeit und Übergabe"]
+  },
+  dachausbau: {
+    name: "Dachausbau",
+    slug: "dachausbau",
+    description: "Dachraum und Aufbauten strukturiert realisieren.",
+    nrwUrl: "/leistungen/dachausbau-nrw",
+    leistungen: ["Bestandsaufnahme", "Nutzungskonzept", "Dach und Anschlüsse", "Koordination der Gewerke", "Abnahme"]
+  },
+  fenstertueren: {
+    name: "Fenster und Türen",
+    slug: "fenster-tueren",
+    description: "Montage und Austausch passgenau und luftdicht.",
+    nrwUrl: "/leistungen/fenster-tueren-montage-nrw",
+    leistungen: ["Aufmaß und Auswahl", "Demontage", "Montage", "Abdichtung und Anschlüsse", "Funktionsprüfung"]
+  },
+  fassadendaemmung: {
+    name: "Fassadendämmung",
+    slug: "fassadendaemmung",
+    description: "Fassade dämmen und vor Witterung schützen.",
+    nrwUrl: "/leistungen/fassadendaemmung-nrw",
+    leistungen: ["Bestandsanalyse", "Systemwahl", "Untergrund und Anschlüsse", "Ausführung", "Abnahme"]
+  },
+  schimmelbeseitigung: {
+    name: "Schimmelbeseitigung",
+    slug: "schimmelbeseitigung",
+    description: "Ursachen klären und Schimmel fachgerecht beseitigen.",
+    nrwUrl: "/leistungen/schimmelbeseitigung-nrw",
+    leistungen: ["Befund und Ursachenanalyse", "Schutzkonzept", "Entfernung befallener Bereiche", "Trocknung und Sanierung", "Nachkontrolle"]
+  },
+  asbestbeseitigung: {
+    name: "Asbestbeseitigung",
+    slug: "asbestbeseitigung",
+    description: "Asbesthaltige Materialien nach Vorgaben sicher zurückbauen.",
+    nrwUrl: "/leistungen/asbestbeseitigung-nrw",
+    leistungen: ["Proben und Bewertung", "Schutz- und Arbeitsplan", "Fachgerechter Rückbau", "Entsorgung", "Dokumentation"]
+  },
+  generalunternehmer: {
+    name: "Generalunternehmer",
+    slug: "generalunternehmer",
+    description: "Sanierung und Ausbau zentral geplant und umgesetzt.",
+    nrwUrl: "/leistungen/generalunternehmer-nrw",
+    leistungen: ["Projektdefinition", "Gewerke koordinieren", "Termine und Qualität", "Kommunikation mit Auftraggebern", "Abnahme"]
   }
 };

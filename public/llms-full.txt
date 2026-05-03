@@ -44,6 +44,23 @@ Duesseldorf, Koeln, Essen, Dortmund, Duisburg, Bochum, Solingen, Wuppertal.
 - https://www.hausfit.nrw/einsatzgebiet/solingen
 - https://www.hausfit.nrw/einsatzgebiet/wuppertal
 
+## Lokale Leistungsseiten (Kurz-URLs)
+Muster: `/<leistungsschluessel>-<stadt>`, z. B. `/malerarbeiten-koeln`, `/dachausbau-essen`.
+Fenster/Tueren: `/fenstertueren-<stadt>` (ohne Bindestrich im ersten Segment, technisches Routing).
+
+## Ratgeber (SEO)
+- https://www.hausfit.nrw/ratgeber/sanierung-kosten-duesseldorf
+- https://www.hausfit.nrw/ratgeber/badsanierung-preise-nrw
+- https://www.hausfit.nrw/ratgeber/trockenbau-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/malerarbeiten-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/fliesenleger-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/bodenleger-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/fassadendaemmung-foerderung-nrw
+- https://www.hausfit.nrw/ratgeber/fenster-tauschen-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/dachausbau-kosten-planung-nrw
+- https://www.hausfit.nrw/ratgeber/schimmelbeseitigung-kosten-nrw
+- https://www.hausfit.nrw/ratgeber/blitzreparatur-nach-installation-nrw
+
 ## Kontakt
 - Telefon: +49 179 923 8814
 - E-Mail: info@hausfit.nrw
