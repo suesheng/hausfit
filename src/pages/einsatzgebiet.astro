@@ -1,16 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { einsatzgebietCityLinks } from "../data/cities.js";
 
-const cities = [
-  { href: "/einsatzgebiet/duesseldorf", name: "Düsseldorf" },
-  { href: "/einsatzgebiet/koeln", name: "Köln" },
-  { href: "/einsatzgebiet/essen", name: "Essen" },
-  { href: "/einsatzgebiet/dortmund", name: "Dortmund" },
-  { href: "/einsatzgebiet/duisburg", name: "Duisburg" },
-  { href: "/einsatzgebiet/bochum", name: "Bochum" },
-  { href: "/einsatzgebiet/solingen", name: "Solingen" },
-  { href: "/einsatzgebiet/wuppertal", name: "Wuppertal" }
-];
+const cities = einsatzgebietCityLinks;
 ---
 
 <BaseLayout title="Einsatzgebiet in NRW | HausFit NRW">

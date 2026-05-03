@@ -160,3 +160,15 @@ export const cities = {
     advantages: ["Schnell vor Ort in Solingen", "Erfahrung mit Sanierung in NRW", "Verlässliche Umsetzung im Bestand"]
   }
 };
+
+/** Städte-Links für Einsatzgebiet-Abschnitte (gleiche Reihenfolge wie auf /einsatzgebiet). */
+export const einsatzgebietCityLinks = [
+  { href: "/einsatzgebiet/duesseldorf", name: "Düsseldorf" },
+  { href: "/einsatzgebiet/koeln", name: "Köln" },
+  { href: "/einsatzgebiet/essen", name: "Essen" },
+  { href: "/einsatzgebiet/dortmund", name: "Dortmund" },
+  { href: "/einsatzgebiet/duisburg", name: "Duisburg" },
+  { href: "/einsatzgebiet/bochum", name: "Bochum" },
+  { href: "/einsatzgebiet/solingen", name: "Solingen" },
+  { href: "/einsatzgebiet/wuppertal", name: "Wuppertal" }
+];

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { einsatzgebietCityLinks } from "../data/cities.js";
 
 interface Props {
   pageTitle: string;
@@ -70,22 +71,26 @@ const {
         <section>
           <h2>Erfahrung und Vertrauen</h2>
           <p>
-            Seit 2004 realisieren wir Sanierungsprojekte in NRW.
+            Seit 2004 realisieren wir Sanierungsprojekte in Nordrhein-Westfalen.
             Tausende Kunden vertrauen auf unsere Arbeit.
           </p>
         </section>
 
         <section>
           <h2>Einsatzgebiet</h2>
-          <p class="desktop-only">Wir bieten diese Leistung in ganz NRW an, einschließlich:</p>
+          <p>Wir bieten diese Leistung in Nordrhein-Westfalen an, einschließlich:</p>
           <ul>
-            <li><a href="/einsatzgebiet/duesseldorf">Düsseldorf</a></li>
-            <li><a href="/einsatzgebiet/koeln">Köln</a></li>
-            <li><a href="/einsatzgebiet/essen">Essen</a></li>
-            <li><a href="/einsatzgebiet/dortmund">Dortmund</a></li>
-            <li><a href="/einsatzgebiet/bochum">Bochum</a></li>
-            <li><a href="/einsatzgebiet/wuppertal">Wuppertal</a></li>
+            {
+              einsatzgebietCityLinks.map((city) => (
+                <li>
+                  <a href={city.href}>{city.name}</a>
+                </li>
+              ))
+            }
           </ul>
+          <p>
+            <a href="/einsatzgebiet">Übersicht Einsatzgebiet</a>
+          </p>
         </section>
 
         <section>
