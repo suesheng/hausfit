@@ -6,96 +6,96 @@ export const renovationFaq = [
     id: "faq-badsanierung-dauer",
     question: "Wie lange dauert eine Badsanierung?",
     schemaAnswer:
-      "Eine Komplett-Badsanierung dauert in der Regel zwei bis vier Wochen, abhängig von Größe, Leitungsführung und Ausstattung. Teilmaßnahmen sind oft schneller. HausFit plant feste Bauphasen und hält Sie über den Fortschritt auf dem Laufenden.",
+      "Eine Komplett-Badsanierung dauert in der Regel zwei bis vier Wochen, abhängig von Größe, Leitungsführung und Ausstattung. Teilmaßnahmen sind oft schneller. HausFit plant feste Bauphasen und informiert Sie regelmäßig zum Fortschritt.",
     answerHtml:
-      'Eine <strong>Komplett-Badsanierung</strong> dauert in der Regel <strong>2 bis 4 Wochen</strong>, abhängig von Größe, Leitungsführung und Ausstattung. Teilmaßnahmen sind oft schneller. Wir planen feste Bauphasen und halten Sie über den Fortschritt auf dem Laufenden. Mehr zur <a href="/leistungen/badsanierung-nrw">Badsanierung in NRW</a> und zu <a href="/leistungen/fliesenleger-nrw">Fliesenarbeiten</a>.'
+      'Eine <strong>Komplett-Badsanierung</strong> dauert meist <strong>2 bis 4 Wochen</strong> – abhängig von Größe, Leitungen und Ausstattung. Teilmaßnahmen gehen oft schneller. Details: <a href="/leistungen/badsanierung-nrw">Badsanierung NRW</a>, <a href="/leistungen/fliesenleger-nrw">Fliesenarbeiten</a>.'
   },
   {
     id: "faq-dachausbau-genehmigung",
     question: "Brauche ich eine Genehmigung für den Dachausbau?",
     schemaAnswer:
-      "Ob eine Genehmigung nötig ist, hängt von Statik, Nutzung, Dachform und dem Bundesland ab. In NRW prüfen wir Einordnung, Brandschutz und Genehmigungsfähigkeit früh und stimmen uns mit Behörden oder Planern ab, wenn nötig.",
+      "Ob eine Genehmigung nötig ist, hängt von Statik, Nutzung, Dachform und örtlichen Vorgaben ab. In NRW prüfen wir Einordnung, Brandschutz und Genehmigungsfähigkeit früh und stimmen uns bei Bedarf mit Behörden oder Planern ab.",
     answerHtml:
-      'Ob eine <strong>Genehmigung</strong> nötig ist, hängt von Statik, Nutzung, Dachform und örtlichen Vorgaben ab. In NRW prüfen wir die Einordnung, den Brandschutz und die Genehmigungsfähigkeit früh im Projekt. Details zum <a href="/leistungen/dachausbau-nrw">Dachausbau in NRW</a>.'
+      'Das hängt von <strong>Statik, Nutzung und Dachform</strong> ab. Wir prüfen in NRW früh, ob eine Genehmigung nötig ist, und koordinieren die Schritte. Mehr zum <a href="/leistungen/dachausbau-nrw">Dachausbau in NRW</a> und zur <a href="/ratgeber/dachausbau-kosten-planung-nrw">Planung &amp; Kosten</a>.'
   },
   {
-    id: "faq-foerderungen-nrw",
-    question: "Welche Förderungen gibt es für Sanierung in NRW?",
+    id: "faq-foerderungen-2026",
+    question: "Welche Förderungen gibt es für Sanierung in NRW 2026?",
     schemaAnswer:
-      "In NRW und bundesweit gibt es Förderungen für energetische Sanierung, Heizungstausch und Gebäudehülle, zum Beispiel über KfW und BAFA. Wir beraten, welche Maßnahmen förderfähig sind, und arbeiten mit Ihrer Unterlagenlage für den Antrag.",
+      "2026 gibt es weiterhin Förderungen für energetische Sanierung, Heizungstausch und Gebäudehülle über Programme wie KfW und BAFA. Förderfähigkeit und Fristen ändern sich – wir beraten zu passenden Maßnahmen und Unterlagen für Ihren Antrag.",
     answerHtml:
-      'In NRW und bundesweit gibt es Förderungen für <strong>energetische Sanierung</strong>, Heizungstausch und Gebäudehülle (u. a. KfW, BAFA). Wir beraten, welche Maßnahmen förderfähig sind. Schwerpunkte: <a href="/leistungen/fassadendaemmung-nrw">Fassadendämmung</a> und <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen</a>. Ratgeber: <a href="/ratgeber/fassadendaemmung-foerderung-nrw">Fassadendämmung &amp; Förderung</a>.'
+      'Für 2026 gibt es u. a. Förderungen für <strong>energetische Sanierung</strong>, Heizungstausch und Gebäudehülle (KfW, BAFA – Programme und Fristen können sich ändern). Wir beraten zu förderfähigen Maßnahmen: <a href="/leistungen/fassadendaemmung-nrw">Fassadendämmung</a>, <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen</a>, <a href="/ratgeber/fassadendaemmung-foerderung-nrw">Ratgeber Förderung</a>.'
   },
   {
     id: "faq-kernsanierung-kosten",
     question: "Wie viel kostet eine Kernsanierung?",
     schemaAnswer:
-      "Die Kosten einer Kernsanierung hängen von Fläche, Bausubstanz und Gewerken ab. Richtwerte liegen oft zwischen 800 und 1.500 Euro pro Quadratmeter. Nach Vor-Ort-Termin erhalten Sie ein strukturiertes Angebot mit Festpreisen pro Leistungspaket.",
+      "Die Kosten hängen von Fläche, Bausubstanz und Gewerken ab. Richtwerte liegen oft zwischen 800 und 1.500 Euro pro Quadratmeter. Nach Vor-Ort-Termin erhalten Sie ein strukturiertes Angebot mit Festpreisen pro Leistungspaket.",
     answerHtml:
-      'Die Kosten einer <strong>Kernsanierung</strong> hängen von Fläche, Bausubstanz und Gewerken ab. Richtwerte liegen oft zwischen <strong>800 und 1.500 €/m²</strong>. Nach Vor-Ort-Termin erhalten Sie ein strukturiertes Angebot. Als <a href="/leistungen/generalunternehmer-nrw">Generalunternehmer in NRW</a> koordinieren wir alle Gewerke aus einer Hand.'
+      'Richtwerte oft <strong>800–1.500 €/m²</strong>, abhängig von Zustand und Gewerken. Nach Besichtigung erhalten Sie ein klares Angebot. Als <a href="/leistungen/generalunternehmer-nrw">Generalunternehmer in NRW</a> koordinieren wir alle Gewerke – Übersicht: <a href="/leistungen">Leistungen</a>.'
   },
   {
     id: "faq-wochenende",
     question: "Arbeiten Sie auch am Wochenende?",
     schemaAnswer:
-      "Ja, für dringende Reparaturen oder eng getaktete Projekte können wir Wochenendfenster vereinbaren, zum Beispiel nach Installationsarbeiten oder bei kurzen Blitzreparaturen. Der reguläre Ablauf läuft montags bis freitags.",
+      "Ja, für dringende Reparaturen oder eng getaktete Projekte können wir Wochenendfenster vereinbaren. Der reguläre Ablauf läuft montags bis freitags; Sondertermine stimmen wir vorab ab.",
     answerHtml:
-      'Ja – für <strong>dringende Reparaturen</strong> oder eng getaktete Projekte können wir Wochenendfenster vereinbaren. Der reguläre Ablauf läuft Mo–Fr. Mehr zur <a href="/ratgeber/blitzreparatur-nach-installation-nrw">Blitzreparatur nach Installation</a> oder <a href="/kontakt">direkt anfragen</a>.'
+      'Ja – für <strong>dringende Reparaturen</strong> oder kurze Fenster können wir Wochenendarbeit vereinbaren (Mo–Fr regulär). Infos: <a href="/ratgeber/blitzreparatur-nach-installation-nrw">Blitzreparatur</a> · <a href="/kontakt">Kontakt</a>.'
   },
   {
-    id: "faq-angebot",
-    question: "Wie erhalte ich ein Angebot?",
+    id: "faq-kostenloses-angebot",
+    question: "Wie erhalte ich ein kostenloses Angebot?",
     schemaAnswer:
-      "Kontakt per Telefon, WhatsApp oder Formular. Wir klären Kurzinfos, vereinbaren bei Bedarf einen Vor-Ort-Termin und senden ein verständliches Angebot mit Leistungen, Terminen und Festpreisen.",
+      "Per Telefon, WhatsApp oder Kontaktformular mit kurzer Projektbeschreibung. Wir klären den Bedarf, vereinbaren bei Bedarf einen Vor-Ort-Termin und senden ein verständliches Angebot – die Erstberatung ist kostenlos.",
     answerHtml:
-      'So geht’s: <strong>Kontakt</strong> per Telefon, WhatsApp oder Formular → Kurzinfos zum Projekt → bei Bedarf <strong>Vor-Ort-Termin</strong> → verständliches Angebot mit Festpreisen. <a href="/kontakt">Jetzt Anfrage senden</a>.'
+      '<strong>So geht’s:</strong> Anfrage per Telefon, WhatsApp oder Formular → Kurzinfos → bei Bedarf <strong>Vor-Ort-Termin</strong> → kostenloses Angebot mit Festpreisen. <a href="/kontakt">Jetzt kostenlos anfragen</a>.'
   },
   {
-    id: "faq-schimmel",
-    question: "Wie erkenne ich Schimmel und was ist zu tun?",
+    id: "faq-festpreis",
+    question: "Was ist im Festpreis enthalten?",
     schemaAnswer:
-      "Typische Anzeichen sind dunkle Flecken, muffiger Geruch und feuchte Ecken. Wichtig ist die Ursache: Feuchte, Undichtigkeit oder Kondenswasser. Wir analysieren, bauen betroffene Bereiche zurück, trocknen und sanieren fachgerecht.",
+      "Im Festpreis sind die vereinbarten Leistungen, Materialien laut Angebot, Koordination der Gewerke und die dokumentierte Abnahme enthalten. Zusatzleistungen oder Änderungen werden vor Umsetzung schriftlich abgestimmt.",
     answerHtml:
-      'Typische Anzeichen: <strong>dunkle Flecken</strong>, muffiger Geruch, feuchte Ecken. Ursachen klären wir vor dem Rückbau. Mehr zur <a href="/leistungen/schimmelbeseitigung-nrw">Schimmelbeseitigung in NRW</a> und zu <a href="/ratgeber/schimmelbeseitigung-kosten-nrw">Kosten &amp; Ablauf</a>.'
+      'Im <strong>Festpreis</strong> sind die im Angebot genannten Leistungen, Materialien, Koordination und Abnahme enthalten. Änderungen stimmen wir vorher ab. Beispiele: <a href="/leistungen/badsanierung-nrw">Badsanierung</a>, <a href="/leistungen/trockenbau-nrw">Trockenbau</a>, <a href="/leistungen/generalunternehmer-nrw">Komplettsanierung</a>.'
   },
   {
-    id: "faq-fassade-kosten",
-    question: "Was kostet eine Fassadendämmung?",
+    id: "faq-dachausbau-dauer",
+    question: "Wie lange dauert ein Dachausbau?",
     schemaAnswer:
-      "Die Kosten hängen von Fläche, System, Untergrund und Gerüst ab. Richtwerte liegen oft zwischen 150 und 280 Euro pro Quadratmeter. Nach Aufmaß nennen wir einen festen Rahmen inklusive Dämmstärke und Details.",
+      "Ein Dachausbau dauert je nach Umfang oft sechs bis zwölf Wochen – von Statik und Dämmung bis Innenausbau. Kleinere Maßnahmen sind kürzer. Wir planen Phasen mit festen Meilensteinen.",
     answerHtml:
-      'Die Kosten hängen von Fläche, System und Untergrund ab – Richtwerte oft <strong>150–280 €/m²</strong>. Nach Aufmaß erhalten Sie einen klaren Rahmen. Details: <a href="/leistungen/fassadendaemmung-nrw">Fassadendämmung NRW</a> und <a href="/ratgeber/fassadendaemmung-foerderung-nrw">Förderung</a>.'
+      'Je nach Umfang meist <strong>6–12 Wochen</strong> (Statik, Dämmung, Innenausbau). Kleinere Projekte sind kürzer. Ablauf und Kosten: <a href="/leistungen/dachausbau-nrw">Dachausbau NRW</a>, <a href="/ratgeber/dachausbau-kosten-planung-nrw">Ratgeber Planung</a>.'
   },
   {
-    id: "faq-wohnen-waehrend-sanierung",
-    question: "Kann ich während der Sanierung in der Wohnung bleiben?",
+    id: "faq-zahlung",
+    question: "Welche Zahlungsmethoden akzeptieren Sie?",
     schemaAnswer:
-      "Bei Teilmaßnahmen oft ja, bei Kernsanierung oder Badsanierung meist nur eingeschränkt. Wir planen Staubschutz, Laufwege und Arbeitsphasen so, dass die Nutzung möglichst wenig gestört wird.",
+      "Üblicherweise per Rechnung mit vereinbarten Zahlungszielen und Teilzahlungen nach Bauphasen. Details wie Anzahlung und Schlusszahlung legen wir transparent im Angebot fest.",
     answerHtml:
-      'Bei <strong>Teilmaßnahmen</strong> oft ja – bei Kernsanierung oder Komplettbad meist nur eingeschränkt. Wir planen Staubschutz und Phasen bewusst. Übersicht aller Leistungen: <a href="/leistungen">Leistungen</a> · Koordination: <a href="/leistungen/generalunternehmer-nrw">Generalunternehmer</a>.'
+      'Üblich per <strong>Rechnung</strong> mit Zahlungszielen und Teilzahlungen nach Bauphasen – alles steht transparent im Angebot. Fragen? <a href="/kontakt">Kontakt aufnehmen</a>.'
   },
   {
-    id: "faq-gewerke-koordination",
-    question: "Koordinieren Sie alle Gewerke aus einer Hand?",
+    id: "faq-versicherung",
+    question: "Haben Sie eine Versicherung für Schäden?",
     schemaAnswer:
-      "Ja. Als Generalunternehmer binden wir Fliesen, Trockenbau, Maler, Elektro und weitere Gewerke ein, mit einem Ansprechpartner, klaren Terminen und abgestimmter Abnahme.",
+      "Als Fachbetrieb arbeiten wir mit Betriebshaftpflicht- und relevanten Gewerbeversicherungen. Schäden werden nach Vorgaben dokumentiert, gemeldet und mit Ihnen sowie der Versicherung abgestimmt.",
     answerHtml:
-      'Ja – als <a href="/leistungen/generalunternehmer-nrw">Generalunternehmer</a> binden wir z. B. <a href="/leistungen/trockenbau-nrw">Trockenbau</a>, <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a>, <a href="/leistungen/fliesenleger-nrw">Fliesen</a> und <a href="/leistungen/bodenleger-nrw">Bodenbeläge</a> mit <strong>einem Ansprechpartner</strong> ein.'
+      'Ja – wir arbeiten mit <strong>Betriebshaftpflicht</strong> und den für unsere Gewerke erforderlichen Versicherungen. Schäden klären wir dokumentiert und transparent. Mehr zu uns: <a href="/ueber-uns">Über HausFit NRW</a>.'
   },
   {
-    id: "faq-fenster-ablauf",
-    question: "Wie läuft eine Fenster- und Türerneuerung ab?",
+    id: "faq-einsatzgebiet",
+    question: "Wie weit ist Ihr Einsatzgebiet?",
     schemaAnswer:
-      "Ablauf: Aufmaß, Angebot, Demontage alter Elemente, luftdichte Montage, Anschlussfugen und Abnahme. So verbessern sich Energieeffizienz und Schallschutz messbar.",
+      "HausFit NRW ist in Nordrhein-Westfalen aktiv, Schwerpunkt Düsseldorf, Köln, Essen, Dortmund, Duisburg, Bochum, Solingen und Wuppertal. Weitere Orte in NRW nach Absprache.",
     answerHtml:
-      'Ablauf: <strong>Aufmaß</strong> → Angebot → Demontage → luftdichte Montage → Abnahme. Mehr zu <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen in NRW</a> und <a href="/ratgeber/fenster-tauschen-kosten-nrw">Kosten beim Fenstertausch</a>.'
+      'Unser Schwerpunkt liegt in <strong>NRW</strong> – u. a. <a href="/einsatzgebiet/duesseldorf">Düsseldorf</a>, <a href="/einsatzgebiet/koeln">Köln</a>, <a href="/einsatzgebiet/essen">Essen</a>, <a href="/einsatzgebiet/dortmund">Dortmund</a>. Alle Städte: <a href="/einsatzgebiet">Einsatzgebiet</a>.'
   },
   {
-    id: "faq-asbest",
-    question: "Entfernen Sie Asbest sicher und dokumentiert?",
+    id: "faq-unterschied-hausfit",
+    question: "Was unterscheidet HausFit von anderen Handwerkern?",
     schemaAnswer:
-      "Ja. Asbestbeseitigung erfolgt nach geltenden Vorgaben mit Probenahme, Schutzplan, Rückbau, Entsorgung und Dokumentation für Eigentümer und Behörden.",
+      "HausFit bündelt Sanierung und Innenausbau mit einem Ansprechpartner, Festpreisen, klarer Kommunikation und koordinierter Abnahme. Erfahrung in NRW, saubere Baustellen und kostenlose Erstberatung.",
     answerHtml:
-      'Ja – mit <strong>Probenahme</strong>, Schutzplan, Rückbau, Entsorgung und Dokumentation nach Vorgaben. Details: <a href="/leistungen/asbestbeseitigung-nrw">Asbestbeseitigung in NRW</a>.'
+      '<strong>Ein Partner</strong> für viele Gewerke, <strong>Festpreise</strong>, klare Termine und Kommunikation aus Düsseldorf für ganz NRW. Überzeugen Sie sich: <a href="/referenzen">Referenzen</a>, <a href="/ueber-uns">Über uns</a>, <a href="/leistungen">Leistungen</a>.'
   }
 ];
