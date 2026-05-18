@@ -1,32 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { bodenlegerKostenRatgeber } from "../../data/ratgeber/bodenleger-kosten-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = bodenlegerKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Bodenleger Kosten NRW 2026 | HausFit"
-  description="Bodenleger Kosten in NRW 2026: Vinyl, Laminat und Designböden – Richtwerte, Untergrund und Festpreise von HausFit NRW."
-  breadcrumbLabel="Bodenleger Kosten"
-  h1="Bodenleger Kosten: Planung statt Überraschung"
-  intro="Bodenbeläge prägen Raumwirkung und Alltagstauglichkeit. Die Kosten hängen weniger vom Quadratmeterpreis allein ab als von Untergrund, Übergängen und Anschlussdetails."
-  asideTitle="Bodenprojekt planen"
-  asideText="Kurz Fläche, Nutzung und Materialwunsch nennen – wir melden uns mit den nächsten Schritten."
->
-  <section>
-    <h2>Kostentreiber bei Bodenbelägen</h2>
-    <ul>
-      <li>Zustand des Untergrunds und Ausgleicharbeiten</li>
-      <li>Materialwahl: Vinyl, Laminat, Parkett, Designboden</li>
-      <li>Verlegeart und Sockel-/Übergangslösungen</li>
-      <li>Entfernung alter Beläge und Entsorgung</li>
-      <li>Möblierung / bewohnter Zustand während der Arbeiten</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Passende Leistung</h2>
-    <p>
-      Mehr zur <a href="/leistungen/bodenleger-nrw">Bodenverlegung in NRW</a>,
-      oft kombiniert mit <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

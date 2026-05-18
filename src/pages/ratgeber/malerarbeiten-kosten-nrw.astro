@@ -1,31 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { malerarbeitenKostenRatgeber } from "../../data/ratgeber/malerarbeiten-kosten-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = malerarbeitenKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Malerarbeiten Kosten NRW 2026 | HausFit"
-  description="Malerarbeiten Kosten in NRW 2026: Richtwerte für Innenräume und Fassaden, Qualitätsstufen und Festpreise – HausFit NRW."
-  breadcrumbLabel="Malerarbeiten Kosten"
-  h1="Malerarbeiten Kosten: was den Preis bestimmt"
-  intro="Saubere Wände und Decken entstehen nicht durch Farbe allein, sondern durch Vorbereitung, Grundierung und die richtige Qualitätsstufe. So bleibt Ihr Budget planbar."
-  asideTitle="Malerprojekt anfragen"
-  asideText="Fläche, Zustand und Farbwünsche reichen für den ersten Schritt."
->
-  <section>
-    <h2>Preisfaktoren</h2>
-    <ul>
-      <li>Fläche und Raumhöhe</li>
-      <li>Untergrundqualität (Risse, Altfarbe, Tapete)</li>
-      <li>Anstrichsystem und Anzahl der Schichten</li>
-      <li>Innen vs. Fassade, Gerüst und Witterung</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Leistungsseite</h2>
-    <p>
-      <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten in NRW</a> –
-      kombinierbar mit <a href="/leistungen/trockenbau-nrw">Trockenbau</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

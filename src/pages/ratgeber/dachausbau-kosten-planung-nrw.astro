@@ -1,31 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { dachausbauKostenRatgeber } from "../../data/ratgeber/dachausbau-kosten-planung-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = dachausbauKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Dachausbau Kosten NRW 2026 | HausFit"
-  description="Dachausbau Kosten und Planung in NRW 2026: Richtwerte, Genehmigung, Gewerke und Festpreise vom Fachbetrieb HausFit."
-  breadcrumbLabel="Dachausbau Kosten"
-  h1="Dachausbau: Kosten und Planung von Anfang an"
-  intro="Ein Dachausbau schafft Wohnfläche – er verbindet Statik, Dämmung und Innenausbau. Wer früh plant, vermeidet teure Korrekturen in der Bauphase."
-  asideTitle="Dachprojekt besprechen"
-  asideText="Skizze, Fotos und Nutzungswunsch reichen für die Ersteinschätzung."
->
-  <section>
-    <h2>Planungsschritte</h2>
-    <ol>
-      <li>Nutzungskonzept und Statik klären</li>
-      <li>Dämmung, Fenster und Dachfenster festlegen</li>
-      <li>Innenausbau (Trockenbau, Estrich, Maler) abstimmen</li>
-      <li>Termine und Festpreis vereinbaren</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Leistung &amp; Ratgeber</h2>
-    <p>
-      <a href="/leistungen/dachausbau-nrw">Dachausbau in NRW</a> –
-      ergänzend <a href="/ratgeber/badsanierung-preise-nrw">Badsanierung Preise</a> bei Dachbad-Ideen.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

@@ -1,29 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { fensterTauschenKostenRatgeber } from "../../data/ratgeber/fenster-tauschen-kosten-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = fensterTauschenKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Fenster tauschen Kosten NRW 2026 | HausFit"
-  description="Fenster tauschen Kosten in NRW 2026: Richtwerte pro Element, Einbauqualität und Energieeinsparung – HausFit NRW."
-  breadcrumbLabel="Fenster tauschen Kosten"
-  h1="Fenster tauschen: Kosten und Qualität im Einbau"
-  intro="Neue Fenster verbessern Schallschutz und Energieeffizienz – der Preis hängt von Maß, Verglasung und luftdichter Montage ab."
-  asideTitle="Fensterprojekt anfragen"
-  asideText="Anzahl Elemente, Baujahr und Wünsche kurz beschreiben."
->
-  <section>
-    <h2>Preisfaktoren</h2>
-    <ul>
-      <li>Größe, Material (Kunststoff, Holz-Alu)</li>
-      <li>Verglasung (2- oder 3-fach, Schallschutz)</li>
-      <li>Demontage, Anschluss und Dämmung</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Leistung</h2>
-    <p>
-      <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen in NRW</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

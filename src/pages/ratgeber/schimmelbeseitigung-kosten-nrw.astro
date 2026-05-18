@@ -1,30 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { schimmelbeseitigungKostenRatgeber } from "../../data/ratgeber/schimmelbeseitigung-kosten-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = schimmelbeseitigungKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Schimmelbeseitigung Kosten NRW 2026 | HausFit"
-  description="Schimmelbeseitigung Kosten in NRW 2026: Ursache, Rückbau, Trocknung und Sanierung – Richtwerte von HausFit NRW."
-  breadcrumbLabel="Schimmelbeseitigung Kosten"
-  h1="Schimmelbeseitigung: Kosten und Ursache im Fokus"
-  intro="Schimmel ist Symptom – nicht die eigentliche Ursache. Wer Feuchte eindämmt und fachgerecht saniert, verhindert erneuten Befall."
-  asideTitle="Schimmelbefall melden"
-  asideText="Fotos und betroffene Flächen helfen bei der Ersteinschätzung."
->
-  <section>
-    <h2>Kostentreiber</h2>
-    <ul>
-      <li>Befallsfläche und Einbautiefe</li>
-      <li>Ursachenanalyse (Kondensat, Undichtigkeit)</li>
-      <li>Trocknung und Wiederaufbau</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Leistung</h2>
-    <p>
-      <a href="/leistungen/schimmelbeseitigung-nrw">Schimmelbeseitigung NRW</a>,
-      oft vor <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

@@ -1,30 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { fassadendaemmungFoerderungRatgeber } from "../../data/ratgeber/fassadendaemmung-foerderung-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = fassadendaemmungFoerderungRatgeber;
 ---
 
 <RatgeberArticle
-  title="Fassadendämmung Förderung NRW 2026 | HausFit"
-  description="Fassadendämmung Förderung und Kosten in NRW 2026: Programme, Richtwerte und Umsetzung mit HausFit NRW."
-  breadcrumbLabel="Fassadendämmung Förderung"
-  h1="Fassadendämmung: Kosten und Förderung im Blick"
-  intro="Eine gedämmte Fassade senkt Heizkosten und erhöht den Wohnkomfort. 2026 lohnt sich der Blick auf Förderprogramme und die richtige Systemwahl."
-  asideTitle="Fassade beraten lassen"
-  asideText="Gebäudedaten und Fotos helfen bei der ersten Einschätzung."
->
-  <section>
-    <h2>Förderung &amp; Kosten</h2>
-    <ul>
-      <li>KfW/BAFA im Kontext energetischer Sanierung</li>
-      <li>Systemwahl (WDVS, Keramik, Kombinationen)</li>
-      <li>Richtwerte oft 150–280 €/m² Fassadenfläche</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Leistung</h2>
-    <p>
-      <a href="/leistungen/fassadendaemmung-nrw">Fassadendämmung NRW</a> mit
-      <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>

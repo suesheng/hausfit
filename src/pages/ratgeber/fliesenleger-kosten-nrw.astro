@@ -1,43 +1,30 @@
 ---
 import RatgeberArticle from "../../components/RatgeberArticle.astro";
+import { fliesenlegerKostenRatgeber } from "../../data/ratgeber/fliesenleger-kosten-nrw.js";
+
+const {
+  title,
+  description,
+  breadcrumbLabel,
+  h1,
+  intro,
+  sections,
+  asideTitle,
+  asideText,
+  asideCtaLabel,
+  faqSchema
+} = fliesenlegerKostenRatgeber;
 ---
 
 <RatgeberArticle
-  title="Fliesenleger Kosten NRW 2026 | HausFit"
-  description="Fliesenleger Kosten in NRW 2026: Richtwerte pro m², Verlegearten und Tipps für Bad, Küche und Wohnräume – HausFit NRW."
-  breadcrumbLabel="Fliesenleger Kosten"
-  h1="Fliesenleger Kosten: worauf es ankommt"
-  intro="Fliesenarbeiten entscheiden über Optik und Langlebigkeit – besonders in Bad und Küche. Wer Untergrund, Format und Verlegeart früh festlegt, erhält ein planbares Angebot ohne böse Überraschungen."
-  asideTitle="Fliesenprojekt anfragen"
-  asideText="Teilen Sie uns Fläche, Formatwunsch und Fotos mit. Wir kalkulieren transparent für NRW."
-  asideCtaLabel="Angebot anfordern"
->
-  <section>
-    <h2>Typische Preisfaktoren</h2>
-    <ul>
-      <li>Fläche, Format und Material (Feinsteinzeug, Naturstein, Mosaik)</li>
-      <li>Untergrundvorbereitung und Ausgleich</li>
-      <li>Verlegeart (halbverlegt, im Verbund, große Formate)</li>
-      <li>Anschlüsse, Nischen und Silikonführung</li>
-      <li>Abdichtung in Nassbereichen</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Leistungen und Verknüpfung</h2>
-    <p>
-      Details zur <a href="/leistungen/fliesenleger-nrw">Fliesenarbeiten-Leistung</a>.
-      Im Bad kombinieren wir Fliesen oft mit
-      <a href="/leistungen/badsanierung-nrw">Badsanierung</a> aus einer Hand.
-    </p>
-  </section>
-
-  <section>
-    <h2>Einsatzgebiet NRW</h2>
-    <p>
-      Projekte u. a. in <a href="/einsatzgebiet/koeln">Köln</a> und
-      <a href="/einsatzgebiet/duesseldorf">Düsseldorf</a> –
-      <a href="/einsatzgebiet">alle Standorte</a>.
-    </p>
-  </section>
-</RatgeberArticle>
+  title={title}
+  description={description}
+  breadcrumbLabel={breadcrumbLabel}
+  h1={h1}
+  intro={intro}
+  sections={sections}
+  asideTitle={asideTitle}
+  asideText={asideText}
+  asideCtaLabel={asideCtaLabel}
+  faqSchema={faqSchema}
+/>
