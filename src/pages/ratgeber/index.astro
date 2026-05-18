@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { getRootPageMeta } from "../../data/page-meta.js";
+import { ratgeberArticles } from "../../data/ratgeber/articles.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for /ratgeber");
+---
+
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Ratgeber", url: "/ratgeber/" }
+        ]}
+      />
+      <p class="eyebrow">Ratgeber</p>
+      <h1>Ratgeber: Kosten & Planung für Sanierung in NRW</h1>
+      <p>
+        Praxisnahe Artikel mit Richtpreisen für 2026, Checklisten und Tipps vom Fachbetrieb HausFit NRW –
+        von Badsanierung bis Fassadendämmung.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Alle Ratgeber-Artikel</h2>
+      </div>
+      <ul class="ratgeber-index-list">
+        {
+          ratgeberArticles.map((article) => (
+            <li>
+              <a href={`/ratgeber/${article.slug}/`}>
+                <strong>{article.title}</strong>
+                <span>{article.description}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -27,6 +27,11 @@ export const rootPageMeta = {
     description:
       "Leistungen von HausFit NRW: Badsanierung, Trockenbau, Fliesen, Malerarbeiten, Dachausbau und Schimmelbeseitigung. Ein Fachbetrieb für Projekte in NRW."
   },
+  "/ratgeber": {
+    title: "Ratgeber Sanierung NRW ✓ Kosten 2026 | HausFit",
+    description:
+      "Ratgeber von HausFit NRW: Kosten, Planung und Tipps zu Badsanierung, Trockenbau, Fassade und mehr. Richtpreise für NRW 2026 vom Fachbetrieb."
+  },
   "/einsatzgebiet": {
     title: "Einsatzgebiet NRW ✓ 8 Städte | HausFit",
     description:

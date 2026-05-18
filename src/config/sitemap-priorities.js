@@ -17,7 +17,9 @@ const LEGAL_PATHS = new Set([
   "/cookie-richtlinie",
 ]);
 
-const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns", "/faq"]);
+const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns", "/faq", "/ratgeber"]);
+
+const RATGEBER_PAGE = /^\/ratgeber\/[^/]+$/;
 
 const SERVICE_PAGE = /^\/leistungen\/[^/]+-nrw$/;
 
@@ -41,6 +43,7 @@ export function priorityForPath(pathname) {
   if (SERVICE_PAGE.test(pathname)) return 0.8;
   if (CITY_PATHS.has(pathname)) return 0.7;
   if (CORE_PATHS.has(pathname)) return 0.6;
+  if (RATGEBER_PAGE.test(pathname)) return 0.5;
   return undefined;
 }
 
