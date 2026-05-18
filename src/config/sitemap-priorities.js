@@ -17,7 +17,7 @@ const LEGAL_PATHS = new Set([
   "/cookie-richtlinie",
 ]);
 
-const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns"]);
+const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns", "/faq"]);
 
 const SERVICE_PAGE = /^\/leistungen\/[^/]+-nrw$/;
 

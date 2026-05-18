@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+import { renovationFaq } from "../data/faq.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for faq");
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: renovationFaq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.schemaAnswer
+    }
+  }))
+};
+
+const accordionId = "faqAccordion";
+---
+
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "FAQ", url: "/faq" }
+        ]}
+      />
+      <p class="eyebrow">FAQ</p>
+      <h1>Häufige Fragen zur Sanierung in NRW</h1>
+      <p>
+        Antworten zu Ablauf, Kosten, Förderungen und Leistungen – kompakt erklärt.
+        Für Ihr Projekt beraten wir Sie gern persönlich.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Fragen &amp; Antworten</h2>
+          <p class="desktop-only">
+            Klicken Sie auf eine Frage, um die Antwort zu sehen. Weiterführende Infos finden Sie
+            in unseren Leistungsseiten.
+          </p>
+
+          <div class="accordion faq-accordion" id={accordionId}>
+            {
+              renovationFaq.map((item, index) => {
+                const headingId = `${item.id}-heading`;
+                const collapseId = `${item.id}-collapse`;
+                const isFirst = index === 0;
+                return (
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id={headingId}>
+                      <button
+                        class:list={["accordion-button", { collapsed: !isFirst }]}
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#${collapseId}`}
+                        aria-expanded={isFirst ? "true" : "false"}
+                        aria-controls={collapseId}
+                      >
+                        {item.question}
+                      </button>
+                    </h3>
+                    <div
+                      id={collapseId}
+                      class:list={["accordion-collapse", "collapse", { show: isFirst }]}
+                      aria-labelledby={headingId}
+                      data-bs-parent={`#${accordionId}`}
+                    >
+                      <div class="accordion-body" set:html={item.answerHtml} />
+                    </div>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </section>
+
+        <section>
+          <h2>Noch eine Frage?</h2>
+          <p>
+            Beschreiben Sie Ihr Vorhaben kurz – wir melden uns mit den nächsten Schritten.
+          </p>
+          <a href="/kontakt" class="button button-primary">Kontakt aufnehmen</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Leistungen</h2>
+        <p>Alle Sanierungsleistungen im Überblick:</p>
+        <ul>
+          <li><a href="/leistungen/badsanierung-nrw">Badsanierung</a></li>
+          <li><a href="/leistungen/dachausbau-nrw">Dachausbau</a></li>
+          <li><a href="/leistungen/generalunternehmer-nrw">Generalunternehmer</a></li>
+          <li><a href="/leistungen">Alle Leistungen</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    const accordion = document.getElementById("faqAccordion");
+    if (!accordion) return;
+
+    const toggles = accordion.querySelectorAll('[data-bs-toggle="collapse"]');
+    toggles.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetSelector = btn.getAttribute("data-bs-target");
+        if (!targetSelector) return;
+        const panel = accordion.querySelector(targetSelector);
+        if (!panel) return;
+
+        const isOpen = panel.classList.contains("show");
+        accordion.querySelectorAll(".accordion-collapse.show").forEach((openPanel) => {
+          openPanel.classList.remove("show");
+        });
+        accordion.querySelectorAll(".accordion-button").forEach((openBtn) => {
+          openBtn.classList.add("collapsed");
+          openBtn.setAttribute("aria-expanded", "false");
+        });
+
+        if (!isOpen) {
+          panel.classList.add("show");
+          btn.classList.remove("collapsed");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  })();
+</script>

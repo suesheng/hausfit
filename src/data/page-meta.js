@@ -32,6 +32,11 @@ export const rootPageMeta = {
     description:
       "Einsatzgebiet HausFit NRW: Sanierung in Düsseldorf, Köln, Essen, Dortmund, Duisburg, Bochum, Solingen und Wuppertal. Jetzt Handwerker anfragen."
   },
+  "/faq": {
+    title: "FAQ Sanierung NRW ✓ Antworten | HausFit",
+    description:
+      "FAQ zur Sanierung in NRW: Badsanierung, Dachausbau, Förderungen, Kosten und Ablauf. HausFit beantwortet häufige Fragen – Festpreise und Beratung gratis."
+  },
   "/impressum": {
     title: "Impressum | HausFit NRW",
     description:

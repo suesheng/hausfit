@@ -875,6 +875,114 @@ h3 {
   color: #6b7280;
 }
 
+.faq-accordion.accordion {
+  --bs-accordion-border-color: var(--color-line);
+  --bs-accordion-btn-bg: #fff;
+  --bs-accordion-active-bg: #fff8f5;
+  --bs-accordion-active-color: var(--color-navy);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1.25rem;
+}
+
+.faq-accordion .accordion-item {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.faq-accordion .accordion-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.faq-accordion .accordion-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.faq-accordion .accordion-item + .accordion-item {
+  border-top: 0;
+}
+
+.faq-accordion .accordion-header {
+  margin: 0;
+}
+
+.faq-accordion .accordion-button {
+  align-items: center;
+  background: var(--bs-accordion-btn-bg);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--color-navy);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.05rem;
+  font-weight: 700;
+  gap: 0.75rem;
+  line-height: 1.35;
+  padding: 1rem 1.15rem;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.faq-accordion .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231a2b4a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  content: "";
+  flex-shrink: 0;
+  height: 1rem;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+  width: 1rem;
+}
+
+.faq-accordion .accordion-button:not(.collapsed)::after {
+  transform: rotate(-180deg);
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: var(--bs-accordion-active-bg);
+  color: var(--bs-accordion-active-color);
+}
+
+.faq-accordion .accordion-button:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: -2px;
+}
+
+.faq-accordion .accordion-collapse {
+  display: none;
+}
+
+.faq-accordion .accordion-collapse.show {
+  display: block;
+}
+
+.faq-accordion .accordion-body {
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  padding: 0 1.15rem 1.15rem;
+}
+
+.faq-accordion .accordion-body a {
+  color: var(--color-brand-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq-accordion .accordion-body a:hover {
+  color: var(--color-brand);
+}
+
 .page-hero {
   background: var(--color-navy);
   color: #fff;
