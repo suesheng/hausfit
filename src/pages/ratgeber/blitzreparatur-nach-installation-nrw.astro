@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
+import RatgeberArticle from "../../components/RatgeberArticle.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -26,83 +25,32 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout
-  title="Blitzreparatur nach Installation | HausFit NRW"
-  description="Schnelle Reparatur von aufgestemmten Wänden, beschädigten Fliesen und Putz nach Sanitär- oder Installationsarbeiten. Auf Wunsch auch am Wochenende."
+<RatgeberArticle
+  title="Blitzreparatur NRW 2026 | HausFit"
+  description="Blitzreparatur nach Sanitär- und Installationsarbeiten in NRW: schnelle Wiederherstellung von Wänden und Fliesen – auch am Wochenende."
+  breadcrumbLabel="Blitzreparatur"
+  h1="Blitzreparatur nach Sanitär- und Installationsarbeiten"
+  intro="Nach Leitungsarbeiten bleiben oft aufgestemmte Wände, beschädigte Fliesen und offene Putzflächen zurück. Wir schließen diese Stellen blitzschnell, sauber und koordiniert, damit Bad, Küche oder Technikraum schnell wieder einsatzbereit sind."
+  asideTitle="Reparatur anfragen"
+  asideText="Kurz beschreiben, was passiert ist – wir melden uns schnell zurück."
+  faqSchema={faqSchema}
 >
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
-
-  <section class="page-hero">
-    <div class="container">
-      <Breadcrumb
-        items={[
-          { label: "Startseite", url: "/" },
-          { label: "Blitzreparatur", url: Astro.url.pathname }
-        ]}
-      />
-      <p class="eyebrow">Ratgeber</p>
-      <h1>Blitzreparatur nach Sanitär- und Installationsarbeiten</h1>
-      <p>
-        Nach Leitungsarbeiten bleiben oft aufgestemmte Wände, beschädigte Fliesen und offene Putzflächen zurück.
-        Wir schließen diese Stellen blitzschnell, sauber und koordiniert, damit Bad, Küche oder Technikraum
-        schnell wieder einsatzbereit sind.
-      </p>
-    </div>
+  <section>
+    <h2>Wann ist eine Blitzreparatur sinnvoll?</h2>
+    <ul>
+      <li>Nach Sanitär- oder Heizungsinstallation mit Putz- und Fliesenschäden</li>
+      <li>Bei undichten Anschlüssen mit Folgeschäden an Wänden</li>
+      <li>Wenn Räume kurzfristig wieder nutzbar sein müssen</li>
+    </ul>
   </section>
 
-  <section class="section page-content">
-    <div class="container content-grid">
-      <article class="content-main">
-        <section>
-          <h2>Typische Schäden nach Installationsarbeiten</h2>
-          <ul>
-            <li>Aufgeschlitzte oder aufgestemmte Wandflächen</li>
-            <li>Ausgebrochene Fliesen rund um Leitungen und Anschlüsse</li>
-            <li>Beschädigte Putz- und Spachtelbereiche</li>
-            <li>Offene Durchführungen in Bad, WC oder Küche</li>
-            <li>Unsaubere Übergänge nach Sanitär- oder Elektroeinsätzen</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Unser Ablauf: blitzschnell und planbar</h2>
-          <ol>
-            <li>Fotos oder kurze Beschreibung per Kontaktformular senden.</li>
-            <li>Umfang und Materialabgleich kurzfristig abstimmen.</li>
-            <li>Reparaturtermin festlegen, bei Bedarf auch am Wochenende.</li>
-            <li>Flächen schließen, ausgleichen und sauber übergeben.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Welche Gewerke wir verbinden</h2>
-          <p>
-            Für ein sauberes Endergebnis kombinieren wir je nach Schaden
-            <a href="/leistungen/trockenbau-nrw"> Trockenbau</a>,
-            <a href="/leistungen/fliesenleger-nrw"> Fliesenarbeiten</a> und
-            <a href="/leistungen/malerarbeiten-nrw"> Malerarbeiten</a>.
-            Bei größeren Eingriffen unterstützen wir auch als
-            <a href="/leistungen/generalunternehmer-nrw"> Generalunternehmer</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>Regional verfügbar, auch kurzfristig</h2>
-          <p>
-            Unsere Teams sind in Nordrhein-Westfalen unterwegs, unter anderem in
-            <a href="/einsatzgebiet/duesseldorf"> Düsseldorf</a>,
-            <a href="/einsatzgebiet/koeln"> Köln</a> und
-            <a href="/einsatzgebiet/essen"> Essen</a>.
-            Auf Wunsch organisieren wir Reparaturfenster auch am Wochenende.
-          </p>
-        </section>
-      </article>
-
-      <aside class="content-aside">
-        <h2>Sofort Reparatur anfragen</h2>
-        <p>Schicken Sie uns Fotos der Schadstellen. Wir melden uns kurzfristig mit dem nächsten Schritt.</p>
-        <a href="/kontakt" class="button button-primary">Blitzreparatur anfragen</a>
-      </aside>
-    </div>
+  <section>
+    <h2>Leistungen</h2>
+    <p>
+      <a href="/leistungen/trockenbau-nrw">Trockenbau</a>,
+      <a href="/leistungen/fliesenleger-nrw">Fliesenarbeiten</a> und
+      <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a> aus einer Hand.
+      Mehr in den <a href="/faq">FAQ</a>.
+    </p>
   </section>
-</BaseLayout>
+</RatgeberArticle>

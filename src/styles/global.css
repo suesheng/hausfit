@@ -1085,6 +1085,76 @@ h3 {
   }
 }
 
+.ratgeber-article-body section + section {
+  margin-top: 2.25rem;
+}
+
+.ratgeber-article-body h2 {
+  margin-bottom: 1rem;
+}
+
+.ratgeber-article-body h3 {
+  color: var(--color-navy);
+  font-size: 1.15rem;
+  margin: 1.35rem 0 0.65rem;
+}
+
+.ratgeber-article-body p {
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.ratgeber-article-body ul,
+.ratgeber-article-body ol {
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0 0 1.15rem;
+  padding-left: 1.25rem;
+}
+
+.ratgeber-article-body li + li {
+  margin-top: 0.35rem;
+}
+
+.ratgeber-article-body a {
+  color: var(--color-brand-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ratgeber-table-wrap {
+  margin: 1rem 0 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ratgeber-table {
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 520px;
+  width: 100%;
+}
+
+.ratgeber-table th,
+.ratgeber-table td {
+  border: 1px solid var(--color-line);
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ratgeber-table th {
+  background: var(--color-navy);
+  color: #fff;
+  font-weight: 700;
+}
+
+.ratgeber-table tbody tr:nth-child(even) {
+  background: #f8f9fc;
+}
+
 .page-hero {
   background: var(--color-navy);
   color: #fff;

@@ -1,77 +1,30 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
+import RatgeberArticle from "../../components/RatgeberArticle.astro";
 ---
 
-<BaseLayout
-  title="Schimmelbeseitigung Kosten | HausFit NRW"
-  description="Schimmelbeseitigung Kosten: Ursachenanalyse, Sicherheit, Rückbauumfang und Nachhaltigkeit – damit der Befall nicht sofort wiederkommt."
+<RatgeberArticle
+  title="Schimmelbeseitigung Kosten NRW 2026 | HausFit"
+  description="Schimmelbeseitigung Kosten in NRW 2026: Ursache, Rückbau, Trocknung und Sanierung – Richtwerte von HausFit NRW."
+  breadcrumbLabel="Schimmelbeseitigung Kosten"
+  h1="Schimmelbeseitigung: Kosten und Ursache im Fokus"
+  intro="Schimmel ist Symptom – nicht die eigentliche Ursache. Wer Feuchte eindämmt und fachgerecht saniert, verhindert erneuten Befall."
+  asideTitle="Schimmelbefall melden"
+  asideText="Fotos und betroffene Flächen helfen bei der Ersteinschätzung."
 >
-  <section class="page-hero">
-    <div class="container">
-      <Breadcrumb
-        items={[
-          { label: "Startseite", url: "/" },
-          { label: "Schimmelbeseitigung Kosten", url: Astro.url.pathname }
-        ]}
-      />
-      <p class="eyebrow">Ratgeber</p>
-      <h1>Schimmelbeseitigung: Kosten und Ursache im Fokus</h1>
-      <p>
-        Nur das Entfernen sichtbarer Flächen reicht selten. Ohne Klärung von Feuchte, Lüftung und Leitungsführung
-        entstehen Folgeschäden – deshalb gehört die Ursachenanalyse zum Leistungsumfang.
-      </p>
-    </div>
+  <section>
+    <h2>Kostentreiber</h2>
+    <ul>
+      <li>Befallsfläche und Einbautiefe</li>
+      <li>Ursachenanalyse (Kondensat, Undichtigkeit)</li>
+      <li>Trocknung und Wiederaufbau</li>
+    </ul>
   </section>
 
-  <section class="section page-content">
-    <div class="container content-grid">
-      <article class="content-main">
-        <section>
-          <h2>Was den Aufwand bestimmt</h2>
-          <ul>
-            <li>Fläche und Tiefe des Befalls, verborgene Hohlräume</li>
-            <li>Materialien im Befallbereich (z. B. Trockenbau entfernen)</li>
-            <li>Schutzmaßnahmen und Belastung für Nutzer</li>
-            <li>Trocknungstechnik und Zeitfenster</li>
-            <li>Sanierung der Feuchtequelle (Leitung, Keller, Dämmung)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Sinnvoller Ablauf</h2>
-          <ol>
-            <li>Befund dokumentieren und Nutzung klären.</li>
-            <li>Feuchte messen bzw. Leckage eingrenzen.</li>
-            <li>Maßnahmenkette: Sicherung, Rückbau, Trocknung, Wiederaufbau.</li>
-            <li>Nachkontrolle und Hinweise zur Prävention.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Leistungsseite</h2>
-          <p>
-            <a href="/leistungen/schimmelbeseitigung-nrw"> Schimmelbeseitigung</a>.
-            Bei Baustoffen mit Altbestand:
-            <a href="/leistungen/asbestbeseitigung-nrw"> Asbestbeseitigung</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>Regionale Präsenz</h2>
-          <p>
-            <a href="/einsatzgebiet/duesseldorf"> Düsseldorf</a>,
-            <a href="/einsatzgebiet/koeln"> Köln</a> und
-            <a href="/einsatzgebiet"> weitere Standorte</a>.
-          </p>
-        </section>
-      </article>
-
-      <aside class="content-aside">
-        <h2>Befall melden</h2>
-        <p>Fotos, Raumnutzung und seit wann der Befall sichtbar ist – wir melden uns mit dem nächsten Schritt.</p>
-        <a href="/kontakt" class="button button-primary">Anfrage senden</a>
-      </aside>
-    </div>
+  <section>
+    <h2>Leistung</h2>
+    <p>
+      <a href="/leistungen/schimmelbeseitigung-nrw">Schimmelbeseitigung NRW</a>,
+      oft vor <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a>.
+    </p>
   </section>
-</BaseLayout>
+</RatgeberArticle>

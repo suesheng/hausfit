@@ -1,76 +1,29 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
+import RatgeberArticle from "../../components/RatgeberArticle.astro";
 ---
 
-<BaseLayout
-  title="Fenster tauschen Kosten | HausFit NRW"
-  description="Fenster tauschen Kosten: Profile, Verglasung, Einbau und Anschlüsse als Preisfaktoren – und worauf es für Dichtheit und Energieeffizienz ankommt."
+<RatgeberArticle
+  title="Fenster tauschen Kosten NRW 2026 | HausFit"
+  description="Fenster tauschen Kosten in NRW 2026: Richtwerte pro Element, Einbauqualität und Energieeinsparung – HausFit NRW."
+  breadcrumbLabel="Fenster tauschen Kosten"
+  h1="Fenster tauschen: Kosten und Qualität im Einbau"
+  intro="Neue Fenster verbessern Schallschutz und Energieeffizienz – der Preis hängt von Maß, Verglasung und luftdichter Montage ab."
+  asideTitle="Fensterprojekt anfragen"
+  asideText="Anzahl Elemente, Baujahr und Wünsche kurz beschreiben."
 >
-  <section class="page-hero">
-    <div class="container">
-      <Breadcrumb
-        items={[
-          { label: "Startseite", url: "/" },
-          { label: "Fenster tauschen", url: Astro.url.pathname }
-        ]}
-      />
-      <p class="eyebrow">Ratgeber</p>
-      <h1>Fenster tauschen: Kosten und Qualität im Einbau</h1>
-      <p>
-        Der Materialpreis ist nur ein Teil. Luftdichte Anschlüsse, Laibungen und die richtige Verglasungsstufe
-        bestimmen langfristig Komfort und Heizkosten.
-      </p>
-    </div>
+  <section>
+    <h2>Preisfaktoren</h2>
+    <ul>
+      <li>Größe, Material (Kunststoff, Holz-Alu)</li>
+      <li>Verglasung (2- oder 3-fach, Schallschutz)</li>
+      <li>Demontage, Anschluss und Dämmung</li>
+    </ul>
   </section>
 
-  <section class="section page-content">
-    <div class="container content-grid">
-      <article class="content-main">
-        <section>
-          <h2>Preisrelevante Entscheidungen</h2>
-          <ul>
-            <li>Rahmenmaterial und Profiltiefe</li>
-            <li>Schallschutz, Einbruchschutz und Sonnenschutzglas</li>
-            <li>Einbau in Bestand: Anschlussfeuchte und Dämmung</li>
-            <li>Innen- und Außenanschlussfertigung</li>
-            <li>Logistik, Schutz und Entsorgung alter Fenster</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Checkliste vor dem Angebot</h2>
-          <ol>
-            <li>Anzahl der Elemente und Öffnungsrichtung notieren.</li>
-            <li>Aufmaß oder Bestandspläne bereitstellen.</li>
-            <li>Wünsche zu Lüftung und Rollladenkästen klären.</li>
-            <li>Farben und Griffe grob festlegen.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Weiterführend</h2>
-          <p>
-            <a href="/leistungen/fenster-tueren-montage-nrw"> Fenster- und Türenmontage</a> und
-            <a href="/ratgeber/blitzreparatur-nach-installation-nrw"> Kurzfristige Reparaturfenster</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>Region</h2>
-          <p>
-            Montage in Nordrhein-Westfalen, z. B.
-            <a href="/einsatzgebiet/essen"> Essen</a> und
-            <a href="/einsatzgebiet/dortmund"> Dortmund</a>.
-          </p>
-        </section>
-      </article>
-
-      <aside class="content-aside">
-        <h2>Fenster austauschen planen</h2>
-        <p>Anzahl der Fenster und Fotos vom Bestand – wir melden uns mit dem nächsten Schritt.</p>
-        <a href="/kontakt" class="button button-primary">Anfrage senden</a>
-      </aside>
-    </div>
+  <section>
+    <h2>Leistung</h2>
+    <p>
+      <a href="/leistungen/fenster-tueren-montage-nrw">Fenster &amp; Türen in NRW</a>.
+    </p>
   </section>
-</BaseLayout>
+</RatgeberArticle>

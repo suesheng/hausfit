@@ -1,80 +1,31 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
+import RatgeberArticle from "../../components/RatgeberArticle.astro";
 ---
 
-<BaseLayout
-  title="Malerarbeiten Kosten | HausFit NRW"
-  description="Malerarbeiten Kosten: welche Faktoren Preis und Qualität beeinflussen und wie Sie ein vergleichbares Angebot für Innenräume und Fassaden erhalten."
+<RatgeberArticle
+  title="Malerarbeiten Kosten NRW 2026 | HausFit"
+  description="Malerarbeiten Kosten in NRW 2026: Richtwerte für Innenräume und Fassaden, Qualitätsstufen und Festpreise – HausFit NRW."
+  breadcrumbLabel="Malerarbeiten Kosten"
+  h1="Malerarbeiten Kosten: was den Preis bestimmt"
+  intro="Saubere Wände und Decken entstehen nicht durch Farbe allein, sondern durch Vorbereitung, Grundierung und die richtige Qualitätsstufe. So bleibt Ihr Budget planbar."
+  asideTitle="Malerprojekt anfragen"
+  asideText="Fläche, Zustand und Farbwünsche reichen für den ersten Schritt."
 >
-  <section class="page-hero">
-    <div class="container">
-      <Breadcrumb
-        items={[
-          { label: "Startseite", url: "/" },
-          { label: "Malerarbeiten Kosten", url: Astro.url.pathname }
-        ]}
-      />
-      <p class="eyebrow">Ratgeber</p>
-      <h1>Malerarbeiten Kosten: was den Preis bestimmt</h1>
-      <p>
-        Fläche, Untergrundzustand und gewünschte Oberflächenqualität sind die drei größten Hebel.
-        Wer diese Punkte früh klärt, vermeidet Nacharbeiten und bleibt im Budget.
-      </p>
-    </div>
+  <section>
+    <h2>Preisfaktoren</h2>
+    <ul>
+      <li>Fläche und Raumhöhe</li>
+      <li>Untergrundqualität (Risse, Altfarbe, Tapete)</li>
+      <li>Anstrichsystem und Anzahl der Schichten</li>
+      <li>Innen vs. Fassade, Gerüst und Witterung</li>
+    </ul>
   </section>
 
-  <section class="section page-content">
-    <div class="container content-grid">
-      <article class="content-main">
-        <section>
-          <h2>Typische Preisfaktoren</h2>
-          <ul>
-            <li>Spachtelgüte und Ausgleich von Unebenheiten</li>
-            <li>Anzahl der Deckanstriche und Farbton (Deckkraft)</li>
-            <li>Feuchträume, Treppenhäuser und schwer erreichbare Flächen</li>
-            <li>Fassade: Gerüst, Reinigung und Wetterschutzsystem</li>
-            <li>Kombination mit Trockenbau oder Tapezierarbeiten</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Sinnvolle Reihenfolge</h2>
-          <ol>
-            <li>Flächen erfassen und Untergrund bewerten.</li>
-            <li>Material und Qualitätsstufe festlegen.</li>
-            <li>Leistungsumfang schriftlich mit Anstrichsystem abstimmen.</li>
-            <li>Ausführung in logischen Raumfolgen planen.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Weiterführende Seiten</h2>
-          <p>
-            Zur Leistung:
-            <a href="/leistungen/malerarbeiten-nrw"> Malerarbeiten</a>.
-            Oft im selben Projekt:
-            <a href="/leistungen/trockenbau-nrw"> Trockenbau</a> und
-            <a href="/leistungen/bodenleger-nrw"> Bodenverlegung</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>Region</h2>
-          <p>
-            Wir arbeiten in Nordrhein-Westfalen, unter anderem in
-            <a href="/einsatzgebiet/duesseldorf"> Düsseldorf</a>,
-            <a href="/einsatzgebiet/koeln"> Köln</a> und
-            <a href="/einsatzgebiet/essen"> Essen</a>.
-          </p>
-        </section>
-      </article>
-
-      <aside class="content-aside">
-        <h2>Malerprojekt anfragen</h2>
-        <p>Kurz Flächen, Zustand der Wände und Wunschfarbe beschreiben. Wir melden uns mit den nächsten Schritten.</p>
-        <a href="/kontakt" class="button button-primary">Jetzt Anfrage senden</a>
-      </aside>
-    </div>
+  <section>
+    <h2>Leistungsseite</h2>
+    <p>
+      <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten in NRW</a> –
+      kombinierbar mit <a href="/leistungen/trockenbau-nrw">Trockenbau</a>.
+    </p>
   </section>
-</BaseLayout>
+</RatgeberArticle>

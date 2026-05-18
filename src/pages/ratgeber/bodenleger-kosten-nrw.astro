@@ -1,78 +1,32 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
+import RatgeberArticle from "../../components/RatgeberArticle.astro";
 ---
 
-<BaseLayout
-  title="Bodenleger Kosten | HausFit NRW"
-  description="Bodenleger Kosten: Material, Untergrund, Raumform und Zubehör als Preisfaktoren – plus Ablauf für ein klares Angebot."
+<RatgeberArticle
+  title="Bodenleger Kosten NRW 2026 | HausFit"
+  description="Bodenleger Kosten in NRW 2026: Vinyl, Laminat und Designböden – Richtwerte, Untergrund und Festpreise von HausFit NRW."
+  breadcrumbLabel="Bodenleger Kosten"
+  h1="Bodenleger Kosten: Planung statt Überraschung"
+  intro="Bodenbeläge prägen Raumwirkung und Alltagstauglichkeit. Die Kosten hängen weniger vom Quadratmeterpreis allein ab als von Untergrund, Übergängen und Anschlussdetails."
+  asideTitle="Bodenprojekt planen"
+  asideText="Kurz Fläche, Nutzung und Materialwunsch nennen – wir melden uns mit den nächsten Schritten."
 >
-  <section class="page-hero">
-    <div class="container">
-      <Breadcrumb
-        items={[
-          { label: "Startseite", url: "/" },
-          { label: "Bodenleger Kosten", url: Astro.url.pathname }
-        ]}
-      />
-      <p class="eyebrow">Ratgeber</p>
-      <h1>Bodenleger Kosten: Planung statt Überraschung</h1>
-      <p>
-        Vinyl, Laminat und Parkett unterscheiden sich in Verlegeaufwand und Anspruch an den Untergrund.
-        Eine saubere Vorbereitung ist oft günstiger als nachträgliche Korrekturen.
-      </p>
-    </div>
+  <section>
+    <h2>Kostentreiber bei Bodenbelägen</h2>
+    <ul>
+      <li>Zustand des Untergrunds und Ausgleicharbeiten</li>
+      <li>Materialwahl: Vinyl, Laminat, Parkett, Designboden</li>
+      <li>Verlegeart und Sockel-/Übergangslösungen</li>
+      <li>Entfernung alter Beläge und Entsorgung</li>
+      <li>Möblierung / bewohnter Zustand während der Arbeiten</li>
+    </ul>
   </section>
 
-  <section class="section page-content">
-    <div class="container content-grid">
-      <article class="content-main">
-        <section>
-          <h2>Was den Preis beeinflusst</h2>
-          <ul>
-            <li>Ebenheit und Feuchte des Untergrunds (z. B. Ausgleichsmasse)</li>
-            <li>Verlegesystem, Dämmung und Fußbodenheizung</li>
-            <li>Raumform, Türzargen und hohe Sockelleisten</li>
-            <li>Materialstärke und Herstellervorgaben</li>
-            <li>Entrümpelung und Entsorgung alter Beläge</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Empfohlener Ablauf</h2>
-          <ol>
-            <li>Alten Belag und Nutzung der Räume klären.</li>
-            <li>Materialwahl mit Nutzungsklasse abstimmen.</li>
-            <li>Untergrund prüfen und ggf. ausgleichen.</li>
-            <li>Verlegung und Übergänge zu Fliesen oder Türen festlegen.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Interne Links</h2>
-          <p>
-            Leistungsseite:
-            <a href="/leistungen/bodenleger-nrw"> Bodenverlegung</a>.
-            Häufige Kombination:
-            <a href="/leistungen/malerarbeiten-nrw"> Malerarbeiten</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>Region</h2>
-          <p>
-            Unter anderem
-            <a href="/einsatzgebiet/duisburg"> Duisburg</a> und
-            <a href="/einsatzgebiet/solingen"> Solingen</a>.
-          </p>
-        </section>
-      </article>
-
-      <aside class="content-aside">
-        <h2>Boden anfragen</h2>
-        <p>Quadratmeter, Bodenart und Fotos vom Untergrund genügen für den Einstieg.</p>
-        <a href="/kontakt" class="button button-primary">Jetzt Anfrage senden</a>
-      </aside>
-    </div>
+  <section>
+    <h2>Passende Leistung</h2>
+    <p>
+      Mehr zur <a href="/leistungen/bodenleger-nrw">Bodenverlegung in NRW</a>,
+      oft kombiniert mit <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten</a>.
+    </p>
   </section>
-</BaseLayout>
+</RatgeberArticle>
