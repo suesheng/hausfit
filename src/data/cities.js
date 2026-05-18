@@ -1,8 +1,9 @@
 export const cities = {
   duesseldorf: {
     name: "Düsseldorf",
-    title: "Sanierung in Düsseldorf | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Düsseldorf.",
+    title: "Sanierung Düsseldorf NRW ✓ Vor Ort | HausFit",
+    description:
+      "Sanierung in Düsseldorf mit HausFit NRW: Badsanierung, Trockenbau und Renovierung vom Fachbetrieb. Schnell vor Ort, Festpreise und kostenlose Beratung.",
     hero: "https://source.unsplash.com/1600x900/?dusseldorf,skyline,rheinturm",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -21,8 +22,9 @@ export const cities = {
   },
   koeln: {
     name: "Köln",
-    title: "Sanierung in Köln | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Köln.",
+    title: "Sanierung Köln NRW ✓ Festpreise | HausFit",
+    description:
+      "Sanierung in Köln: HausFit NRW für Bad, Innenausbau und Malerarbeiten termintreu. Qualifizierte Handwerker, ein Ansprechpartner und transparente Angebote.",
     hero: "https://source.unsplash.com/1600x900/?cologne,cathedral,skyline,rhine",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -41,8 +43,9 @@ export const cities = {
   },
   essen: {
     name: "Essen",
-    title: "Sanierung in Essen | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Essen.",
+    title: "Sanierung Essen NRW ✓ Alle Gewerke | HausFit",
+    description:
+      "Renovierung in Essen mit HausFit NRW: Bad, Innenausbau und Malerarbeiten koordiniert. Saubere Baustellen und Planung für Bestandsimmobilien.",
     hero: "https://source.unsplash.com/1600x900/?essen,germany,city,skyline",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -61,8 +64,9 @@ export const cities = {
   },
   dortmund: {
     name: "Dortmund",
-    title: "Sanierung in Dortmund | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Dortmund.",
+    title: "Sanierung Dortmund NRW ✓ Termintreu | HausFit",
+    description:
+      "Sanierung in Dortmund: HausFit NRW für Bad, Trockenbau und Bodenbeläge. Kostenlose Beratung, klare Phasen und verlässliche Abnahme vor Ort.",
     hero: "https://source.unsplash.com/1600x900/?dortmund,germany,city,center",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -81,8 +85,9 @@ export const cities = {
   },
   bochum: {
     name: "Bochum",
-    title: "Sanierung in Bochum | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Bochum.",
+    title: "Sanierung Bochum NRW ✓ Sauber & fix | HausFit",
+    description:
+      "Sanierung Bochum mit HausFit NRW: Modernisierung mit Badsanierung, Trockenbau und Schimmelbeseitigung. Jetzt Ihr Projekt in Bochum anfragen.",
     hero: "https://source.unsplash.com/1600x900/?bochum,germany,architecture,city",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -101,8 +106,9 @@ export const cities = {
   },
   wuppertal: {
     name: "Wuppertal",
-    title: "Sanierung in Wuppertal | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Wuppertal.",
+    title: "Sanierung Wuppertal NRW ✓ Beratung gratis | HausFit",
+    description:
+      "Sanierung in Wuppertal mit HausFit NRW – Bad, Dachausbau und Fassade koordiniert. Qualifizierte Handwerker und Angebot nach Vor-Ort-Termin.",
     hero: "https://source.unsplash.com/1600x900/?wuppertal,schwebebahn,germany",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -121,8 +127,9 @@ export const cities = {
   },
   duisburg: {
     name: "Duisburg",
-    title: "Sanierung in Duisburg | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Duisburg.",
+    title: "Sanierung Duisburg NRW ✓ Ein Partner | HausFit",
+    description:
+      "Sanierung in Duisburg vom Team HausFit NRW: Renovierung, Fliesen und Malerarbeiten aus einer Hand. Erfahrung in NRW mit festem Ansprechpartner.",
     hero: "https://source.unsplash.com/1600x900/?duisburg,innenhafen,skyline",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },
@@ -141,8 +148,9 @@ export const cities = {
   },
   solingen: {
     name: "Solingen",
-    title: "Sanierung in Solingen | HausFit NRW",
-    description: "Sanierung, Innenausbau und Renovierung in Solingen.",
+    title: "Sanierung Solingen NRW ✓ Fachbetrieb | HausFit",
+    description:
+      "Renovierung in Solingen: HausFit NRW für Sanierung, Innenausbau und Malerarbeiten regional. Schnelle Verfügbarkeit, Festpreise und Handwerksgarantie.",
     hero: "https://source.unsplash.com/1600x900/?solingen,germany,city",
     leistungen: [
       { name: "Badsanierung", url: "/leistungen/badsanierung-nrw" },

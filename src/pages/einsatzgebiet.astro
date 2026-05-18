@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for einsatzgebiet");
 import { einsatzgebietCityLinks } from "../data/cities.js";
 
 const cities = einsatzgebietCityLinks;
 ---
 
-<BaseLayout title="Einsatzgebiet in NRW | HausFit NRW">
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Einsatzgebiet</p>

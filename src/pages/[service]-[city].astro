@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { cities } from "../data/cities.js";
 import { serviceCombos } from "../data/services.js";
+import { getComboPageMeta } from "../data/page-meta.js";
 
 export function getStaticPaths() {
   const paths = [];
@@ -30,8 +31,9 @@ if (!serviceData || !cityData) {
 }
 
 const cityUrl = `/einsatzgebiet/${city}`;
-const pageTitle = `${serviceData.name} ${cityData.name} | HausFit NRW`;
-const pageDescription = `${serviceData.name} in ${cityData.name}. Schnell, sauber, zuverlässig. Jetzt Angebot anfragen.`;
+const pageMeta = getComboPageMeta(service, city);
+const pageTitle = pageMeta.title;
+const pageDescription = pageMeta.description;
 
 const intro = `${serviceData.name} in ${cityData.name}. ${serviceData.description} Klare Planung. Saubere Umsetzung.`;
 
@@ -42,21 +44,6 @@ const vorteile = [
 ];
 
 const ablauf = ["Anfrage", "Besichtigung", "Angebot", "Umsetzung"];
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "HausFit NRW",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Mülheimer Straße 16",
-    addressLocality: cityData.name,
-    postalCode: "40239",
-    addressCountry: "DE"
-  },
-  telephone: "+49 179 923 8814",
-  url: "https://www.hausfit.nrw"
-};
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 const serviceSchema = {
@@ -104,7 +91,6 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
 

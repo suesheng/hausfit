@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for datenschutz");
 ---
 
-<BaseLayout title="Datenschutzerklärung | HausFit NRW" noindex={true}>
+<BaseLayout title={pageMeta.title} description={pageMeta.description} noindex={true}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Rechtliches</p>

@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for kontakt");
 ---
 
-<BaseLayout title="Kontakt | HausFit NRW">
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Kontakt</p>

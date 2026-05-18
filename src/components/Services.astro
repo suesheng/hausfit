@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { serviceUrlBySlug } from "../data/services.js";
+import { getServiceImageAlt } from "../data/image-alt.js";
 
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/services/*.{webp,jpg,png}",
@@ -52,11 +53,13 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
             <div class="service-image">
               <Image
                 src={serviceImages[`/src/assets/images/services/${service.slug}.webp`]?.default ?? defaultServiceImage}
-                alt={`${service.title} in NRW von HausFit`}
+                alt={getServiceImageAlt(service.slug)}
                 width={800}
+                height={450}
                 quality={70}
                 format="webp"
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchpriority={index === 0 ? "high" : undefined}
               />
             </div>
             <h3>{service.title}</h3>

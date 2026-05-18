@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+import { getProjectImageAlt } from "../data/image-alt.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) throw new Error("Page meta not found for referenzen");
 import { Image } from "astro:assets";
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/projects/*.{webp,jpg,jpeg,png}",
@@ -11,31 +16,26 @@ const fallbackProjectImage = projectImages["/src/assets/images/projects/projekt.
 const projects = [
   {
     imageSlug: "projekt1",
-    alt: "Fertiges Bad nach Badsanierung in Düsseldorf",
     title: "Badsanierung Düsseldorf",
     text: "Vom alten Bad bis zur Abnahme: Abdichtung, neue Leitungen, Fliesen und Sanitär – abgestimmt auf Grundriss und Budget."
   },
   {
     imageSlug: "projekt2",
-    alt: "Trockenbauwände und abgehängte Decke in Köln",
     title: "Trockenbau Köln",
     text: "Neue Raumstruktur mit Trennwänden und Deckenkonstruktion, inklusive Schnittstellen zu Elektro und Folgegewerken."
   },
   {
     imageSlug: "projekt3",
-    alt: "Dachgeschoss vor und nach dem Ausbau in Essen",
     title: "Dachausbau Essen",
     text: "Rohdachraum zur Wohnfläche: Dämmung im Aufbau, neue Dachfenster, Estrich oder Bodenaufbau, Malerarbeiten und Beleuchtung – alles aus einem durchgängigen Ablauf."
   },
   {
     imageSlug: "projekt4",
-    alt: "Fliesen in Bad und Küche nach Neuverlegung in Dortmund",
     title: "Fliesenarbeiten Dortmund",
     text: "Wand- und Bodenfliesen in Bad und Küche: Untergrund vorbereitet, präzise verlegt und fugensicher abgeschlossen."
   },
   {
     imageSlug: "projekt5",
-    alt: "Schimmelsanierung und sanierte Wandflächen in Duisburg",
     title: "Schimmelbeseitigung Duisburg",
     text: "Befall sachgerecht entfernt, Feuchtequelle eingegrenzt, Trocknung und Wiederaufbau – mit dokumentierter Übergabe."
   }
@@ -49,7 +49,7 @@ const resolveProjectImage = (slug: string) =>
   fallbackProjectImage;
 ---
 
-<BaseLayout title="Referenzen Sanierung NRW | HausFit NRW">
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Referenzen</p>
@@ -68,9 +68,18 @@ const resolveProjectImage = (slug: string) =>
           <h2>Ausgewählte Projekte</h2>
           <ul class="project-list">
             {
-              projects.map((project) => (
+              projects.map((project, index) => (
                 <li>
-                  <Image src={resolveProjectImage(project.imageSlug)} alt={project.alt} width={800} quality={70} format="webp" loading="lazy" />
+                  <Image
+                    src={resolveProjectImage(project.imageSlug)}
+                    alt={getProjectImageAlt(project.imageSlug)}
+                    width={800}
+                    height={450}
+                    quality={70}
+                    format="webp"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchpriority={index === 0 ? "high" : undefined}
+                  />
                   <strong>{project.title}</strong>
                   <span>{project.text}</span>
                 </li>

@@ -1,5 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getRootPageMeta } from "../data/page-meta.js";
+
+const pageMeta = getRootPageMeta(Astro.url.pathname);
+if (!pageMeta) {
+  throw new Error("Page meta not found for homepage");
+}
 import { Image } from "astro:assets";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
@@ -10,7 +16,7 @@ import Reviews from "../components/Reviews.astro";
 import glebGranovskyPhoto from "../assets/images/owner/gleb-granovsky.png";
 ---
 
-<BaseLayout title="HausFit NRW | Sanierung und Ausbau in NRW">
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <Hero />
   <Services />
   <Locations />
@@ -21,8 +27,9 @@ import glebGranovskyPhoto from "../assets/images/owner/gleb-granovsky.png";
       <div class="owner-image">
         <Image
           src={glebGranovskyPhoto}
-          alt="Gleb Granovsky"
+          alt="HausFit NRW - Gleb Granovsky, Inhaber von HausFit"
           width={520}
+          height={650}
           format="webp"
           quality={72}
           sizes="(max-width: 900px) 92vw, (max-width: 1200px) 34vw, 320px"

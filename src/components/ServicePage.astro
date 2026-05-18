@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { einsatzgebietCityLinks } from "../data/cities.js";
+import { getServicePageMeta } from "../data/page-meta.js";
 
 interface Props {
-  pageTitle: string;
+  metaSlug: string;
   h1: string;
   intro: string;
   services: string[];
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const {
-  pageTitle,
+  metaSlug,
   h1,
   intro,
   services,
@@ -26,9 +27,14 @@ const {
   ctaText = "Beschreiben Sie Ihr Projekt in kurzen Stichpunkten. Wir melden uns zeitnah zurück."
 } = Astro.props;
 
+const pageMeta = getServicePageMeta(metaSlug);
+if (!pageMeta) {
+  throw new Error(`Service page meta not found for slug: ${metaSlug}`);
+}
+
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Leistung</p>

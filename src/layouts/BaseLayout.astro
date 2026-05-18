@@ -16,6 +16,41 @@ const gaMeasurementId = "G-8235ZYX2TR";
 const googleAdsTagId = "AW-17925018117";
 const canonicalUrl = Astro.url.href;
 const socialImageUrl = new URL(socialImage, Astro.url).toString();
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "HausFit NRW",
+  image: "https://www.hausfit.nrw/og-image.jpg",
+  "@id": "https://www.hausfit.nrw",
+  url: "https://www.hausfit.nrw",
+  telephone: "+491799238814",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mülheimer Straße 16",
+    addressLocality: "Düsseldorf",
+    postalCode: "40239",
+    addressCountry: "DE"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 51.2277,
+    longitude: 6.7735
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00"
+    }
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "1000"
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -43,6 +78,7 @@ const socialImageUrl = new URL(socialImage, Astro.url).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
     <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }

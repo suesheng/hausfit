@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { cities } from "../data/cities.js";
 import { services, serviceUrlBySlug } from "../data/services.js";
+import { getCityPageMeta } from "../data/page-meta.js";
+import { getCityImageAlt } from "../data/image-alt.js";
 
 interface Props {
   cityKey: keyof typeof cities;
@@ -17,6 +19,11 @@ const {
 const city = cities[cityKey];
 if (!city) {
   throw new Error(`City config not found for key: ${cityKey}`);
+}
+
+const pageMeta = getCityPageMeta(cityKey);
+if (!pageMeta) {
+  throw new Error(`City page meta not found for key: ${cityKey}`);
 }
 
 const finalCtaText = ctaText ?? `Projekt in ${city.name} anfragen`;
@@ -41,21 +48,6 @@ if (!imageModule) {
   throw new Error("Default city image not found at /src/assets/images/cities/default.webp");
 }
 const heroImage = imageModule.default;
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "HausFit NRW",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Mülheimer Straße 16",
-    addressLocality: city.name,
-    postalCode: "40239",
-    addressCountry: "DE"
-  },
-  telephone: "+49 179 923 8814",
-  url: "https://www.hausfit.nrw"
-};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -109,15 +101,23 @@ const servicesItemListSchema = {
 };
 ---
 
-<BaseLayout title={city.title}>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+<BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(servicesItemListSchema)}></script>
 
   <section class="page-hero location-hero">
     <div class="hero-bg" aria-hidden="true">
-      <Image src={heroImage} alt={`Sanierung in ${city.name}`} width={1200} quality={70} format="webp" loading="eager" />
+      <Image
+        src={heroImage}
+        alt={getCityImageAlt(cityKey)}
+        width={1200}
+        height={675}
+        quality={70}
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
     </div>
     <div class="container">
       <p class="eyebrow">Einsatzgebiet</p>
