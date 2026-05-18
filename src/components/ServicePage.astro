@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumb from "./Breadcrumb.astro";
+import RelatedServices from "./RelatedServices.astro";
 import ServiceSchema from "./ServiceSchema.astro";
 import { einsatzgebietCityLinks } from "../data/cities.js";
 import { getServicePageMeta } from "../data/page-meta.js";
@@ -119,6 +120,8 @@ if (!pageMeta) {
             <a href="/einsatzgebiet">Übersicht Einsatzgebiet</a>
           </p>
         </section>
+
+        <RelatedServices currentMetaSlug={metaSlug} />
 
         <section>
           <h2>Jetzt Angebot anfordern</h2>

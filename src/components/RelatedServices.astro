@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import { getRelatedServices } from "../data/related-services.js";
+import { getServiceImageAlt } from "../data/image-alt.js";
+
+interface Props {
+  currentMetaSlug: string;
+}
+
+const { currentMetaSlug } = Astro.props;
+const related = getRelatedServices(currentMetaSlug);
+
+const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/services/*.webp",
+  { eager: true }
+);
+const defaultServiceImage = serviceImages["/src/assets/images/services/badsanierung.webp"]?.default;
+
+const resolveImage = (imageSlug: string) =>
+  serviceImages[`/src/assets/images/services/${imageSlug}.webp`]?.default ?? defaultServiceImage;
+---
+
+<section class="related-services-section" aria-labelledby="related-services-heading">
+  <h2 id="related-services-heading">Ähnliche Leistungen</h2>
+  <p class="related-services-intro desktop-only">
+    Diese Leistungen ergänzen Ihr Projekt in NRW – mit demselben Ansprechpartner.
+  </p>
+
+  <div class="row related-services-row">
+    {
+      related.map((service) => (
+        <div class="col related-services-col">
+          <article class="card related-service-card h-100">
+            <a class="related-service-card-link" href={service.href}>
+              <div class="related-service-card-image">
+                <Image
+                  src={resolveImage(service.imageSlug)}
+                  alt={getServiceImageAlt(service.imageSlug)}
+                  width={800}
+                  height={450}
+                  quality={70}
+                  format="webp"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">{service.name}</h3>
+                <p class="card-text">{service.description}</p>
+                <span class="btn btn-primary related-service-card-cta">Zur Leistung</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      ))
+    }
+  </div>
+</section>
