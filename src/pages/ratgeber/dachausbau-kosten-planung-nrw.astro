@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 ---
 
 <BaseLayout
@@ -8,6 +9,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 >
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Dachausbau Kosten", url: Astro.url.pathname }
+        ]}
+      />
       <p class="eyebrow">Ratgeber</p>
       <h1>Dachausbau: Kosten und Planung von Anfang an</h1>
       <p>

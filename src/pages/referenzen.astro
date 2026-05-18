@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import { getRootPageMeta } from "../data/page-meta.js";
 import { getProjectImageAlt } from "../data/image-alt.js";
 
@@ -52,6 +53,12 @@ const resolveProjectImage = (slug: string) =>
 <BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Referenzen", url: "/referenzen" }
+        ]}
+      />
       <p class="eyebrow">Referenzen</p>
       <h1>Referenzen</h1>
       <p>

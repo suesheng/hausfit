@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import ServiceSchema from "../components/ServiceSchema.astro";
 import { cities } from "../data/cities.js";
 import { serviceCombos } from "../data/services.js";
 import { getComboPageMeta } from "../data/page-meta.js";
@@ -45,57 +47,27 @@ const vorteile = [
 
 const ablauf = ["Anfrage", "Besichtigung", "Angebot", "Umsetzung"];
 
-const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: `${serviceData.name} in ${cityData.name}`,
-  serviceType: serviceData.name,
-  description: pageDescription,
-  areaServed: {
-    "@type": "City",
-    name: cityData.name
-  },
-  provider: {
-    "@type": "LocalBusiness",
-    name: "HausFit NRW",
-    url: "https://www.hausfit.nrw"
-  },
-  url: pageUrl
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Start",
-      item: "https://www.hausfit.nrw/"
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: serviceData.name,
-      item: `https://www.hausfit.nrw${serviceData.nrwUrl}`
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: cityData.name,
-      item: pageUrl
-    }
-  ]
-};
+const comboPath = Astro.url.pathname;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
-
+  <ServiceSchema
+    slot="head"
+    serviceName={serviceData.name}
+    serviceSlug={service!}
+    description={pageDescription}
+    city={cityData.name}
+  />
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Leistungen", url: "/leistungen" },
+          { label: serviceData.name, url: serviceData.nrwUrl },
+          { label: cityData.name, url: comboPath }
+        ]}
+      />
       <p class="eyebrow">Leistung in Ihrer Stadt</p>
       <h1>{serviceData.name} in {cityData.name}</h1>
       <p>{intro}</p>

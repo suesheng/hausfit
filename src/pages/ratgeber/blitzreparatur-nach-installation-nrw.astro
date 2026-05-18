@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -33,6 +34,12 @@ const faqSchema = {
 
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Blitzreparatur", url: Astro.url.pathname }
+        ]}
+      />
       <p class="eyebrow">Ratgeber</p>
       <h1>Blitzreparatur nach Sanitär- und Installationsarbeiten</h1>
       <p>

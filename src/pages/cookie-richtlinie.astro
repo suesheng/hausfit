@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import { getRootPageMeta } from "../data/page-meta.js";
 
 const pageMeta = getRootPageMeta(Astro.url.pathname);
@@ -9,6 +10,12 @@ if (!pageMeta) throw new Error("Page meta not found for cookie-richtlinie");
 <BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Cookie-Richtlinie", url: "/cookie-richtlinie" }
+        ]}
+      />
       <p class="eyebrow">Rechtliches</p>
       <h1>Cookie-Richtlinie</h1>
       <p>Hier finden Sie transparente Informationen zur Nutzung von Cookies und ähnlichen Technologien.</p>

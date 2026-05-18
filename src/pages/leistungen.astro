@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import { getRootPageMeta } from "../data/page-meta.js";
 
 const pageMeta = getRootPageMeta(Astro.url.pathname);
@@ -36,31 +37,18 @@ const itemListSchema = {
   }))
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Start",
-      item: "https://www.hausfit.nrw/"
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Leistungen",
-      item: "https://www.hausfit.nrw/leistungen"
-    }
-  ]
-};
 ---
 
 <BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)}></script>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Leistungen", url: "/leistungen" }
+        ]}
+      />
       <p class="eyebrow">Leistungen</p>
       <h1>Unsere Leistungen für Sanierung und Ausbau</h1>
       <p>Hier finden Sie alle Hauptleistungen mit direktem Einstieg zur passenden Leistungsseite.</p>

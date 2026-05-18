@@ -1,0 +1,41 @@
+---
+interface Props {
+  serviceName: string;
+  serviceSlug: string;
+  description: string;
+  city?: string;
+}
+
+const { serviceName, serviceSlug, description, city } = Astro.props;
+
+const site = Astro.site ?? new URL("https://www.hausfit.nrw");
+const pageUrl = new URL(Astro.url.pathname, site).href;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: city ? `${serviceName} in ${city}` : `${serviceName} NRW`,
+  serviceType: serviceName,
+  identifier: serviceSlug,
+  description,
+  url: pageUrl,
+  areaServed: city
+    ? {
+        "@type": "City",
+        name: city
+      }
+    : {
+        "@type": "State",
+        name: "Nordrhein-Westfalen"
+      },
+  provider: {
+    "@type": "LocalBusiness",
+    "@id": "https://www.hausfit.nrw",
+    name: "HausFit NRW",
+    url: "https://www.hausfit.nrw",
+    telephone: "+491799238814"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>

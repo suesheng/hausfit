@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -33,6 +34,12 @@ const faqSchema = {
 
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Sanierung Kosten Düsseldorf", url: Astro.url.pathname }
+        ]}
+      />
       <p class="eyebrow">Ratgeber</p>
       <h1>Sanierung Kosten in Düsseldorf: realistisch planen</h1>
       <p>

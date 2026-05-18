@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import { getRootPageMeta } from "../data/page-meta.js";
 
 const pageMeta = getRootPageMeta(Astro.url.pathname);
@@ -12,6 +13,12 @@ const cities = einsatzgebietCityLinks;
 <BaseLayout title={pageMeta.title} description={pageMeta.description}>
   <section class="page-hero">
     <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Einsatzgebiet", url: "/einsatzgebiet" }
+        ]}
+      />
       <p class="eyebrow">Einsatzgebiet</p>
       <h1>Sanierung in vielen Städten in NRW</h1>
       <p class="desktop-only">Wählen Sie Ihre Stadt und starten Sie Ihre Anfrage mit kurzen Angaben zum Projekt.</p>

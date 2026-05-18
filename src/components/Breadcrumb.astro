@@ -1,0 +1,49 @@
+---
+export interface BreadcrumbItem {
+  label: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+if (!items?.length) {
+  throw new Error("Breadcrumb requires at least one item.");
+}
+
+const site = Astro.site ?? new URL("https://www.hausfit.nrw");
+const lastIndex = items.length - 1;
+
+const toAbsoluteUrl = (url: string) => new URL(url, site).href;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    item: toAbsoluteUrl(item.url)
+  }))
+};
+---
+
+<script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
+
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ol class="breadcrumb">
+    {
+      items.map((item, index) => (
+        <li
+          class:list={["breadcrumb-item", { active: index === lastIndex }]}
+          {...(index === lastIndex ? { "aria-current": "page" } : {})}
+        >
+          {index === lastIndex ? item.label : <a href={item.url}>{item.label}</a>}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
