@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import { applySitemapPriority } from "./src/config/sitemap-priorities.js";
+import { applySitemapPriority, shouldIncludeInSitemap } from "./src/config/sitemap-priorities.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +10,7 @@ export default defineConfig({
     sitemap({
       changefreq: "weekly",
       priority: 0.5,
+      filter: (page) => shouldIncludeInSitemap(page),
       serialize(item) {
         return applySitemapPriority(item);
       },

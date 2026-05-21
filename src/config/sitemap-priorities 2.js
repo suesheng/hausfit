@@ -11,17 +11,13 @@ const CITY_PATHS = new Set([
   "/einsatzgebiet/wuppertal",
 ]);
 
-export const SITEMAP_EXCLUDED_PATHS = new Set([
+const LEGAL_PATHS = new Set([
   "/datenschutz",
   "/impressum",
   "/cookie-richtlinie",
 ]);
 
-const LEGAL_PATHS = SITEMAP_EXCLUDED_PATHS;
-
-const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns", "/faq", "/ratgeber"]);
-
-const RATGEBER_PAGE = /^\/ratgeber\/[^/]+$/;
+const CORE_PATHS = new Set(["/kontakt", "/referenzen", "/ueber-uns"]);
 
 const SERVICE_PAGE = /^\/leistungen\/[^/]+-nrw$/;
 
@@ -45,7 +41,6 @@ export function priorityForPath(pathname) {
   if (SERVICE_PAGE.test(pathname)) return 0.8;
   if (CITY_PATHS.has(pathname)) return 0.7;
   if (CORE_PATHS.has(pathname)) return 0.6;
-  if (RATGEBER_PAGE.test(pathname)) return 0.5;
   return undefined;
 }
 
@@ -59,15 +54,4 @@ export function applySitemapPriority(item) {
     item.priority = priority;
   }
   return item;
-}
-
-/**
- * @param {string} pageUrl
- * @returns {boolean}
- */
-export function shouldIncludeInSitemap(pageUrl) {
-  const pathname = pathnameFromSitemapUrl(pageUrl);
-  if (SITEMAP_EXCLUDED_PATHS.has(pathname)) return false;
-  if (pathname.includes("%202")) return false;
-  return true;
 }

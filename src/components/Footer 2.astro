@@ -1,0 +1,57 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="desktop-only">
+        <a class="brand footer-brand" href="/" aria-label="HausFit NRW Startseite">
+          <img src="/logo_dark.svg" alt="HausFit NRW" class="brand-logo" loading="lazy" />
+        </a>
+        <p class="footer-tagline">Zuverlässige Sanierung mit klarer Kommunikation.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h2>Kontakt</h2>
+        <ul class="footer-list">
+          <li>
+            Mülheimer Straße 16<br />
+            40239 Düsseldorf
+          </li>
+          <li><a href="tel:+491799238814">+49 179 923 8814</a></li>
+          <li><a href="mailto:info@hausfit.nrw">info@hausfit.nrw</a></li>
+        </ul>
+      </div>
+
+      <div class="mobile-only footer-area-mobile">
+        <h2>Einsatzgebiet</h2>
+        <ul class="footer-list">
+          <li><a href="/einsatzgebiet/duesseldorf">Düsseldorf</a></li>
+          <li><a href="/einsatzgebiet/koeln">Köln</a></li>
+          <li><a href="/einsatzgebiet/essen">Essen</a></li>
+          <li><a href="/einsatzgebiet/dortmund">Dortmund</a></li>
+          <li><a href="/einsatzgebiet/duisburg">Duisburg</a></li>
+          <li><a href="/einsatzgebiet/bochum">Bochum</a></li>
+          <li><a href="/einsatzgebiet/solingen">Solingen</a></li>
+          <li><a href="/einsatzgebiet/wuppertal">Wuppertal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-legal">
+        <h2>Rechtliches</h2>
+        <ul class="footer-list">
+          <li><a href="/impressum">Impressum</a></li>
+          <li><a href="/datenschutz">Datenschutz</a></li>
+          <li><a href="/cookie-richtlinie">Cookie-Richtlinie</a></li>
+          <li><button type="button" class="footer-cookie-button" data-cookie-action="open-settings">Cookie-Einstellungen</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© HausFit NRW {currentYear}</p>
+      <p>Seit 2004 – Ihr Partner für Sanierung in NRW</p>
+    </div>
+  </div>
+</footer>
