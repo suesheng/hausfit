@@ -56,6 +56,48 @@ const localBusinessSchema = {
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "granted",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500
+      });
+      gtag("js", new Date());
+      gtag("config", gaMeasurementId, { anonymize_ip: true });
+
+      let adsConfigured = false;
+
+      const applyConsentConfig = (consent) => {
+        if (!consent) return;
+
+        if (consent.marketing && !adsConfigured) {
+          gtag("config", googleAdsTagId);
+          adsConfigured = true;
+        }
+      };
+
+      window.addEventListener("hausfit:cookie-consent-updated", (event) => {
+        applyConsentConfig(event.detail);
+      });
+
+      try {
+        const storedConsent = JSON.parse(localStorage.getItem("hausfit_cookie_consent_v1") || "null");
+        applyConsentConfig(storedConsent);
+      } catch {
+        // no stored consent yet
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -79,60 +121,6 @@ const localBusinessSchema = {
     <meta name="twitter:image" content={socialImageUrl} />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
-    <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "granted",
-        personalization_storage: "denied",
-        security_storage: "granted",
-        wait_for_update: 500
-      });
-      gtag("js", new Date());
-
-      let gtagLibraryRequested = false;
-      let analyticsConfigured = false;
-      let adsConfigured = false;
-
-      const ensureGtagLibrary = () => {
-        if (gtagLibraryRequested) return;
-        gtagLibraryRequested = true;
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`;
-        document.head.appendChild(script);
-      };
-
-      const applyConsentConfig = (consent) => {
-        if (!consent) return;
-        if (consent.analytics || consent.marketing) ensureGtagLibrary();
-
-        if (consent.analytics && !analyticsConfigured) {
-          gtag("config", gaMeasurementId, { anonymize_ip: true });
-          analyticsConfigured = true;
-        }
-
-        if (consent.marketing && !adsConfigured) {
-          gtag("config", googleAdsTagId);
-          adsConfigured = true;
-        }
-      };
-
-      window.addEventListener("hausfit:cookie-consent-updated", (event) => {
-        applyConsentConfig(event.detail);
-      });
-
-      try {
-        const storedConsent = JSON.parse(localStorage.getItem("hausfit_cookie_consent_v1") || "null");
-        applyConsentConfig(storedConsent);
-      } catch {
-        // no stored consent yet
-      }
-    </script>
     <slot name="head" />
   </head>
   <body>
