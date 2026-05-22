@@ -2,33 +2,16 @@
 // EasyWeek Booking Software: https://easyweek.de
 ---
 
+<!-- EasyWeek Booking Software: https://easyweek.de -->
+<script is:inline src="https://booking.easyweek.de/widget.js"></script>
 <script is:inline>
-  (() => {
-    const initEasyWeek = () => {
-      if (typeof window.EasyWeekWidget !== "function") return;
-
-      window.ewWidget = new window.EasyWeekWidget({
-        url: "https://booking.easyweek.de/hausfit-nrw-ek",
-        button: {
-          text: "Jetzt buchen",
-          showText: true,
-          color: "#292A2E",
-          background: "#56af40",
-          textColor: "#D3D3D4",
-          textBackground: "#292A2E"
-        }
-      });
-    };
-
-    if (typeof window.EasyWeekWidget === "function") {
-      initEasyWeek();
-      return;
+  var ewWidget = new EasyWeekWidget({
+    url: "https://booking.easyweek.de/hausfit-nrw-ek",
+    button: {
+      text: "Termin",
+      showText: false,
+      color: "#292A2E",
+      background: "#C85636"
     }
-
-    const script = document.createElement("script");
-    script.src = "https://booking.easyweek.de/widget.js";
-    script.async = true;
-    script.onload = initEasyWeek;
-    document.body.appendChild(script);
-  })();
+  });
 </script>
