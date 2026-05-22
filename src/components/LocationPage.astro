@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumb from "./Breadcrumb.astro";
 import { Image } from "astro:assets";
 import { cities } from "../data/cities.js";
-import { services, serviceUrlBySlug } from "../data/services.js";
+import { getServiceLinksForCity } from "../data/service-city-urls.js";
 import { getCityPageMeta } from "../data/page-meta.js";
 import { getCityImageAlt } from "../data/image-alt.js";
 
@@ -49,6 +49,7 @@ if (!imageModule) {
   throw new Error("Default city image not found at /src/assets/images/cities/default.webp");
 }
 const heroImage = imageModule.default;
+const serviceComboLinks = getServiceLinksForCity(cityKey, city.name);
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -67,11 +68,11 @@ const servicesItemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: `Leistungen in ${city.name}`,
-  itemListElement: services.map((service, index) => ({
+  itemListElement: serviceComboLinks.map((link, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    name: service.name,
-    url: `https://www.hausfit.nrw${serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}`
+    name: link.label,
+    url: `https://www.hausfit.nrw${link.href}`
   }))
 };
 ---
@@ -112,15 +113,21 @@ const servicesItemListSchema = {
     <div class="container content-grid">
       <article class="content-main">
         <section>
-          <h2>Unsere Leistungen in dieser Stadt</h2>
-          <p class="desktop-only">Alle unsere Leistungen sind auch hier verfügbar:</p>
+          <h2>Unsere Leistungen in {city.name}</h2>
+          <p class="desktop-only">
+            Für jede Leistung vor Ort verlinken wir die kombinierte Seite (z. B. Badsanierung in
+            {city.name}) – nicht die NRW-Leistungsseite:
+          </p>
           <ul>
-            {
-              services.map((service) => (
-                <li><a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>{service.name}</a></li>
-              ))
-            }
+            {serviceComboLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
           </ul>
+          <p class="seo-secondary-links">
+            Alle Leistungen NRW: <a href="/leistungen">Leistungsübersicht</a>
+          </p>
         </section>
 
         <section>

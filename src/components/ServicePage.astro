@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumb from "./Breadcrumb.astro";
 import RelatedServices from "./RelatedServices.astro";
 import ServiceSchema from "./ServiceSchema.astro";
-import { einsatzgebietCityLinks } from "../data/cities.js";
+import { comboKeyFromMetaSlug, getCityLinksForService } from "../data/service-city-urls.js";
 import { getServicePageMeta } from "../data/page-meta.js";
 
 interface Props {
@@ -40,6 +40,12 @@ const pageMeta = getServicePageMeta(metaSlug);
 if (!pageMeta) {
   throw new Error(`Service page meta not found for slug: ${metaSlug}`);
 }
+
+const comboKey = comboKeyFromMetaSlug(metaSlug);
+if (!comboKey) {
+  throw new Error(`Combo key not found for service meta slug: ${metaSlug}`);
+}
+const cityComboLinks = getCityLinksForService(comboKey, serviceName);
 
 ---
 
@@ -105,19 +111,20 @@ if (!pageMeta) {
         </section>
 
         <section>
-          <h2>Einsatzgebiet</h2>
-          <p>Wir bieten diese Leistung in Nordrhein-Westfalen an, einschließlich:</p>
-          <ul>
-            {
-              einsatzgebietCityLinks.map((city) => (
-                <li>
-                  <a href={city.href}>{city.name}</a>
-                </li>
-              ))
-            }
-          </ul>
+          <h2>{serviceName} in Ihrer Stadt</h2>
           <p>
-            <a href="/einsatzgebiet">Übersicht Einsatzgebiet</a>
+            Für lokale Projekte ist jeweils die kombinierte Leistungs- und Stadtseite die
+            Hauptquelle – nicht die allgemeine Standortseite:
+          </p>
+          <ul>
+            {cityComboLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+          <p class="seo-secondary-links">
+            <a href="/einsatzgebiet">Alle Standorte (Übersicht)</a>
           </p>
         </section>
 

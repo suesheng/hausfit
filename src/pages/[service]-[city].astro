@@ -99,19 +99,20 @@ const comboPath = Astro.url.pathname;
         </section>
 
         <section>
-          <h2>Einsatzgebiet</h2>
+          <h2>Weitere Informationen</h2>
           <p>
-            Diese Leistung bieten wir in {cityData.name} und in ganz NRW an.
-            Weitere Infos finden Sie auf der Standortseite.
+            Diese Seite ist die Hauptquelle für „{serviceData.name} in {cityData.name}“. Für
+            allgemeine Sanierung in {cityData.name} oder den NRW-Überblick zur Leistung:
           </p>
-          <p><a href={cityUrl}>Zur Seite Sanierung in {cityData.name}</a></p>
-        </section>
-
-        <section>
-          <h2>Interne Links</h2>
           <ul>
-            <li><a href={serviceData.nrwUrl}>Zur Hauptseite {serviceData.name}</a></li>
-            <li><a href={cityUrl}>Zur Stadtseite {cityData.name}</a></li>
+            <li>
+              <a href={serviceData.nrwUrl}>{serviceData.name} in ganz NRW</a>
+              <span> – Leistungsübersicht NRW</span>
+            </li>
+            <li>
+              <a href={cityUrl}>Sanierung in {cityData.name}</a>
+              <span> – alle Gewerke am Standort</span>
+            </li>
           </ul>
         </section>
 
