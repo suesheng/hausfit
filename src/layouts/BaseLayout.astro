@@ -57,25 +57,29 @@ const localBusinessSchema = {
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-    <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
+    <!-- Consent Mode v2 — must be first in <head> -->
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "granted",
-        personalization_storage: "denied",
-        security_storage: "granted",
-        wait_for_update: 500
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500,
+        'region': ['DE', 'AT', 'CH']
       });
-      gtag("js", new Date());
-      gtag("config", gaMeasurementId, { anonymize_ip: true });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', false);
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <script is:inline define:vars={{ gaMeasurementId, googleAdsTagId }}>
+      gtag('js', new Date());
+      gtag('config', gaMeasurementId, { anonymize_ip: true });
 
       let adsConfigured = false;
 
@@ -83,17 +87,17 @@ const localBusinessSchema = {
         if (!consent) return;
 
         if (consent.marketing && !adsConfigured) {
-          gtag("config", googleAdsTagId);
+          gtag('config', googleAdsTagId);
           adsConfigured = true;
         }
       };
 
-      window.addEventListener("hausfit:cookie-consent-updated", (event) => {
+      window.addEventListener('hausfit:cookie-consent-updated', (event) => {
         applyConsentConfig(event.detail);
       });
 
       try {
-        const storedConsent = JSON.parse(localStorage.getItem("hausfit_cookie_consent_v1") || "null");
+        const storedConsent = JSON.parse(localStorage.getItem('hausfit_cookie_consent_v1') || 'null');
         applyConsentConfig(storedConsent);
       } catch {
         // no stored consent yet
