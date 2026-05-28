@@ -146,63 +146,17 @@ const localBusinessSchema = {
       WhatsApp
     </a>
     <script is:inline>
-      (() => {
-        const track = (eventName, params = {}) => {
-          if (typeof window.gtag !== "function") return;
-          window.gtag("event", eventName, params);
-        };
-
-        const leadEventParams = () => ({
-          event_category: "Lead",
-          event_label: window.location.pathname,
-          value: 1
-        });
-
-        const isAngebotCtaLabel = (text) =>
-          /angebot|kostenvoranschlag|projekt anfragen|anfrage senden|jetzt anfragen/i.test(text);
-
-        document.addEventListener("click", (event) => {
-          const telLink = event.target.closest('a[href^="tel:"]');
-          if (telLink) {
-            track("phone_click", {
-              event_category: "Contact",
-              event_label: telLink.getAttribute("href") || "",
-              value: 1
-            });
-            return;
-          }
-
-          const kontaktLink = event.target.closest('a[href="/kontakt"], a[href^="/kontakt?"], a[href^="/kontakt#"]');
-          if (kontaktLink) {
-            const label = (kontaktLink.textContent || "").trim();
-            const intent = isAngebotCtaLabel(label) ? "angebot" : "contact";
-            sessionStorage.setItem("hausfit_form_intent", intent);
-          }
-        });
-
-        document.addEventListener("submit", (event) => {
-          const form = event.target;
-          if (!(form instanceof HTMLFormElement)) return;
-
-          const isContactForm =
-            form.id === "whatsapp-form" ||
-            form.classList.contains("whatsapp-form") ||
-            form.dataset.gaForm === "angebot" ||
-            form.dataset.gaForm === "contact";
-
-          if (!isContactForm) return;
-
-          // data-ga-form on future forms; else intent from /kontakt CTA click; default angebot
-          const intent =
-            form.dataset.gaForm ||
-            sessionStorage.getItem("hausfit_form_intent") ||
-            "angebot";
-          const eventName = intent === "contact" ? "contact_form_submit" : "angebot_request";
-
-          track(eventName, leadEventParams());
-          sessionStorage.removeItem("hausfit_form_intent");
-        });
-      })();
+      document.addEventListener("click", function (e) {
+        const link = e.target.closest('a[href^="tel:"]');
+        if (!link) return;
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "phone_click", {
+            event_category: "Contact",
+            event_label: link.getAttribute("href"),
+            value: 1
+          });
+        }
+      });
     </script>
   </body>
 </html>

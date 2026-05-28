@@ -94,19 +94,27 @@ if (!pageMeta) throw new Error("Page meta not found for kontakt");
       </aside>
     </div>
   </section>
+
+  <script is:inline>
+    document.getElementById("whatsapp-form")?.addEventListener("submit", function (e) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "contact_form_submit", {
+          event_category: "Lead",
+          event_label: window.location.pathname,
+          value: 1
+        });
+      }
+
+      e.preventDefault();
+
+      const name = document.getElementById("name")?.value || "";
+      const phone = document.getElementById("phone")?.value || "";
+      const message = document.getElementById("message")?.value || "";
+
+      const rawText = `Hallo, ich interessiere mich für eine Sanierung\n\nAnfrage von Website:\nName: ${name}\nTelefon: ${phone}\nNachricht: ${message}`;
+      const url = `https://wa.me/491799238814?text=${encodeURIComponent(rawText)}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
 </BaseLayout>
-
-<script is:inline>
-  document.getElementById("whatsapp-form")?.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name")?.value || "";
-    const phone = document.getElementById("phone")?.value || "";
-    const message = document.getElementById("message")?.value || "";
-
-    const rawText = `Hallo, ich interessiere mich für eine Sanierung\n\nAnfrage von Website:\nName: ${name}\nTelefon: ${phone}\nNachricht: ${message}`;
-    const url = `https://wa.me/491799238814?text=${encodeURIComponent(rawText)}`;
-
-    window.open(url, "_blank");
-  });
-</script>
