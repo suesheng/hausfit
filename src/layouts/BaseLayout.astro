@@ -152,58 +152,55 @@ const localBusinessSchema = {
           window.gtag("event", eventName, params);
         };
 
+        const leadEventParams = () => ({
+          event_category: "Lead",
+          event_label: window.location.pathname,
+          value: 1
+        });
+
+        const isAngebotCtaLabel = (text) =>
+          /angebot|kostenvoranschlag|projekt anfragen|anfrage senden|jetzt anfragen/i.test(text);
+
         document.addEventListener("click", (event) => {
-          const anchor = event.target.closest("a[href]");
-          if (!anchor) return;
-
-          const href = (anchor.getAttribute("href") || "").trim();
-          const location = anchor.closest("header")
-            ? "header"
-            : anchor.closest("footer")
-              ? "footer"
-              : anchor.closest(".cta-block")
-                ? "cta"
-                : anchor.closest(".contact-card")
-                  ? "contact_card"
-                  : "content";
-
-          if (href.startsWith("tel:")) {
+          const telLink = event.target.closest('a[href^="tel:"]');
+          if (telLink) {
             track("phone_click", {
               event_category: "Contact",
-              event_label: href,
+              event_label: telLink.getAttribute("href") || "",
               value: 1
             });
+            return;
           }
 
-          if (href.startsWith("mailto:")) {
-            track("generate_lead", {
-              lead_type: "email_click",
-              contact_method: "email",
-              link_url: href,
-              placement: location
-            });
-          }
-
-          if (href.includes("wa.me")) {
-            track("generate_lead", {
-              lead_type: "whatsapp_click",
-              contact_method: "whatsapp",
-              link_url: href,
-              placement: location
-            });
+          const kontaktLink = event.target.closest('a[href="/kontakt"], a[href^="/kontakt?"], a[href^="/kontakt#"]');
+          if (kontaktLink) {
+            const label = (kontaktLink.textContent || "").trim();
+            const intent = isAngebotCtaLabel(label) ? "angebot" : "contact";
+            sessionStorage.setItem("hausfit_form_intent", intent);
           }
         });
 
         document.addEventListener("submit", (event) => {
           const form = event.target;
           if (!(form instanceof HTMLFormElement)) return;
-          if (form.id !== "whatsapp-form" && !form.classList.contains("whatsapp-form")) return;
 
-          track("generate_lead", {
-            lead_type: "contact_form_submit",
-            contact_method: "whatsapp_form",
-            placement: "contact_page"
-          });
+          const isContactForm =
+            form.id === "whatsapp-form" ||
+            form.classList.contains("whatsapp-form") ||
+            form.dataset.gaForm === "angebot" ||
+            form.dataset.gaForm === "contact";
+
+          if (!isContactForm) return;
+
+          // data-ga-form on future forms; else intent from /kontakt CTA click; default angebot
+          const intent =
+            form.dataset.gaForm ||
+            sessionStorage.getItem("hausfit_form_intent") ||
+            "angebot";
+          const eventName = intent === "contact" ? "contact_form_submit" : "angebot_request";
+
+          track(eventName, leadEventParams());
+          sessionStorage.removeItem("hausfit_form_intent");
         });
       })();
     </script>
