@@ -168,11 +168,10 @@ const localBusinessSchema = {
                   : "content";
 
           if (href.startsWith("tel:")) {
-            track("generate_lead", {
-              lead_type: "phone_click",
-              contact_method: "phone",
-              link_url: href,
-              placement: location
+            track("phone_click", {
+              event_category: "Contact",
+              event_label: href,
+              value: 1
             });
           }
 
