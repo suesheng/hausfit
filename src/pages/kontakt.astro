@@ -63,6 +63,22 @@ if (!pageMeta) throw new Error("Page meta not found for kontakt");
               Anfrage per WhatsApp senden
             </button>
           </form>
+
+          <script>
+            // GA4: contact form submit tracking
+            const form = document.getElementById("whatsapp-form");
+            if (form) {
+              form.addEventListener("submit", function () {
+                if (typeof window.gtag === "function") {
+                  window.gtag("event", "contact_form_submit", {
+                    event_category: "Lead",
+                    event_label: window.location.pathname,
+                    value: 1
+                  });
+                }
+              });
+            }
+          </script>
         </section>
 
         <section>
@@ -95,16 +111,8 @@ if (!pageMeta) throw new Error("Page meta not found for kontakt");
     </div>
   </section>
 
-  <script is:inline>
+  <script>
     document.getElementById("whatsapp-form")?.addEventListener("submit", function (e) {
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "contact_form_submit", {
-          event_category: "Lead",
-          event_label: window.location.pathname,
-          value: 1
-        });
-      }
-
       e.preventDefault();
 
       const name = document.getElementById("name")?.value || "";

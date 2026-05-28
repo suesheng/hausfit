@@ -145,7 +145,8 @@ const localBusinessSchema = {
     >
       WhatsApp
     </a>
-    <script is:inline>
+    <script>
+      // GA4: phone click tracking (sitewide)
       document.addEventListener("click", function (e) {
         const link = e.target.closest('a[href^="tel:"]');
         if (!link) return;
