@@ -120,17 +120,20 @@
     };
 
     const updateGoogleConsent = (consent) => {
-      if (typeof window.gtag !== "function") return;
-
-      window.gtag("consent", "update", {
-        analytics_storage: consent.analytics ? "granted" : "denied",
-        ad_storage: consent.marketing ? "granted" : "denied",
-        ad_user_data: consent.marketing ? "granted" : "denied",
-        ad_personalization: consent.marketing ? "granted" : "denied",
-        functionality_storage: consent.preferences ? "granted" : "denied",
-        personalization_storage: consent.preferences ? "granted" : "denied",
-        security_storage: "granted"
-      });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push([
+        "consent",
+        "update",
+        {
+          analytics_storage: consent.analytics ? "granted" : "denied",
+          ad_storage: consent.marketing ? "granted" : "denied",
+          ad_user_data: consent.marketing ? "granted" : "denied",
+          ad_personalization: consent.marketing ? "granted" : "denied",
+          functionality_storage: consent.preferences ? "granted" : "denied",
+          personalization_storage: consent.preferences ? "granted" : "denied",
+          security_storage: "granted"
+        }
+      ]);
     };
 
     const activateDeferredScripts = (consent) => {
