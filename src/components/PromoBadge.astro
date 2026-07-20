@@ -3,7 +3,7 @@ import { getActivePromotion } from "../data/promotions.js";
 
 interface Props {
   metaSlug: string;
-  variant?: "ribbon" | "ribbon-contained" | "line" | "inline";
+  variant?: "ribbon" | "line" | "inline";
 }
 
 const { metaSlug, variant = "ribbon" } = Astro.props;
@@ -11,10 +11,6 @@ const promo = getActivePromotion(metaSlug);
 ---
 
 {promo && variant === "ribbon" && <span class="promo-ribbon">-{promo.percent}%</span>}
-
-{promo && variant === "ribbon-contained" && (
-  <span class="promo-ribbon promo-ribbon--contained">-{promo.percent}%</span>
-)}
 
 {promo && variant === "line" && (
   <p class="promo-line">Aktion: {promo.percent}% Rabatt bis {promo.validUntilLabel}</p>

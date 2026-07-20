@@ -354,23 +354,15 @@ h3 {
 .promo-ribbon {
   background: var(--color-brand);
   color: #fff;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 900;
-  padding: 4px 38px;
+  padding: 4px 34px;
   position: absolute;
-  right: -32px;
+  right: -30px;
   top: 14px;
-  transform: rotate(35deg);
+  transform: rotate(45deg);
   white-space: nowrap;
   z-index: 2;
-}
-
-.promo-ribbon--contained {
-  border-radius: 4px;
-  padding: 3px 10px;
-  right: 10px;
-  top: 10px;
-  transform: none;
 }
 
 .promo-line {
@@ -492,7 +484,6 @@ h3 {
 
 .service-card {
   padding: 30px;
-  position: relative;
 }
 
 .service-card h3 {

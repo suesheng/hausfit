@@ -66,8 +66,8 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchpriority={index === 0 ? "high" : undefined}
               />
+              <PromoBadge metaSlug={metaSlug} />
             </div>
-            <PromoBadge metaSlug={metaSlug} />
             <h3>{service.title}</h3>
             <p>{service.text}</p>
             <PromoBadge metaSlug={metaSlug} variant="line" />
