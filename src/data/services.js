@@ -109,8 +109,8 @@ export const serviceCombos = {
   klimaanlagen: {
     name: "Klimaanlagen",
     slug: "klimaanlagen",
-    description: "Split-Klimageräte fachgerecht beraten und montieren.",
+    description: "Split-Klimageräte baulich vorbereiten und mit Fachpartner koordinieren.",
     nrwUrl: "/leistungen/klimaanlagen-installation-nrw",
-    leistungen: ["Beratung und Gerätewahl", "Montage Innen- und Außengerät", "Kältemittel- und Kondensatleitung", "Elektroanschluss", "Inbetriebnahme"]
+    leistungen: ["Beratung und Standortwahl", "Montage Innen- und Außengerät", "Vorbereitung Leitungswege und Kondensatablauf", "Koordination mit Kälte-Klima-Fachbetrieb"]
   }
 };

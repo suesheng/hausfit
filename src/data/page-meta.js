@@ -117,18 +117,18 @@ export const servicePageMeta = {
       "Generalunternehmer in NRW für Komplettsanierung: alle Gewerke, ein Ansprechpartner, klare Termine. Koordination aus Düsseldorf für ganz NRW."
   },
   "klimaanlagen-installation-nrw": {
-    title: "Klimaanlagen NRW ✓ Fachgerecht montiert | HausFit",
+    title: "Klimaanlagen-Montage NRW ✓ Bauliche Vorbereitung | HausFit",
     description:
-      "Klimaanlagen-Installation in NRW: Beratung, Montage und Inbetriebnahme von Split-Geräten. HausFit sorgt für kühle Räume mit sauberer Elektro- und Kältemittelinstallation."
+      "Klimaanlagen-Montage in NRW: HausFit übernimmt bauliche Vorbereitung, Durchführungen und Koordination. Kältemittelarbeiten durch zertifizierten Fachbetrieb."
   }
 };
 
 /** @type {Record<string, PageMeta>} */
 export const cityPageMeta = {
   duesseldorf: {
-    title: "Sanierung Düsseldorf NRW ✓ Vor Ort | HausFit",
+    title: "Sanierung Düsseldorf ✓ Festpreise | HausFit",
     description:
-      "Sanierung in Düsseldorf mit HausFit NRW: Badsanierung, Trockenbau und Renovierung vom Fachbetrieb. Schnell vor Ort, Festpreise und kostenlose Beratung."
+      "Sanierung und Renovierung in Düsseldorf: Badsanierung, Trockenbau und mehr vom Fachbetrieb HausFit NRW. Festpreise, schnell vor Ort, kostenlose Beratung."
   },
   koeln: {
     title: "Sanierung Köln NRW ✓ Festpreise | HausFit",
@@ -313,6 +313,13 @@ export function getComboPageMeta(serviceKey, cityKey) {
   const cityName = comboCityNames[cityKey];
   if (!service || !cityName) {
     throw new Error(`Unknown combo meta: ${serviceKey}, ${cityKey}`);
+  }
+
+  if (serviceKey === "klimaanlagen") {
+    return {
+      title: `Klimaanlagen-Montage ${cityName} ✓ Vorbereitung | HausFit`,
+      description: `Klimaanlagen-Montage in ${cityName} mit HausFit: bauliche Vorbereitung, ein Ansprechpartner. Kältemittelarbeiten durch zertifizierten Fachbetrieb.`
+    };
   }
 
   const serviceIndex = serviceOrder.indexOf(serviceKey);

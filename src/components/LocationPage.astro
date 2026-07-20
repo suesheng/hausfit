@@ -137,6 +137,83 @@ const servicesItemListSchema = {
           </ul>
         </section>
 
+        {city.process && (
+          <section>
+            <h2>Sanierung in {city.name}: Ablauf von der Anfrage bis zur Übergabe</h2>
+            <p>
+              Ob Badsanierung, Renovierung oder Komplettsanierung in {city.name} – wir begleiten
+              Ihr Projekt in klar definierten Schritten, vom ersten Kontakt bis zur Übergabe:
+            </p>
+            <ol>
+              {city.process.map((step) => <li>{step}</li>)}
+            </ol>
+          </section>
+        )}
+
+        {city.pricingApproach && (
+          <section>
+            <h3>Festpreise und realistische Zeitpläne in {city.name}</h3>
+            <p>{city.pricingApproach.intro}</p>
+            <ul>
+              {city.pricingApproach.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {city.propertyTypes && (
+          <section>
+            <h3>Projekte in {city.name}: für jede Immobilie die passende Lösung</h3>
+            <p>
+              Wir sanieren und renovieren in {city.name} unterschiedlichste Objekte – jeweils mit
+              einer Herangehensweise, die zur Nutzung passt:
+            </p>
+            <ul>
+              {city.propertyTypes.map((entry) => (
+                <li>
+                  <strong>{entry.name}:</strong> {entry.text}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {city.localExpertise && (
+          <section>
+            <h3>Lokale Erfahrung in {city.name}</h3>
+            <p>{city.localExpertise.intro}</p>
+            <p>Regelmäßig im Einsatz unter anderem in: {city.localExpertise.districts.join(", ")}.</p>
+          </section>
+        )}
+
+        {cityKey === "duesseldorf" && (
+          <section>
+            <h3>Weiterführende Leistungen in Düsseldorf</h3>
+            <p>
+              Neben klassischen Gewerken wie Bad, Trockenbau oder Malerarbeiten bieten wir in
+              Düsseldorf zusätzlich spezialisierte Sanierungsarbeiten an, die häufig im Zuge
+              größerer Sanierungsprojekte oder nach Schadensfällen anfallen:
+            </p>
+            <ul>
+              <li>
+                <a href="/renovierung-duesseldorf">Renovierung in Düsseldorf</a> – Modernisierung
+                von Wohn- und Gewerbeflächen aus einer Hand.
+              </li>
+              <li>
+                <a href="/schachtsanierung-duesseldorf">Schachtsanierung in Düsseldorf</a> –
+                fachgerechte Instandsetzung von Schächten in Bestandsimmobilien.
+              </li>
+              <li>
+                <a href="/wandsanierung-duesseldorf">Wandsanierung in Düsseldorf</a> – Rückbau,
+                Untergrundvorbereitung und saubere Wiederherstellung von Wandflächen.
+              </li>
+            </ul>
+            <p class="seo-secondary-links">
+              Mehr zu unserer Kernleistung: <a href="/badsanierung-duesseldorf">Badsanierung in Düsseldorf</a>{" "}
+              oder <a href="/leistungen/badsanierung-nrw">Badsanierung in ganz NRW</a>.
+            </p>
+          </section>
+        )}
+
         <section>
           <h2>Häufige Fragen</h2>
           {

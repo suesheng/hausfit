@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import RelatedServices from "../components/RelatedServices.astro";
+import ServiceSchema from "../components/ServiceSchema.astro";
+
+const metaSlug = "renovierung-duesseldorf";
+const serviceName = "Renovierung";
+const pageTitle = "Renovierung Düsseldorf ✓ Aus einer Hand | HausFit";
+const pageDescription =
+  "Renovierung in Düsseldorf mit HausFit NRW: Malerarbeiten, Böden und Umbauten aus einer Hand. Festpreise, saubere Umsetzung und kostenlose Beratung.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <ServiceSchema
+    slot="head"
+    serviceName={serviceName}
+    serviceSlug={metaSlug}
+    description={pageDescription}
+    city="Düsseldorf"
+  />
+
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Leistungen", url: "/leistungen" },
+          { label: "Renovierung in Düsseldorf", url: "/renovierung-duesseldorf" }
+        ]}
+      />
+      <p class="eyebrow">Leistung in Düsseldorf</p>
+      <h1>Renovierung in Düsseldorf</h1>
+      <p>
+        Sie möchten Ihre Wohnung, Ihr Haus oder Ihre Gewerbefläche in Düsseldorf modernisieren,
+        ohne mehrere Handwerker einzeln koordinieren zu müssen? HausFit NRW übernimmt Ihre
+        Renovierung in Düsseldorf aus einer Hand – von der ersten Begehung bis zur Übergabe.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Leistungen im Überblick</h2>
+          <p>
+            Eine Renovierung in Düsseldorf betrifft selten nur ein Gewerk. Wir bündeln die
+            Arbeiten, die für ein stimmiges Ergebnis nötig sind:
+          </p>
+          <ul>
+            <li>Malerarbeiten und Tapezieren in Wohn- und Arbeitsräumen</li>
+            <li>Verlegung neuer Böden – Vinyl, Laminat oder Fliesen</li>
+            <li>Kleinere Umbauten und Grundrissanpassungen</li>
+            <li>Elektro- und Sanitärarbeiten in Abstimmung mit Fachpartnern</li>
+            <li>Entsorgung von Altmaterial und Bauschutt</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Vorteile mit HausFit</h2>
+          <p>
+            Bei einer Renovierung entscheidet die Koordination der Gewerke über Termintreue und
+            Ergebnis. Deshalb übernehmen wir diese Koordination selbst:
+          </p>
+          <ul>
+            <li>Ein Ansprechpartner für alle Gewerke Ihrer Renovierung</li>
+            <li>Festpreis nach kostenloser Besichtigung vor Ort</li>
+            <li>Terminplanung, die sich an Ihrem Alltag orientiert</li>
+            <li>Saubere Baustelle – auch in bewohnten Objekten</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ablauf: Von der Anfrage bis zur Übergabe</h2>
+          <p>
+            Damit Sie jederzeit wissen, woran Sie sind, läuft jede Renovierung in Düsseldorf nach
+            denselben klaren Schritten ab:
+          </p>
+          <ol>
+            <li>Anfrage mit kurzer Beschreibung oder Fotos Ihres Vorhabens</li>
+            <li>Vor-Ort-Termin zur Aufnahme von Zustand und Wünschen</li>
+            <li>Festpreisangebot mit verbindlichem Zeitplan</li>
+            <li>Umsetzung der Renovierung Schritt für Schritt</li>
+            <li>Gemeinsame Abnahme und Übergabe</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Warum HausFit für Ihre Renovierung in Düsseldorf</h2>
+          <p>
+            Seit 2004 renovieren wir Wohnungen, Häuser und Gewerbeflächen in Düsseldorf und ganz
+            NRW. Weil wir Maler-, Boden- und kleinere Umbauarbeiten selbst koordinieren, sparen Sie
+            sich den Abstimmungsaufwand mit mehreren Einzelbetrieben. Sie sprechen mit einer
+            Person, erhalten einen Festpreis und einen Zeitplan, an den wir uns halten – egal ob es
+            um ein einzelnes Zimmer, eine ganze Wohnung oder eine Gewerbefläche geht. Auch bei
+            laufendem Betrieb oder während der Vermietung stimmen wir Zugänge und Bauabschnitte so
+            ab, dass der Alltag möglichst wenig gestört wird.
+          </p>
+        </section>
+
+        <section>
+          <h2>Für welche Objekte in Düsseldorf</h2>
+          <p>
+            Wir renovieren Eigentumswohnungen und vermietete Wohnungen ebenso wie Ein- und
+            Mehrfamilienhäuser in Düsseldorf. Bei Gewerbeflächen – etwa Büros oder Ladenlokalen –
+            planen wir die Renovierung so, dass Ihr Betrieb möglichst kurz oder gar nicht
+            unterbrochen wird. In jedem Fall erhalten Sie vorab einen realistischen Zeitplan, der
+            zur Nutzung der Immobilie passt.
+          </p>
+        </section>
+
+        <section>
+          <h2>Häufige Fragen zur Renovierung in Düsseldorf</h2>
+          <div>
+            <strong>Was ist der Unterschied zwischen Renovierung und Sanierung?</strong>
+            <p>
+              Eine Renovierung erneuert vor allem Optik und Ausstattung – etwa Farbe, Boden und
+              kleinere Umbauten. Eine Sanierung behebt zusätzlich bauliche Mängel. Wir beraten Sie
+              vorab, welcher Umfang für Ihr Projekt in Düsseldorf sinnvoll ist.
+            </p>
+          </div>
+          <div>
+            <strong>Wie lange dauert eine Renovierung?</strong>
+            <p>
+              Das hängt vom Umfang ab – von wenigen Tagen für einzelne Räume bis zu mehreren
+              Wochen bei einer kompletten Wohnung. Den genauen Zeitrahmen legen wir im
+              Festpreisangebot fest.
+            </p>
+          </div>
+          <div>
+            <strong>Kann ich während der Renovierung in der Wohnung wohnen bleiben?</strong>
+            <p>
+              In vielen Fällen ja. Wir planen die Bauabschnitte so, dass zumindest Teile der
+              Wohnung nutzbar bleiben, und sprechen mit Ihnen ab, was im Einzelfall möglich ist.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Weitere Informationen</h2>
+          <p>
+            Für umfassendere Sanierungsarbeiten in Düsseldorf sind unsere Spezialleistungen die
+            passende Ergänzung zur Renovierung:
+          </p>
+          <ul>
+            <li>
+              <a href="/schachtsanierung-duesseldorf">Schachtsanierung in Düsseldorf</a> – fachgerechte
+              Instandsetzung von Ver- und Entsorgungsschächten.
+            </li>
+            <li>
+              <a href="/wandsanierung-duesseldorf">Wandsanierung in Düsseldorf</a> – Rissbeseitigung,
+              Neuverputz und Wiederherstellung von Wandflächen.
+            </li>
+            <li>
+              <a href="/einsatzgebiet/duesseldorf">Sanierung in Düsseldorf</a> – Übersicht aller
+              Gewerke an diesem Standort.
+            </li>
+          </ul>
+          <p class="seo-secondary-links">
+            NRW-weit: <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten NRW</a> ·{" "}
+            <a href="/leistungen/bodenleger-nrw">Bodenleger NRW</a>
+          </p>
+        </section>
+
+        <RelatedServices currentMetaSlug={metaSlug} />
+
+        <section>
+          <h2>Jetzt Angebot anfordern</h2>
+          <p>Schicken Sie uns Grundriss oder Fotos zu Ihrem Vorhaben in Düsseldorf.</p>
+          <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Renovierung in Düsseldorf anfragen</h2>
+        <p>Wir melden uns zeitnah mit dem nächsten Schritt.</p>
+        <a href="/kontakt" class="button button-primary">Jetzt Anfrage senden</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

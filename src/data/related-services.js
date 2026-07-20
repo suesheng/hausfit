@@ -83,7 +83,7 @@ export const serviceCatalog = [
     metaSlug: "klimaanlagen-installation-nrw",
     imageSlug: "klimaanlagen",
     name: "Klimaanlagen",
-    description: "Split-Klimageräte beraten, montieren und in Betrieb nehmen – für kühle Räume im Sommer.",
+    description: "Split-Klimageräte baulich vorbereiten – Koordination mit zertifiziertem Kälte-Klima-Fachbetrieb.",
     href: "/leistungen/klimaanlagen-installation-nrw"
   }
 ];
@@ -120,7 +120,10 @@ const relatedByMetaSlug = {
   "schimmelbeseitigung-nrw": ["badsanierung-nrw", "trockenbau-nrw", "malerarbeiten-nrw"],
   "asbestbeseitigung-nrw": ["trockenbau-nrw", waermedaemmungCard, "generalunternehmer-nrw"],
   "generalunternehmer-nrw": ["badsanierung-nrw", "dachausbau-nrw", waermedaemmungCard],
-  "klimaanlagen-installation-nrw": ["fassadendaemmung-nrw", "fenster-tueren-montage-nrw", "generalunternehmer-nrw"]
+  "klimaanlagen-installation-nrw": ["fassadendaemmung-nrw", "fenster-tueren-montage-nrw", "generalunternehmer-nrw"],
+  "renovierung-duesseldorf": ["generalunternehmer-nrw", "malerarbeiten-nrw", "bodenleger-nrw"],
+  "schachtsanierung-duesseldorf": ["generalunternehmer-nrw", "trockenbau-nrw", "asbestbeseitigung-nrw"],
+  "wandsanierung-duesseldorf": ["malerarbeiten-nrw", "trockenbau-nrw", "schimmelbeseitigung-nrw"]
 };
 
 const catalogBySlug = Object.fromEntries(serviceCatalog.map((entry) => [entry.metaSlug, entry]));

@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import RelatedServices from "../components/RelatedServices.astro";
+import ServiceSchema from "../components/ServiceSchema.astro";
+
+const metaSlug = "wandsanierung-duesseldorf";
+const serviceName = "Wandsanierung";
+const pageTitle = "Wandsanierung Düsseldorf ✓ Rissfrei | HausFit";
+const pageDescription =
+  "Wandsanierung in Düsseldorf: HausFit NRW saniert Risse, Feuchtigkeit und beschädigten Putz fachgerecht. Festpreise und kostenlose Erstberatung vor Ort.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <ServiceSchema
+    slot="head"
+    serviceName={serviceName}
+    serviceSlug={metaSlug}
+    description={pageDescription}
+    city="Düsseldorf"
+  />
+
+  <section class="page-hero">
+    <div class="container">
+      <Breadcrumb
+        items={[
+          { label: "Startseite", url: "/" },
+          { label: "Leistungen", url: "/leistungen" },
+          { label: "Wandsanierung in Düsseldorf", url: "/wandsanierung-duesseldorf" }
+        ]}
+      />
+      <p class="eyebrow">Leistung in Düsseldorf</p>
+      <h1>Wandsanierung in Düsseldorf</h1>
+      <p>
+        Risse, abplatzender Putz oder feuchte Stellen an Wänden sind mehr als ein optisches
+        Problem – sie deuten oft auf tieferliegende Ursachen hin. HausFit NRW saniert Wände in
+        Düsseldorf strukturiert: von der Ursachenklärung bis zur sauberen Wiederherstellung.
+      </p>
+    </div>
+  </section>
+
+  <section class="section page-content">
+    <div class="container content-grid">
+      <article class="content-main">
+        <section>
+          <h2>Leistungen im Überblick</h2>
+          <p>Eine Wandsanierung in Düsseldorf umfasst bei uns alle Schritte bis zur fertigen Wand:</p>
+          <ul>
+            <li>Rückbau beschädigter Putz- und Wandflächen</li>
+            <li>Ursachenanalyse bei Rissen und Feuchtigkeit</li>
+            <li>Untergrundvorbereitung und Grundierung</li>
+            <li>Neuverputz und Egalisierung der Wandoberfläche</li>
+            <li>Malerarbeiten zur finalen Wiederherstellung</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Vorteile mit HausFit</h2>
+          <p>
+            Eine dauerhaft rissfreie Wand entsteht nur, wenn die Ursache mitbehandelt wird –
+            deshalb gehen wir bei jeder Wandsanierung systematisch vor:
+          </p>
+          <ul>
+            <li>Ursachenklärung statt reiner Kosmetik</li>
+            <li>Ein Ansprechpartner von der Diagnose bis zur Übergabe</li>
+            <li>Festpreis nach Vor-Ort-Termin</li>
+            <li>Saubere Ausführung – auch in bewohnten Räumen</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ablauf: Von der Anfrage bis zur Übergabe</h2>
+          <p>So läuft Ihre Wandsanierung in Düsseldorf konkret ab:</p>
+          <ol>
+            <li>Anfrage mit Fotos der betroffenen Wandflächen</li>
+            <li>Vor-Ort-Termin zur Ursachenanalyse</li>
+            <li>Festpreisangebot mit Sanierungskonzept</li>
+            <li>Rückbau, Untergrundvorbereitung und Neuverputz</li>
+            <li>Malerarbeiten und gemeinsame Abnahme</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Warum HausFit für Ihre Wandsanierung in Düsseldorf</h2>
+          <p>
+            Seit 2004 sanieren wir Wände in Düsseldorf – ob nach Wasserschäden, bei
+            altersbedingten Rissen in Altbauten oder im Zuge einer umfassenderen Renovierung. Weil
+            wir Ursachenanalyse, Rückbau, Verputz und Malerarbeiten aus einer Hand anbieten,
+            entsteht kein Bruch zwischen den Gewerken – und Sie haben während der gesamten
+            Maßnahme einen festen Ansprechpartner, der Ihnen den Zustand und das weitere Vorgehen
+            verständlich erklärt.
+          </p>
+        </section>
+
+        <section>
+          <h2>Für welche Objekte in Düsseldorf</h2>
+          <p>
+            Wir sanieren Wände in Eigentumswohnungen, Ein- und Mehrfamilienhäusern sowie
+            Gewerbeflächen in Düsseldorf – von einzelnen Rissen in einem Altbauzimmer bis zu
+            größeren Feuchteschäden nach einem Wasserschaden. Der Umfang der Wandsanierung richtet
+            sich immer nach der tatsächlichen Ursache vor Ort.
+          </p>
+        </section>
+
+        <section>
+          <h2>Häufige Fragen zur Wandsanierung in Düsseldorf</h2>
+          <div>
+            <strong>Sind Risse in der Wand immer ein Problem?</strong>
+            <p>
+              Nicht jeder Riss ist statisch relevant, sollte aber trotzdem beobachtet und im
+              Zweifel geprüft werden. Wir schauen uns die betroffenen Stellen vor Ort an und
+              ordnen die Ursache ein.
+            </p>
+          </div>
+          <div>
+            <strong>Was tun bei feuchten Wänden nach einem Wasserschaden?</strong>
+            <p>
+              Zunächst muss die Feuchtigkeitsquelle geklärt und die Wand vollständig getrocknet
+              werden, bevor Putz und Anstrich erneuert werden – sonst treten die Schäden erneut
+              auf.
+            </p>
+          </div>
+          <div>
+            <strong>Wie lange dauert eine Wandsanierung?</strong>
+            <p>
+              Kleinere Rissreparaturen sind oft innerhalb weniger Tage erledigt, größere
+              Feuchteschäden benötigen inklusive Trocknungszeit entsprechend länger. Den genauen
+              Zeitplan erhalten Sie im Angebot.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Weitere Informationen</h2>
+          <p>Feuchte oder rissige Wände hängen häufig mit anderen Sanierungsthemen zusammen:</p>
+          <ul>
+            <li>
+              <a href="/schachtsanierung-duesseldorf">Schachtsanierung in Düsseldorf</a> – wenn die
+              Ursache in einem angrenzenden Schacht liegt.
+            </li>
+            <li>
+              <a href="/renovierung-duesseldorf">Renovierung in Düsseldorf</a> – für eine umfassendere
+              Modernisierung des Raums.
+            </li>
+            <li>
+              <a href="/einsatzgebiet/duesseldorf">Sanierung in Düsseldorf</a> – Übersicht aller
+              Gewerke an diesem Standort.
+            </li>
+          </ul>
+          <p class="seo-secondary-links">
+            NRW-weit: <a href="/leistungen/schimmelbeseitigung-nrw">Schimmelbeseitigung NRW</a> ·{" "}
+            <a href="/leistungen/malerarbeiten-nrw">Malerarbeiten NRW</a>
+          </p>
+        </section>
+
+        <RelatedServices currentMetaSlug={metaSlug} />
+
+        <section>
+          <h2>Jetzt Angebot anfordern</h2>
+          <p>Schicken Sie uns Fotos der betroffenen Stelle – wir sagen Ihnen, wie wir vorgehen.</p>
+          <a href="/kontakt" class="button button-primary">Jetzt Angebot anfordern</a>
+        </section>
+      </article>
+
+      <aside class="content-aside">
+        <h2>Wandsanierung in Düsseldorf anfragen</h2>
+        <p>Wir melden uns zeitnah mit dem nächsten Schritt.</p>
+        <a href="/kontakt" class="button button-primary">Jetzt Anfrage senden</a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

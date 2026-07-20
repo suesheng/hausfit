@@ -17,6 +17,7 @@ interface Props {
   forWhom?: string[];
   advantages: string[];
   process: string[];
+  hinweis?: string;
   ctaTitle?: string;
   ctaText?: string;
 }
@@ -32,6 +33,7 @@ const {
   forWhom = ["Eigentümer", "Vermieter", "Hausverwaltungen"],
   advantages,
   process,
+  hinweis,
   ctaTitle = "Jetzt Angebot anfordern",
   ctaText = "Beschreiben Sie Ihr Projekt in kurzen Stichpunkten. Wir melden uns zeitnah zurück."
 } = Astro.props;
@@ -101,6 +103,13 @@ const cityComboLinks = getCityLinksForService(comboKey, serviceName);
             {process.map((entry) => <li>{entry}</li>)}
           </ol>
         </section>
+
+        {hinweis && (
+          <section>
+            <h2>Hinweis</h2>
+            <p>{hinweis}</p>
+          </section>
+        )}
 
         <section>
           <h2>Erfahrung und Vertrauen</h2>

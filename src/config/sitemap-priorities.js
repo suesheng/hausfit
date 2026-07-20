@@ -28,6 +28,12 @@ const SERVICE_PAGE = /^\/leistungen\/[^/]+-nrw$/;
 const COMBO_PAGE =
   /^\/(badsanierung|trockenbau|fliesenleger|bodenleger|malerarbeiten|dachausbau|fenstertueren|fassadendaemmung|schimmelbeseitigung|asbestbeseitigung|generalunternehmer|klimaanlagen)-(duesseldorf|koeln|essen|dortmund|duisburg|bochum|solingen|wuppertal)$/;
 
+const DUESSELDORF_ONLY_SERVICE_PATHS = new Set([
+  "/renovierung-duesseldorf",
+  "/schachtsanierung-duesseldorf",
+  "/wandsanierung-duesseldorf",
+]);
+
 /**
  * @param {string} url
  * @returns {string}
@@ -47,6 +53,7 @@ export function priorityForPath(pathname) {
   if (LEGAL_PATHS.has(pathname)) return 0.1;
   if (SERVICE_PAGE.test(pathname)) return 0.8;
   if (COMBO_PAGE.test(pathname)) return 0.75;
+  if (DUESSELDORF_ONLY_SERVICE_PATHS.has(pathname)) return 0.75;
   if (CITY_PATHS.has(pathname)) return 0.7;
   if (CORE_PATHS.has(pathname)) return 0.6;
   if (RATGEBER_PAGE.test(pathname)) return 0.5;
