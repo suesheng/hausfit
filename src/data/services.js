@@ -9,7 +9,8 @@ export const services = [
   { name: "Fassadendämmung", slug: "fassadendaemmung" },
   { name: "Schimmelbeseitigung", slug: "schimmelbeseitigung" },
   { name: "Asbestbeseitigung", slug: "asbestbeseitigung" },
-  { name: "Generalunternehmer", slug: "generalunternehmer" }
+  { name: "Generalunternehmer", slug: "generalunternehmer" },
+  { name: "Klimaanlagen", slug: "klimaanlagen" }
 ];
 
 export const serviceUrlBySlug = /** @type {Record<string, string>} */ ({
@@ -23,7 +24,8 @@ export const serviceUrlBySlug = /** @type {Record<string, string>} */ ({
   fassadendaemmung: "/leistungen/fassadendaemmung-nrw",
   schimmelbeseitigung: "/leistungen/schimmelbeseitigung-nrw",
   asbestbeseitigung: "/leistungen/asbestbeseitigung-nrw",
-  generalunternehmer: "/leistungen/generalunternehmer-nrw"
+  generalunternehmer: "/leistungen/generalunternehmer-nrw",
+  klimaanlagen: "/leistungen/klimaanlagen-installation-nrw"
 });
 
 export const serviceCombos = {
@@ -103,5 +105,12 @@ export const serviceCombos = {
     description: "Sanierung und Ausbau zentral geplant und umgesetzt.",
     nrwUrl: "/leistungen/generalunternehmer-nrw",
     leistungen: ["Projektdefinition", "Gewerke koordinieren", "Termine und Qualität", "Kommunikation mit Auftraggebern", "Abnahme"]
+  },
+  klimaanlagen: {
+    name: "Klimaanlagen",
+    slug: "klimaanlagen",
+    description: "Split-Klimageräte fachgerecht beraten und montieren.",
+    nrwUrl: "/leistungen/klimaanlagen-installation-nrw",
+    leistungen: ["Beratung und Gerätewahl", "Montage Innen- und Außengerät", "Kältemittel- und Kondensatleitung", "Elektroanschluss", "Inbetriebnahme"]
   }
 };

@@ -10,7 +10,8 @@ export const serviceImageAlt = {
   fassadendaemmung: "Fassadendämmung NRW - Energieeffiziente Fassadensanierung von HausFit",
   schimmelbeseitigung: "Schimmelbeseitigung NRW - Fachgerechte Schimmelsanierung von HausFit",
   asbestbeseitigung: "Asbestbeseitigung NRW - Sichere Asbestbeseitigung von HausFit",
-  generalunternehmer: "Sanierung NRW - Komplettsanierung aus einer Hand von HausFit"
+  generalunternehmer: "Sanierung NRW - Komplettsanierung aus einer Hand von HausFit",
+  klimaanlagen: "Klimaanlagen NRW - Fachgerechte Montage von Split-Klimageräten von HausFit"
 };
 
 /** @type {Record<string, string>} */

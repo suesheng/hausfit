@@ -78,6 +78,13 @@ export const serviceCatalog = [
     name: "Asbestbeseitigung",
     description: "Asbesthaltige Bauteile nach Vorgaben sicher zurückbauen.",
     href: "/leistungen/asbestbeseitigung-nrw"
+  },
+  {
+    metaSlug: "klimaanlagen-installation-nrw",
+    imageSlug: "klimaanlagen",
+    name: "Klimaanlagen",
+    description: "Split-Klimageräte beraten, montieren und in Betrieb nehmen – für kühle Räume im Sommer.",
+    href: "/leistungen/klimaanlagen-installation-nrw"
   }
 ];
 
@@ -112,7 +119,8 @@ const relatedByMetaSlug = {
   "fassadendaemmung-nrw": [heizungsmodernisierungCard, "malerarbeiten-nrw", "generalunternehmer-nrw"],
   "schimmelbeseitigung-nrw": ["badsanierung-nrw", "trockenbau-nrw", "malerarbeiten-nrw"],
   "asbestbeseitigung-nrw": ["trockenbau-nrw", waermedaemmungCard, "generalunternehmer-nrw"],
-  "generalunternehmer-nrw": ["badsanierung-nrw", "dachausbau-nrw", waermedaemmungCard]
+  "generalunternehmer-nrw": ["badsanierung-nrw", "dachausbau-nrw", waermedaemmungCard],
+  "klimaanlagen-installation-nrw": ["fassadendaemmung-nrw", "fenster-tueren-montage-nrw", "generalunternehmer-nrw"]
 };
 
 const catalogBySlug = Object.fromEntries(serviceCatalog.map((entry) => [entry.metaSlug, entry]));

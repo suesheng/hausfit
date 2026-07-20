@@ -26,7 +26,7 @@ const RATGEBER_PAGE = /^\/ratgeber\/[^/]+$/;
 const SERVICE_PAGE = /^\/leistungen\/[^/]+-nrw$/;
 
 const COMBO_PAGE =
-  /^\/(badsanierung|trockenbau|fliesenleger|bodenleger|malerarbeiten|dachausbau|fenstertueren|fassadendaemmung|schimmelbeseitigung|asbestbeseitigung|generalunternehmer)-(duesseldorf|koeln|essen|dortmund|duisburg|bochum|solingen|wuppertal)$/;
+  /^\/(badsanierung|trockenbau|fliesenleger|bodenleger|malerarbeiten|dachausbau|fenstertueren|fassadendaemmung|schimmelbeseitigung|asbestbeseitigung|generalunternehmer|klimaanlagen)-(duesseldorf|koeln|essen|dortmund|duisburg|bochum|solingen|wuppertal)$/;
 
 /**
  * @param {string} url

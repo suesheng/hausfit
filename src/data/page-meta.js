@@ -115,6 +115,11 @@ export const servicePageMeta = {
     title: "Sanierung NRW ✓ Ein Partner | HausFit",
     description:
       "Generalunternehmer in NRW für Komplettsanierung: alle Gewerke, ein Ansprechpartner, klare Termine. Koordination aus Düsseldorf für ganz NRW."
+  },
+  "klimaanlagen-installation-nrw": {
+    title: "Klimaanlagen NRW ✓ Fachgerecht montiert | HausFit",
+    description:
+      "Klimaanlagen-Installation in NRW: Beratung, Montage und Inbetriebnahme von Split-Geräten. HausFit sorgt für kühle Räume mit sauberer Elektro- und Kältemittelinstallation."
   }
 };
 
@@ -184,7 +189,8 @@ const serviceOrder = [
   "fassadendaemmung",
   "schimmelbeseitigung",
   "asbestbeseitigung",
-  "generalunternehmer"
+  "generalunternehmer",
+  "klimaanlagen"
 ];
 
 const cityOrder = [
@@ -210,7 +216,8 @@ export const comboServiceLabels = {
   fassadendaemmung: { name: "Fassadendämmung", titleKeyword: "Fassadendämmung" },
   schimmelbeseitigung: { name: "Schimmelbeseitigung", titleKeyword: "Schimmelbeseitigung" },
   asbestbeseitigung: { name: "Asbestbeseitigung", titleKeyword: "Asbestbeseitigung" },
-  generalunternehmer: { name: "Generalunternehmer", titleKeyword: "Generalunternehmer" }
+  generalunternehmer: { name: "Generalunternehmer", titleKeyword: "Generalunternehmer" },
+  klimaanlagen: { name: "Klimaanlagen", titleKeyword: "Klimaanlage" }
 };
 
 /** @type {Record<string, string>} */

@@ -13,7 +13,8 @@ export const serviceListSlugToComboKey = {
   fassadendaemmung: "fassadendaemmung",
   schimmelbeseitigung: "schimmelbeseitigung",
   asbestbeseitigung: "asbestbeseitigung",
-  generalunternehmer: "generalunternehmer"
+  generalunternehmer: "generalunternehmer",
+  klimaanlagen: "klimaanlagen"
 };
 
 /**
