@@ -9,7 +9,8 @@
  * @type {Record<string, Promotion>}
  */
 export const promotions = {
-  "badsanierung-nrw": { percent: 15, validUntil: "2026-09-30" }
+  "badsanierung-nrw": { percent: 15, validUntil: "2026-09-30" },
+  "malerarbeiten-nrw": { percent: 10, validUntil: "2026-09-30" }
 };
 
 /**
