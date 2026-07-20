@@ -351,11 +351,32 @@ h3 {
   padding: 5px 12px;
 }
 
-.promo-pill--corner {
-  left: 10px;
+.promo-ribbon {
+  background: var(--color-brand);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 4px 38px;
   position: absolute;
-  top: 10px;
+  right: -32px;
+  top: 14px;
+  transform: rotate(35deg);
+  white-space: nowrap;
   z-index: 2;
+}
+
+.promo-ribbon--contained {
+  border-radius: 4px;
+  padding: 3px 10px;
+  right: 10px;
+  top: 10px;
+  transform: none;
+}
+
+.promo-line {
+  color: var(--color-brand-dark);
+  font-weight: 800;
+  margin: -6px 0 14px;
 }
 
 .promo-banner {
@@ -471,6 +492,7 @@ h3 {
 
 .service-card {
   padding: 30px;
+  position: relative;
 }
 
 .service-card h3 {

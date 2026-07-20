@@ -41,6 +41,7 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
               <strong>{service.title}</strong>
             </summary>
             <p>{service.text}</p>
+            <PromoBadge metaSlug={(serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop()} variant="line" />
             <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
           </details>
         ))
@@ -49,7 +50,9 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
 
     <div class="service-grid desktop-only">
       {
-        services.map((service, index) => (
+        services.map((service, index) => {
+          const metaSlug = (serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop();
+          return (
           <article class="service-card card">
             <span class="service-number">Leistung {String(index + 1).padStart(2, "0")}</span>
             <div class="service-image">
@@ -63,13 +66,15 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchpriority={index === 0 ? "high" : undefined}
               />
-              <PromoBadge metaSlug={(serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop()} />
             </div>
+            <PromoBadge metaSlug={metaSlug} />
             <h3>{service.title}</h3>
             <p>{service.text}</p>
+            <PromoBadge metaSlug={metaSlug} variant="line" />
             <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
           </article>
-        ))
+          );
+        })
       }
     </div>
   </div>

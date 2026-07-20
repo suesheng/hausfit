@@ -43,11 +43,12 @@ const resolveImage = (imageSlug: string) =>
                   format="webp"
                   loading="lazy"
                 />
-                <PromoBadge metaSlug={service.metaSlug} />
+                <PromoBadge metaSlug={service.metaSlug} variant="ribbon-contained" />
               </div>
               <div class="card-body">
                 <h3 class="card-title">{service.name}</h3>
                 <p class="card-text">{service.description}</p>
+                <PromoBadge metaSlug={service.metaSlug} variant="line" />
                 <span class="btn btn-primary related-service-card-cta">Zur Leistung</span>
               </div>
             </a>

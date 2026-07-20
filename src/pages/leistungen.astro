@@ -65,26 +65,30 @@ const itemListSchema = {
 
       <div class="service-grid">
         {
-          services.map((service, index) => (
-            <article class="service-card card">
-              <div class="service-image">
-                <Image
-                  src={serviceImages[`/src/assets/images/services/${service.slug}.webp`]?.default ?? defaultServiceImage}
-                  alt={getServiceImageAlt(service.slug)}
-                  width={800}
-                  height={450}
-                  quality={70}
-                  format="webp"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchpriority={index === 0 ? "high" : undefined}
-                />
-                <PromoBadge metaSlug={(serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop()} />
-              </div>
-              <h3>{service.name}</h3>
-              <p>{service.text}</p>
-              <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
-            </article>
-          ))
+          services.map((service, index) => {
+            const metaSlug = (serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop();
+            return (
+              <article class="service-card card">
+                <div class="service-image">
+                  <Image
+                    src={serviceImages[`/src/assets/images/services/${service.slug}.webp`]?.default ?? defaultServiceImage}
+                    alt={getServiceImageAlt(service.slug)}
+                    width={800}
+                    height={450}
+                    quality={70}
+                    format="webp"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchpriority={index === 0 ? "high" : undefined}
+                  />
+                </div>
+                <PromoBadge metaSlug={metaSlug} />
+                <h3>{service.name}</h3>
+                <p>{service.text}</p>
+                <PromoBadge metaSlug={metaSlug} variant="line" />
+                <a href={serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`}>Zur Leistungsseite</a>
+              </article>
+            );
+          })
         }
       </div>
 
