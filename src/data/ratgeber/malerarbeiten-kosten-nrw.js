@@ -148,7 +148,7 @@ export const malerarbeitenKostenRatgeber = {
         },
         {
           type: "p",
-          text: "Nach <a href=\"/leistungen/trockenbau-nrw\">Trockenbau</a> mindestens eine Woche Trocknung vor Q4-Spachtel – sonst Risse und Nacharbeiten. Kombinieren Sie Maler mit <a href=\"/leistungen/bodenleger-nrw\">Boden</a>: erst Maler, dann Boden (außer Fussleisten nachträglich)."
+          text: "Nach <a href=\"/leistungen/trockenbau-nrw\">Trockenbau</a> mindestens eine Woche Trocknung vor Q4-Spachtel – sonst Risse und Nacharbeiten. Kombinieren Sie Maler mit <a href=\"/leistungen/bodenleger-nrw\">Boden</a>: erst Maler, dann Boden (außer Fußleisten nachträglich)."
         }
       ]
     },
