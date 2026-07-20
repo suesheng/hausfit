@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getRelatedServices } from "../data/related-services.js";
 import { getServiceImageAlt } from "../data/image-alt.js";
+import PromoBadge from "./PromoBadge.astro";
 
 interface Props {
   currentMetaSlug: string;
@@ -42,6 +43,7 @@ const resolveImage = (imageSlug: string) =>
                   format="webp"
                   loading="lazy"
                 />
+                <PromoBadge metaSlug={service.metaSlug} />
               </div>
               <div class="card-body">
                 <h3 class="card-title">{service.name}</h3>

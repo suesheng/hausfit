@@ -1,0 +1,22 @@
+---
+import { getActivePromotion } from "../data/promotions.js";
+
+interface Props {
+  metaSlug: string;
+  variant?: "corner" | "inline";
+}
+
+const { metaSlug, variant = "corner" } = Astro.props;
+const promo = getActivePromotion(metaSlug);
+---
+
+{promo && variant === "corner" && (
+  <span class="promo-pill promo-pill--corner">{promo.percent}% Rabatt</span>
+)}
+
+{promo && variant === "inline" && (
+  <p class="promo-banner">
+    <span class="promo-pill promo-pill--inline">{promo.percent}% Rabatt</span>
+    <span class="promo-banner-date">gültig bis {promo.validUntilLabel}</span>
+  </p>
+)}

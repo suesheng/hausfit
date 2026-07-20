@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { serviceUrlBySlug } from "../data/services.js";
 import { getServiceImageAlt } from "../data/image-alt.js";
+import PromoBadge from "./PromoBadge.astro";
 
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/services/*.{webp,jpg,png}",
@@ -62,6 +63,7 @@ const defaultServiceImage = serviceImages["/src/assets/images/services/badsanier
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchpriority={index === 0 ? "high" : undefined}
               />
+              <PromoBadge metaSlug={(serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop()} />
             </div>
             <h3>{service.title}</h3>
             <p>{service.text}</p>

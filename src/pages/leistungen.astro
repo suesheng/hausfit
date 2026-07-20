@@ -8,6 +8,7 @@ if (!pageMeta) throw new Error("Page meta not found for leistungen");
 import { Image } from "astro:assets";
 import { serviceUrlBySlug } from "../data/services.js";
 import { getServiceImageAlt } from "../data/image-alt.js";
+import PromoBadge from "../components/PromoBadge.astro";
 
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/services/*.{webp,jpg,png}",
@@ -77,6 +78,7 @@ const itemListSchema = {
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchpriority={index === 0 ? "high" : undefined}
                 />
+                <PromoBadge metaSlug={(serviceUrlBySlug[service.slug] ?? `/leistungen/${service.slug}-nrw`).split("/").pop()} />
               </div>
               <h3>{service.name}</h3>
               <p>{service.text}</p>

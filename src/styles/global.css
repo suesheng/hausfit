@@ -330,6 +330,7 @@ h3 {
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
@@ -338,6 +339,37 @@ h3 {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.promo-pill {
+  background: var(--color-brand);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 12px;
+}
+
+.promo-pill--corner {
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+}
+
+.promo-banner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 0;
+}
+
+.promo-banner-date {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .project-card,
@@ -1033,6 +1065,7 @@ h3 {
 .related-service-card-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  position: relative;
 }
 
 .related-service-card-image img {

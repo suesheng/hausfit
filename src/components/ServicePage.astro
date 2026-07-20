@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumb from "./Breadcrumb.astro";
 import RelatedServices from "./RelatedServices.astro";
 import ServiceSchema from "./ServiceSchema.astro";
+import PromoBadge from "./PromoBadge.astro";
 import { comboKeyFromMetaSlug, getCityLinksForService } from "../data/service-city-urls.js";
 import { getServicePageMeta } from "../data/page-meta.js";
 
@@ -70,6 +71,7 @@ const cityComboLinks = getCityLinksForService(comboKey, serviceName);
       <p class="eyebrow">Leistung</p>
       <h1>{h1}</h1>
       <p>{intro}</p>
+      <PromoBadge metaSlug={metaSlug} variant="inline" />
     </div>
   </section>
 
